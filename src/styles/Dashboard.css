@@ -40,3 +40,6 @@
 tr {
 	overflow: auto !important;
 } */
+tr.p-datatable-row > td:nth-child(7) {
+	padding: 0 !important;
+}
