@@ -212,11 +212,11 @@ class Dashboard extends Component {
 		return (
 			<div className="table-container">
 				<TableContainer component={Paper}>
-					<Table>
+					<Table stickyHeader aria-label="sticky table">
 						<TableHead>
 							<TableRow>
 								<TableCell>Name</TableCell>
-								<TableCell align="Center">Icon</TableCell>
+								<TableCell align="center">Icon</TableCell>
 								<TableCell align="left">Caught</TableCell>
 								<TableCell align="left">Rarity</TableCell>
 								<TableCell align="left">
