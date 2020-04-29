@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import '../styles/Header.css';
+import ac_logo from '../images/logo.png';
 class Header extends Component {
 	render() {
-		return <div className="header-container">Header</div>;
+		return (
+			<div className="header-container">
+				<img className="logo-image" src={ac_logo} alt="AC" />
+				<p>WildLife Tracker</p>
+			</div>
+		);
 	}
 }
 

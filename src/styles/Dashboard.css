@@ -1,7 +1,20 @@
+@media screen and (max-width: 480px) {
+	.bug-image {
+		max-width: 12vw !important;
+		min-width: 12vw !important;
+	}
+}
+
 .table-container {
+	position: relative;
 	width: 95vw;
-	margin: 5vh auto;
+	margin: 3vh auto 0 auto;
+	padding-bottom: 5vh;
+	z-index: 100;
 }
 .bug-image {
-	max-width: 2vw;
+	max-width: 4vw;
+}
+.MuiTableCell-head {
+	font-size: 15px !important;
 }

@@ -19,7 +19,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "4a - 7p"
+			"time_string": "4a ➡ 7p",
+			"start_time": 4,
+			"end_time": 19
 		},
 		{
 			"id": 2,
@@ -40,7 +42,9 @@
 			"october": "1",
 			"november": "",
 			"december": "",
-			"time": "4a - 7p"
+			"time_string": "4a ➡ 7p",
+			"start_time": 4,
+			"end_time": 19
 		},
 		{
 			"id": 3,
@@ -61,7 +65,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "4a - 7p"
+			"time_string": "4a ➡ 7p",
+			"start_time": 4,
+			"end_time": 19
 		},
 		{
 			"id": 4,
@@ -82,7 +88,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "4a - 7p"
+			"time_string": "4a ➡ 7p",
+			"start_time": 4,
+			"end_time": 19
 		},
 		{
 			"id": 5,
@@ -103,7 +111,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "4a - 7p"
+			"time_string": "4a ➡ 7p",
+			"start_time": 4,
+			"end_time": 19
 		},
 		{
 			"id": 6,
@@ -124,7 +134,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "8a - 7p"
+			"time_string": "8a ➡ 7p",
+			"start_time": 8,
+			"end_time": 19
 		},
 		{
 			"id": 7,
@@ -145,7 +157,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "4a - 7p"
+			"time_string": "4a ➡ 7p",
+			"start_time": 4,
+			"end_time": 19
 		},
 		{
 			"id": 8,
@@ -166,7 +180,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "",
-			"time": "4a - 3p"
+			"time_string": "4a ➡ 3p",
+			"start_time": 4,
+			"end_time": 15
 		},
 		{
 			"id": 9,
@@ -187,7 +203,9 @@
 			"october": "",
 			"november": "",
 			"december": "1",
-			"time": "5p - 8a"
+			"time_string": "5p ➡ 8a",
+			"start_time": 17,
+			"end_time": 8
 		},
 		{
 			"id": 10,
@@ -208,7 +226,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "8a - 5p"
+			"time_string": "8a ➡ 5p",
+			"start_time": 8,
+			"end_time": 17
 		},
 		{
 			"id": 11,
@@ -229,13 +249,15 @@
 			"october": "",
 			"november": "",
 			"december": "1",
-			"time": "8a - 5p"
+			"time_string": "8a ➡ 5p",
+			"start_time": 8,
+			"end_time": 17
 		},
 		{
 			"id": 12,
 			"caught": "",
 			"name": "Queen Alexandra's Birdwing",
-			"rarity": "3",
+			"rarity": "Rare",
 			"price": "4000",
 			"location": "Flying",
 			"january": "",
@@ -250,7 +272,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "8a - 4p"
+			"time_string": "8a ➡ 4p",
+			"start_time": 8,
+			"end_time": 16
 		},
 		{
 			"id": 13,
@@ -271,7 +295,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "7p - 4a"
+			"time_string": "5p ➡ 4a",
+			"start_time": 19,
+			"end_time": 4
 		},
 		{
 			"id": 14,
@@ -292,7 +318,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "7p - 4a"
+			"time_string": "5p ➡ 4a",
+			"start_time": 19,
+			"end_time": 4
 		},
 		{
 			"id": 15,
@@ -313,7 +341,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "8a - 4p"
+			"time_string": "8a ➡ 4p",
+			"start_time": 8,
+			"end_time": 16
 		},
 		{
 			"id": 16,
@@ -334,7 +364,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "",
-			"time": "8a - 7p"
+			"time_string": "8a ➡ 7p",
+			"start_time": 8,
+			"end_time": 19
 		},
 		{
 			"id": 17,
@@ -355,7 +387,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "",
-			"time": "8a - 7p"
+			"time_string": "8a ➡ 7p",
+			"start_time": 8,
+			"end_time": 19
 		},
 		{
 			"id": 18,
@@ -376,7 +410,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "",
-			"time": "8a - 7p"
+			"time_string": "8a ➡ 7p",
+			"start_time": 8,
+			"end_time": 19
 		},
 		{
 			"id": 19,
@@ -397,7 +433,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "8a - 5p"
+			"time_string": "8a ➡ 5p",
+			"start_time": 8,
+			"end_time": 17
 		},
 		{
 			"id": 20,
@@ -418,7 +456,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "",
-			"time": "5p - 8a"
+			"time_string": "5p ➡ 8a",
+			"start_time": 17,
+			"end_time": 8
 		},
 		{
 			"id": 21,
@@ -439,7 +479,9 @@
 			"october": "1",
 			"november": "",
 			"december": "",
-			"time": "5p - 8a"
+			"time_string": "5p ➡ 8a",
+			"start_time": 17,
+			"end_time": 8
 		},
 		{
 			"id": 22,
@@ -460,7 +502,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "",
-			"time": "8a - 5p"
+			"time_string": "8a ➡ 5p",
+			"start_time": 8,
+			"end_time": 17
 		},
 		{
 			"id": 23,
@@ -481,7 +525,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "",
-			"time": "8a - 5p"
+			"time_string": "8a ➡ 5p",
+			"start_time": 8,
+			"end_time": 17
 		},
 		{
 			"id": 24,
@@ -502,13 +548,15 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "8a - 5p"
+			"time_string": "8a ➡ 5p",
+			"start_time": 8,
+			"end_time": 17
 		},
 		{
 			"id": 25,
 			"caught": "",
 			"name": "Wasp",
-			"rarity": "0",
+			"rarity": "n/a",
 			"price": "2500",
 			"location": "Trees (shaken)",
 			"january": "1",
@@ -523,7 +571,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 26,
@@ -544,7 +594,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "8a - 5p"
+			"time_string": "8a ➡ 5p",
+			"start_time": 8,
+			"end_time": 17
 		},
 		{
 			"id": 27,
@@ -565,7 +617,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "8a - 5p"
+			"time_string": "8a ➡ 5p",
+			"start_time": 8,
+			"end_time": 17
 		},
 		{
 			"id": 28,
@@ -586,7 +640,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "8a - 5p"
+			"time_string": "8a ➡ 5p",
+			"start_time": 8,
+			"end_time": 17
 		},
 		{
 			"id": 29,
@@ -607,7 +663,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "8a - 5p"
+			"time_string": "8a ➡ 5p",
+			"start_time": 8,
+			"end_time": 17
 		},
 		{
 			"id": 30,
@@ -628,7 +686,11 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "4a - 8a // 4p - 7p"
+			"time_string": "4a ➡ 8a & 4p ➡ 7p",
+			"start_time": 4,
+			"end_time": 8,
+			"start_time_2": 16,
+			"end_time_2": 19
 		},
 		{
 			"id": 31,
@@ -649,7 +711,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 32,
@@ -670,7 +734,9 @@
 			"october": "1",
 			"november": "",
 			"december": "",
-			"time": "8a - 7p"
+			"time_string": "8a ➡ 7p",
+			"start_time": 8,
+			"end_time": 19
 		},
 		{
 			"id": 33,
@@ -691,7 +757,9 @@
 			"october": "1",
 			"november": "",
 			"december": "",
-			"time": "8a - 5p"
+			"time_string": "8a ➡ 5p",
+			"start_time": 8,
+			"end_time": 17
 		},
 		{
 			"id": 34,
@@ -712,7 +780,9 @@
 			"october": "1",
 			"november": "",
 			"december": "",
-			"time": "8a - 5p"
+			"time_string": "8a ➡ 5p",
+			"start_time": 8,
+			"end_time": 17
 		},
 		{
 			"id": 35,
@@ -733,7 +803,9 @@
 			"october": "",
 			"november": "1",
 			"december": "1",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 36,
@@ -754,13 +826,15 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "7p - 4a"
+			"time_string": "7p ➡ 4a",
+			"start_time": 19,
+			"end_time": 4
 		},
 		{
 			"id": 37,
 			"caught": "",
 			"name": "Mole Cricket",
-			"rarity": "3",
+			"rarity": "Rare",
 			"price": "500",
 			"location": "Underground",
 			"january": "1",
@@ -775,7 +849,9 @@
 			"october": "",
 			"november": "1",
 			"december": "1",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 38,
@@ -796,7 +872,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "8a - 7p"
+			"time_string": "8a ➡ 7p",
+			"start_time": 8,
+			"end_time": 19
 		},
 		{
 			"id": 39,
@@ -817,7 +895,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "8a - 7p"
+			"time_string": "8a ➡ 7p",
+			"start_time": 8,
+			"end_time": 19
 		},
 		{
 			"id": 40,
@@ -838,7 +918,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "7p - 8a"
+			"time_string": "7p ➡ 8a",
+			"start_time": 19,
+			"end_time": 8
 		},
 		{
 			"id": 41,
@@ -859,7 +941,9 @@
 			"october": "1",
 			"november": "",
 			"december": "",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 42,
@@ -880,7 +964,9 @@
 			"october": "1",
 			"november": "",
 			"december": "",
-			"time": "7p - 8a"
+			"time_string": "7p ➡ 8a",
+			"start_time": 19,
+			"end_time": 8
 		},
 		{
 			"id": 43,
@@ -901,13 +987,15 @@
 			"october": "1",
 			"november": "",
 			"december": "",
-			"time": "8a - 5p"
+			"time_string": "8a ➡ 5p",
+			"start_time": 8,
+			"end_time": 17
 		},
 		{
 			"id": 44,
 			"caught": "",
 			"name": "Tiger Beetle",
-			"rarity": "3",
+			"rarity": "Rare",
 			"price": "1500",
 			"location": "On Tree Stumps",
 			"january": "",
@@ -922,7 +1010,9 @@
 			"october": "1",
 			"november": "",
 			"december": "",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 45,
@@ -943,7 +1033,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 46,
@@ -964,7 +1056,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 47,
@@ -985,7 +1079,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 48,
@@ -1006,13 +1102,15 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 49,
 			"caught": "",
 			"name": "Blue Weevil Beetle",
-			"rarity": "3",
+			"rarity": "Rare",
 			"price": "800",
 			"location": "On Palm Trees",
 			"january": "",
@@ -1027,7 +1125,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 50,
@@ -1048,7 +1148,9 @@
 			"october": "",
 			"november": "",
 			"december": "1",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 51,
@@ -1069,13 +1171,15 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 52,
 			"caught": "",
 			"name": "Scarab Beetle",
-			"rarity": "3",
+			"rarity": "Rare",
 			"price": "10000",
 			"location": "On Tree (all)",
 			"january": "",
@@ -1090,7 +1194,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "11p - 8a"
+			"time_string": "11p ➡ 8a",
+			"start_time": 23,
+			"end_time": 8
 		},
 		{
 			"id": 53,
@@ -1111,13 +1217,15 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 54,
 			"caught": "",
 			"name": "Goliath Beetle",
-			"rarity": "3",
+			"rarity": "Rare",
 			"price": "8000",
 			"location": "On Palm Trees",
 			"january": "",
@@ -1132,7 +1240,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "5p - 8a"
+			"time_string": "5p ➡ 8a",
+			"start_time": 17,
+			"end_time": 8
 		},
 		{
 			"id": 55,
@@ -1153,7 +1263,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 56,
@@ -1174,13 +1286,15 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 57,
 			"caught": "",
 			"name": "Giant Stag",
-			"rarity": "3",
+			"rarity": "Rare",
 			"price": "10000",
 			"location": "On Tree (all)",
 			"january": "",
@@ -1195,13 +1309,15 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "11p - 8a"
+			"time_string": "11p ➡ 8a",
+			"start_time": 23,
+			"end_time": 8
 		},
 		{
 			"id": 58,
 			"caught": "",
 			"name": "Rainbow Stag",
-			"rarity": "3",
+			"rarity": "Rare",
 			"price": "6000",
 			"location": "On Tree (all)",
 			"january": "",
@@ -1216,13 +1332,15 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "7p - 8a"
+			"time_string": "7p ➡ 8a",
+			"start_time": 19,
+			"end_time": 8
 		},
 		{
 			"id": 59,
 			"caught": "",
 			"name": "Cyclommatus Stag",
-			"rarity": "4",
+			"rarity": "Ultra Rare",
 			"price": "8000",
 			"location": "On Palm Trees",
 			"january": "",
@@ -1237,13 +1355,15 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "5p - 8a"
+			"time_string": "5p ➡ 8a",
+			"start_time": 17,
+			"end_time": 8
 		},
 		{
 			"id": 60,
 			"caught": "",
 			"name": "Golden Stag",
-			"rarity": "5",
+			"rarity": "🔥",
 			"price": "12000",
 			"location": "On Palm Trees",
 			"january": "",
@@ -1258,13 +1378,15 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "5p - 8a"
+			"time_string": "5p ➡ 8a",
+			"start_time": 17,
+			"end_time": 8
 		},
 		{
 			"id": 61,
 			"caught": "",
 			"name": "Giraffe Stag",
-			"rarity": "4",
+			"rarity": "Ultra Rare",
 			"price": "12000",
 			"location": "On Palm Trees",
 			"january": "",
@@ -1279,7 +1401,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "5p - 8a"
+			"time_string": "5p ➡ 8a",
+			"start_time": 17,
+			"end_time": 8
 		},
 		{
 			"id": 62,
@@ -1300,13 +1424,15 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "5p - 8a"
+			"time_string": "5p ➡ 8a",
+			"start_time": 17,
+			"end_time": 8
 		},
 		{
 			"id": 63,
 			"caught": "",
 			"name": "Horned Atlas",
-			"rarity": "4",
+			"rarity": "Ultra Rare",
 			"price": "8000",
 			"location": "On Palm Trees",
 			"january": "",
@@ -1321,13 +1447,15 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "5p - 8a"
+			"time_string": "5p ➡ 8a",
+			"start_time": 17,
+			"end_time": 8
 		},
 		{
 			"id": 64,
 			"caught": "",
 			"name": "Horned Elephant",
-			"rarity": "4",
+			"rarity": "Ultra Rare",
 			"price": "8000",
 			"location": "On Palm Trees",
 			"january": "",
@@ -1342,13 +1470,15 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "5p - 8a"
+			"time_string": "5p ➡ 8a",
+			"start_time": 17,
+			"end_time": 8
 		},
 		{
 			"id": 65,
 			"caught": "",
 			"name": "Horned Hercules",
-			"rarity": "5",
+			"rarity": "🔥",
 			"price": "12000",
 			"location": "On Palm Trees",
 			"january": "",
@@ -1363,7 +1493,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "5p - 8a"
+			"time_string": "5p ➡ 8a",
+			"start_time": 17,
+			"end_time": 8
 		},
 		{
 			"id": 66,
@@ -1384,7 +1516,11 @@
 			"october": "1",
 			"november": "1",
 			"december": "",
-			"time": "4a - 8a // 5p - 7p"
+			"time_string": "4a ➡ 8a & 5p ➡ 7p",
+			"start_time": 4,
+			"end_time": 8,
+			"start_time_2": 17,
+			"end_time_2": 19
 		},
 		{
 			"id": 67,
@@ -1405,7 +1541,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 68,
@@ -1426,7 +1564,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 69,
@@ -1447,7 +1587,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 70,
@@ -1468,7 +1610,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "7p - 8a"
+			"time_string": "7p ➡ 8a",
+			"start_time": 19,
+			"end_time": 8
 		},
 		{
 			"id": 71,
@@ -1489,13 +1633,15 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 72,
 			"caught": "",
 			"name": "Fly",
-			"rarity": "5",
+			"rarity": "🔥",
 			"price": "60",
 			"location": "On Spoiled Turnips/Trash",
 			"january": "1",
@@ -1510,7 +1656,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 73,
@@ -1531,7 +1679,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time": "5p - 4a"
+			"time_string": "5p ➡ 4a",
+			"start_time": 17,
+			"end_time": 4
 		},
 		{
 			"id": 74,
@@ -1552,7 +1702,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 75,
@@ -1573,7 +1725,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "Any time"
+			"time_string": "Any time",
+			"start_time": "Any time",
+			"end_time": "Any time"
 		},
 		{
 			"id": 76,
@@ -1594,7 +1748,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "11p - 4p"
+			"time_string": "11p ➡ 4p",
+			"start_time": 23,
+			"end_time": 16
 		},
 		{
 			"id": 77,
@@ -1615,7 +1771,9 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "4p - 11p"
+			"time_string": "11p ➡ 4p",
+			"start_time": 23,
+			"end_time": 16
 		},
 		{
 			"id": 78,
@@ -1636,13 +1794,15 @@
 			"october": "1",
 			"november": "1",
 			"december": "1",
-			"time": "7p - 8a"
+			"time_string": "7p ➡ 8a",
+			"start_time": 19,
+			"end_time": 8
 		},
 		{
 			"id": 79,
 			"caught": "",
 			"name": "Tarantula",
-			"rarity": "5",
+			"rarity": "🔥",
 			"price": "8000",
 			"location": "On Ground",
 			"january": "1",
@@ -1657,13 +1817,15 @@
 			"october": "",
 			"november": "1",
 			"december": "1",
-			"time": "7p - 8a"
+			"time_string": "7p ➡ 8a",
+			"start_time": 19,
+			"end_time": 8
 		},
 		{
 			"id": 80,
 			"caught": "",
 			"name": "Scorpion",
-			"rarity": "5",
+			"rarity": "🔥",
 			"price": "8000",
 			"location": "On Ground",
 			"january": "",
@@ -1678,7 +1840,9 @@
 			"october": "1",
 			"november": "",
 			"december": "",
-			"time": "7p - 8a"
+			"time_string": "7p ➡ 8a",
+			"start_time": 19,
+			"end_time": 8
 		}
 	]
 }

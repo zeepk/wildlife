@@ -1,6 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+
 .header-container {
-	height: 5vh;
-	background-color: rgb(173, 240, 218);
-	color: black;
-	font-size: 20px;
+	position: relative;
+	height: 14vh;
+	background-color: #a1d4cb;
+	color: #e9c432;
+	font-size: 7vh;
+	font-family: 'Patua One', cursive;
+	text-shadow: 2px 2px black;
+	/* z-index: -; */
+}
+p {
+	/* z-index: -1; */
+	display: inline;
+	position: relative;
+	top: -2vh;
 }

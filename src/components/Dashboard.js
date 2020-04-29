@@ -19,23 +19,55 @@ const month_display = (is_available) => {
 	}
 };
 
-// const rarity_display = (rarity) => {
-// 	if (rarity === '1') {
-// 		return 'Common';
-// 	} else if (rarity === '2') {
-// 		return '';
-// 	} else if (rarity === '3') {
-// 	} else if (rarity === '4') {
-// 	} else if (rarity === '5') {
-// 	}
-// };
-
 // checks local storage to populate checkboxes
 const is_checked = (name) => {
 	if (window.localStorage.getItem(name) === 'true') {
 		return true;
 	} else {
 		return false;
+	}
+};
+
+const time_display = (bug, hour) => {
+	if (bug.start_time === 'Any time') {
+		return (
+			<TableCell style={{ backgroundColor: '#a1d4cb' }} align="left">
+				{bug.start_time}
+			</TableCell>
+		);
+	} else if (bug.start_time_2) {
+		if (
+			(hour >= bug.start_time && hour < bug.end_time) ||
+			(hour >= bug.start_time_2 && hour < bug.end_time_2)
+		) {
+			return (
+				<TableCell style={{ backgroundColor: '#a1d4cb' }} align="left">
+					{bug.time_string}
+				</TableCell>
+			);
+		} else {
+			return <TableCell align="left">{bug.time_string}</TableCell>;
+		}
+	} else if (bug.start_time < bug.end_time) {
+		if (hour >= bug.start_time && hour < bug.end_time) {
+			return (
+				<TableCell style={{ backgroundColor: '#a1d4cb' }} align="left">
+					{bug.time_string}
+				</TableCell>
+			);
+		} else {
+			return <TableCell align="left">{bug.time_string}</TableCell>;
+		}
+	} else {
+		if (hour >= bug.start_time || hour < bug.end_time) {
+			return (
+				<TableCell style={{ backgroundColor: '#a1d4cb' }} align="left">
+					{bug.time_string}
+				</TableCell>
+			);
+		} else {
+			return <TableCell align="left">{bug.time_string}</TableCell>;
+		}
 	}
 };
 
@@ -77,7 +109,8 @@ class Dashboard extends Component {
 	render() {
 		const date = new Date();
 		const month_id = date.getMonth();
-		const color = 'rgb(173, 219, 240)';
+		const hour = date.getHours();
+		const color = '#a1d4cb';
 		const bugs_rows = bugs.map((bug) => (
 			<TableRow key={bug.id}>
 				<TableCell component="th" scope="row">
@@ -100,6 +133,8 @@ class Dashboard extends Component {
 				<TableCell align="left">{bug.rarity}</TableCell>
 				<TableCell align="left">{bug.price}</TableCell>
 				<TableCell align="left">{bug.location}</TableCell>
+				{time_display(bug, hour)}
+
 				<TableCell
 					style={month_id === 0 ? { backgroundColor: color } : {}}
 					align="left"
@@ -172,23 +207,24 @@ class Dashboard extends Component {
 				>
 					{month_display(bug.december)}
 				</TableCell>
-				<TableCell align="left">{bug.time}</TableCell>
 			</TableRow>
 		));
 		return (
 			<div className="table-container">
 				<TableContainer component={Paper}>
-					<Table stickyHeader aria-label="sticky table">
+					<Table>
 						<TableHead>
 							<TableRow>
 								<TableCell>Name</TableCell>
-								<TableCell>Icon</TableCell>
+								<TableCell align="Center">Icon</TableCell>
 								<TableCell align="left">Caught</TableCell>
 								<TableCell align="left">Rarity</TableCell>
 								<TableCell align="left">
 									<img className="bells-image" src={bells_image} alt="Price" />
 								</TableCell>
 								<TableCell align="left">Location</TableCell>
+								<TableCell align="left">Time</TableCell>
+
 								<TableCell
 									style={month_id === 0 ? { backgroundColor: color } : {}}
 									align="left"
@@ -261,7 +297,6 @@ class Dashboard extends Component {
 								>
 									Dec
 								</TableCell>
-								<TableCell align="left">Time</TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>{bugs_rows}</TableBody>
