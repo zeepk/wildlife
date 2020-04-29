@@ -124,26 +124,46 @@ class DashboardPR extends Component {
 
 		return (
 			<div className="table-container">
-				<DataTable value={bugs}>
+				<DataTable
+					className="datatable-container"
+					value={bugs}
+					// scrollable={true}
+					// scrollHeight="60vh"
+					// virtualScroll={true}
+				>
 					<Column
 						field="name"
 						header="Name"
 						sortable={true}
 						filter={true}
 						filterPlaceholder="Search"
-						bodyStyle={{ minWidth: '50vw' }}
+						style={{ width: '200px' }}
 					/>
 					<Column header="Icon" body={icon_display} />
 					<Column header="Caught" body={this.caught_display} />
-					<Column field="rarity" header="Rarity" sortable={true} />
+					<Column
+						field="rarity"
+						header="Rarity"
+						sortable={true}
+						style={{ width: '100px' }}
+					/>
 					<Column
 						field="price"
 						header={
-							<img className="bells-image" src={bells_image} alt="Price" />
+							<img
+								className="bells-image"
+								src={bells_image}
+								alt="Price"
+								style={{ height: '20px' }}
+							/>
 						}
 						sortable={true}
 					/>
-					<Column field="location" header="Location" />
+					<Column
+						field="location"
+						header="Location"
+						style={{ width: '100px' }}
+					/>
 					<Column body={time_display} header="Time" />
 					<Column
 						style={month_id === 0 ? { backgroundColor: color } : {}}

@@ -6,13 +6,13 @@
 }
 
 .table-container {
-	position: relative;
+	/* position: relative; */
 	width: 95vw;
 	margin: 3vh auto 0 auto;
 	padding-bottom: 5vh;
 	z-index: 100;
 	max-height: 440;
-	overflow: auto;
+	/* overflow: visible !important; */
 }
 .bug-image {
 	max-width: 4vw;
@@ -28,18 +28,17 @@
 	z-index: 100;
 }
 
-.MuiTableContainer-root {
-	overflow: visible !important;
-}
-/* .MuiTableRow-root {
-	overflow: auto !important;
-}
-.MuiTableRow-head {
-	overflow: auto !important;
-}
-tr {
-	overflow: auto !important;
-} */
 tr.p-datatable-row > td:nth-child(7) {
 	padding: 0 !important;
+}
+.p-filter-column {
+	width: 20vw !important;
+}
+thead {
+	top: 0;
+	position: sticky;
+	z-index: 1000;
+}
+th {
+	background-color: #d9ffdc !important;
 }
