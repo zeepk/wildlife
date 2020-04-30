@@ -14,13 +14,13 @@
 	position: relative;
 	height: 14vh;
 	background-color: #a1d4cb;
-	color: #e9cb56;
 	font-size: 7vh;
-	font-family: 'Patua One', cursive;
-	text-shadow: 2px 2px 9px black;
+	font-family: 'Patua One';
 	/* z-index: -; */
 }
-p {
+.title {
+	color: #e9cb56;
+	text-shadow: 2px 2px 9px black;
 	/* z-index: -1; */
 	display: inline;
 	position: relative;

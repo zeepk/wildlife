@@ -6,7 +6,7 @@ class Header extends Component {
 		return (
 			<div className="header-container">
 				<img className="logo-image" src={ac_logo} alt="AC" />
-				<p>WildLife Tracker</p>
+				<p className="title">WildLife Tracker</p>
 			</div>
 		);
 	}

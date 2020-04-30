@@ -101,7 +101,8 @@ class DashboardPRBugs extends Component {
 	componentDidMount() {
 		if (
 			typeof Storage !== 'undefined' &&
-			localStorage.getItem('Spider') === null
+			(localStorage.getItem('Spider') === null ||
+				localStorage.getItem('Bitterling') === null)
 		) {
 			console.log('Could not find local storage. Creating...');
 			bugs.map((bug) => {
@@ -150,8 +151,10 @@ class DashboardPRBugs extends Component {
 		const month_id = date.getMonth();
 		const color = '#a1d6a1';
 		const items = [
-			{ label: 'Bugs', icon: 'pi pi-fw pi-home', value: 0 },
-			{ label: 'Fish', icon: 'pi pi-fw pi-calendar', value: 1 },
+			{ label: 'Bugs', value: 0 },
+			{ label: 'Fish', value: 1 },
+			{ label: 'Fossils (coming soon)', value: 2, disabled: true },
+			{ label: 'KK Albums (coming soon)', value: 3, disabled: true },
 		];
 
 		const tab_change = (num) => {
