@@ -13,7 +13,11 @@ import { Row } from 'primereact/row';
 const month_display = (rowData, column) => {
 	// console.log(column);
 	if (rowData[column.field] === '1') {
-		return <CheckCircleIcon style={{ color: 'green' }} />;
+		return (
+			<CheckCircleIcon
+				style={{ color: 'green', fontSize: '30px', zIndex: '' }}
+			/>
+		);
 	}
 };
 
@@ -41,7 +45,7 @@ const time_display = (rowData, column) => {
 	let hour = today.getHours();
 	if (rowData.start_time === 'Any time') {
 		return (
-			<div style={{ backgroundColor: '#a1d4cb', height: '100%' }}>
+			<div style={{ backgroundColor: '#a1d6a1', height: '100%' }}>
 				{rowData.time_string}
 			</div>
 		);
@@ -51,7 +55,7 @@ const time_display = (rowData, column) => {
 			(hour >= rowData.start_time_2 && hour < rowData.end_time_2)
 		) {
 			return (
-				<div style={{ backgroundColor: '#a1d4cb' }}>{rowData.time_string}</div>
+				<div style={{ backgroundColor: '#a1d6a1' }}>{rowData.time_string}</div>
 			);
 		} else {
 			return <div>{rowData.time_string}</div>;
@@ -59,7 +63,7 @@ const time_display = (rowData, column) => {
 	} else if (rowData.start_time < rowData.end_time) {
 		if (hour >= rowData.start_time && hour < rowData.end_time) {
 			return (
-				<div style={{ backgroundColor: '#a1d4cb' }}>{rowData.time_string}</div>
+				<div style={{ backgroundColor: '#a1d6a1' }}>{rowData.time_string}</div>
 			);
 		} else {
 			return <div>{rowData.time_string}</div>;
@@ -67,7 +71,7 @@ const time_display = (rowData, column) => {
 	} else {
 		if (hour >= rowData.start_time || hour < rowData.end_time) {
 			return (
-				<div style={{ backgroundColor: '#a1d4cb' }}>{rowData.time_string}</div>
+				<div style={{ backgroundColor: '#a1d6a1' }}>{rowData.time_string}</div>
 			);
 		} else {
 			return <div>{rowData.time_string}</div>;
@@ -118,9 +122,14 @@ class DashboardPR extends Component {
 		);
 	};
 	render() {
+		// let offset;
+		// document.addEventListener('scroll', function (e) {
+		// 	offset = window.pageYOffset;
+		// 	console.log(offset);
+		// });
 		const date = new Date();
 		const month_id = date.getMonth();
-		const color = '#a1d4cb';
+		const color = '#a1d6a1';
 
 		return (
 			<div className="table-container">
