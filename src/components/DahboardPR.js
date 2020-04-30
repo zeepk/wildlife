@@ -127,111 +127,121 @@ class DashboardPR extends Component {
 				<DataTable
 					className="datatable-container"
 					value={bugs}
-					// scrollable={true}
-					// scrollHeight="60vh"
-					// virtualScroll={true}
+					// responsive={true}
 				>
 					<Column
+						className="name-column"
 						field="name"
 						header="Name"
 						sortable={true}
 						filter={true}
 						filterPlaceholder="Search"
-						style={{ width: '200px' }}
 					/>
-					<Column header="Icon" body={icon_display} />
-					<Column header="Caught" body={this.caught_display} />
+					<Column className="icon-column" header="Icon" body={icon_display} />
 					<Column
+						className="caught-column"
+						header="Caught"
+						body={this.caught_display}
+					/>
+					<Column
+						className="rarity-column"
 						field="rarity"
 						header="Rarity"
 						sortable={true}
-						style={{ width: '100px' }}
 					/>
 					<Column
+						className="price-column"
 						field="price"
 						header={
-							<img
-								className="bells-image"
-								src={bells_image}
-								alt="Price"
-								style={{ height: '20px' }}
-							/>
+							<img className="bells-image" src={bells_image} alt="Price" />
 						}
 						sortable={true}
 					/>
 					<Column
+						className="location-column"
 						field="location"
 						header="Location"
-						style={{ width: '100px' }}
 					/>
-					<Column body={time_display} header="Time" />
+					<Column className="time-column" body={time_display} header="Time" />
 					<Column
+						className="month-column"
 						style={month_id === 0 ? { backgroundColor: color } : {}}
 						field="january"
 						header="Jan"
 						body={month_display}
 					/>
 					<Column
+						className="month-column"
 						style={month_id === 1 ? { backgroundColor: color } : {}}
 						field="february"
 						header="Feb"
 						body={month_display}
 					/>
 					<Column
+						className="month-column"
 						style={month_id === 2 ? { backgroundColor: color } : {}}
 						field="march"
 						header="Mar"
 						body={month_display}
 					/>
 					<Column
+						className="month-column"
 						style={month_id === 3 ? { backgroundColor: color } : {}}
 						field="april"
 						header="Apr"
 						body={month_display}
 					/>
 					<Column
+						className="month-column"
 						style={month_id === 4 ? { backgroundColor: color } : {}}
 						field="may"
 						header="May"
 						body={month_display}
 					/>
 					<Column
+						className="month-column"
 						style={month_id === 5 ? { backgroundColor: color } : {}}
 						field="june"
 						header="June"
 						body={month_display}
 					/>
 					<Column
+						className="month-column"
 						style={month_id === 6 ? { backgroundColor: color } : {}}
 						field="july"
 						header="July"
 						body={month_display}
 					/>
 					<Column
+						className="month-column"
 						style={month_id === 7 ? { backgroundColor: color } : {}}
 						field="august"
 						header="Aug"
 						body={month_display}
 					/>
 					<Column
+						className="month-column"
 						style={month_id === 8 ? { backgroundColor: color } : {}}
 						field="september"
 						header="Sept"
 						body={month_display}
 					/>
 					<Column
+						className="month-column"
 						style={month_id === 9 ? { backgroundColor: color } : {}}
 						field="october"
 						header="Oct"
 						body={month_display}
 					/>
 					<Column
+						className="month-column"
 						style={month_id === 10 ? { backgroundColor: color } : {}}
 						field="november"
 						header="Nov"
 						body={month_display}
 					/>
 					<Column
+						className="month-column"
 						style={month_id === 11 ? { backgroundColor: color } : {}}
 						field="december"
 						header="Dec"

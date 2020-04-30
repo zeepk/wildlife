@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 
+@media screen and (max-width: 480px) {
+	.header-container {
+		height: 10vh !important	;
+		font-size: 5vh !important;
+	}
+	.logo-image {
+		width: 20vw;
+	}
+}
+
 .header-container {
 	position: relative;
 	height: 14vh;

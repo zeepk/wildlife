@@ -3,6 +3,40 @@
 		max-width: 12vw !important;
 		min-width: 12vw !important;
 	}
+	.month-column {
+		display: none;
+	}
+	.name-column {
+		width: 150px !important;
+	}
+	.rarity-column {
+		width: 100px;
+		display: none;
+	}
+	.location-column {
+		width: 100px;
+		display: none;
+	}
+	.price-column {
+		width: 100px;
+		display: none;
+	}
+	.bells-image {
+		height: 20px;
+		display: none;
+	}
+	.icon-column {
+		width: 100px;
+	}
+	.time-column {
+		display: none;
+	}
+	.caught-column {
+		width: 100px !important;
+	}
+	.p-filter-column:nth-child(n + 4) {
+		display: none;
+	}
 }
 
 .table-container {
@@ -12,7 +46,6 @@
 	padding-bottom: 5vh;
 	z-index: 100;
 	max-height: 440;
-	/* overflow: visible !important; */
 }
 .bug-image {
 	max-width: 4vw;
@@ -31,9 +64,9 @@
 tr.p-datatable-row > td:nth-child(7) {
 	padding: 0 !important;
 }
-.p-filter-column {
+/* .p-filter-column {
 	width: 20vw !important;
-}
+} */
 thead {
 	top: 0;
 	position: sticky;
@@ -41,4 +74,25 @@ thead {
 }
 th {
 	background-color: #d9ffdc !important;
+}
+.month-column {
+	/* display: none; */
+}
+.name-column {
+	width: 200px;
+}
+.rarity-column {
+	width: 100px;
+}
+.location-column {
+	width: 100px;
+}
+.price-column {
+	width: 100px;
+}
+.bells-image {
+	height: 20px;
+}
+.icon-column {
+	width: 100px;
 }
