@@ -37,6 +37,9 @@
 	.p-filter-column:nth-child(n + 4) {
 		display: none;
 	}
+	.size-column {
+		display: none;
+	}
 }
 
 .table-container {

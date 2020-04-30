@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-
 import { bugs } from '../data_files/bugs.json';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Checkbox from '@material-ui/core/Checkbox';
 import '../styles/Dashboard.css';
 import bells_image from '../images/bells.png'; // Tell webpack this JS file uses this image
-
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { Row } from 'primereact/row';
-// displays a green check if the month is set to 1 instead of 0
+import { TabMenu } from 'primereact/tabmenu'; // displays a green check if the month is set to 1 instead of 0
 const month_display = (rowData, column) => {
 	// console.log(column);
 	if (rowData[column.field] === '1') {
