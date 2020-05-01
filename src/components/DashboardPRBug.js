@@ -19,6 +19,11 @@ const month_display = (rowData, column) => {
 	}
 };
 
+// TODO: add img size
+const size_display = (rowData) => {
+	return rowData.size;
+};
+
 // checks local storage to populate checkboxes
 const is_checked = (name) => {
 	if (window.localStorage.getItem(name) === 'true') {
@@ -341,7 +346,7 @@ class DashboardPRBugs extends Component {
 							field="location"
 							header="Location"
 						/>
-						<Column className="size-column" field="size" header="Size" />
+						<Column className="size-column" header="Size" body={size_display} />
 						<Column
 							className="month-column"
 							style={month_id === 0 ? { backgroundColor: color } : {}}

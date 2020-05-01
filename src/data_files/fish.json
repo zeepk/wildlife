@@ -1263,7 +1263,7 @@
 		{
 			"id": "64",
 			"name": "Moray Eel",
-			"size": "long \u0026 thin",
+			"size": "long",
 			"rarity": "Ultra Rare",
 			"price": "2,000",
 			"location": "Sea",
@@ -1283,7 +1283,7 @@
 		{
 			"id": "65",
 			"name": "Ribbon Eel",
-			"size": "long \u0026 thin",
+			"size": "long",
 			"rarity": "Rare",
 			"price": "600",
 			"location": "Sea",
@@ -1383,7 +1383,7 @@
 		{
 			"id": "70",
 			"name": "Ocean Sunfish",
-			"size": "dorsal finned",
+			"size": "fin",
 			"rarity": "Rare",
 			"price": "4,000",
 			"location": "Sea",
@@ -1423,7 +1423,7 @@
 		{
 			"id": "72",
 			"name": "Saw Shark",
-			"size": "dorsal finned",
+			"size": "fin",
 			"rarity": "Rare",
 			"price": "12,000",
 			"location": "Sea",
@@ -1443,7 +1443,7 @@
 		{
 			"id": "73",
 			"name": "Hammerhead Shark",
-			"size": "dorsal finned",
+			"size": "fin",
 			"rarity": "Rare",
 			"price": "8,000",
 			"location": "Sea",
@@ -1463,7 +1463,7 @@
 		{
 			"id": "74",
 			"name": "Great White SHark",
-			"size": "dorsal finned",
+			"size": "fin",
 			"rarity": "Rare",
 			"price": "15,000",
 			"location": "Sea",
@@ -1483,7 +1483,7 @@
 		{
 			"id": "75",
 			"name": "Whale Shark",
-			"size": "dorsal finned",
+			"size": "fin",
 			"rarity": "Rare",
 			"price": "13,000",
 			"location": "Sea",
@@ -1503,7 +1503,7 @@
 		{
 			"id": "76",
 			"name": "Suckerfish",
-			"size": "dorsal finned",
+			"size": "fin",
 			"rarity": "Uncommon",
 			"price": "1,500",
 			"location": "Sea",
