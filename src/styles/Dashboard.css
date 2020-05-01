@@ -103,3 +103,7 @@ th {
 .p-highlight {
 	color: rgb(255, 95, 122) !important;
 }
+.size-image {
+	max-width: 90%;
+	border-radius: 5px;
+}

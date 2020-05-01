@@ -4,7 +4,15 @@ import { fish } from '../data_files/fish.json';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Checkbox from '@material-ui/core/Checkbox';
 import '../styles/Dashboard.css';
-import bells_image from '../images/bells.png'; // Tell webpack this JS file uses this image
+import bells_image from '../images/bells.png';
+import tiny from '../images/tiny.png';
+import small from '../images/small.png';
+import medium from '../images/medium.png';
+import large from '../images/large.png';
+import long from '../images/long.png';
+import fin from '../images/fin.png';
+import huge from '../images/huge.png';
+
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { TabMenu } from 'primereact/tabmenu'; // displays a green check if the month is set to 1 instead of 0
@@ -21,7 +29,23 @@ const month_display = (rowData, column) => {
 
 // TODO: add img size
 const size_display = (rowData) => {
-	return rowData.size;
+	if (rowData.size === 'tiny') {
+		return <img className="size-image" src={tiny} alt={rowData.size} />;
+	} else if (rowData.size === 'small') {
+		return <img className="size-image" src={small} alt={rowData.size} />;
+	} else if (rowData.size === 'medium') {
+		return <img className="size-image" src={medium} alt={rowData.size} />;
+	} else if (rowData.size === 'large') {
+		return <img className="size-image" src={large} alt={rowData.size} />;
+	} else if (rowData.size === 'long') {
+		return <img className="size-image" src={long} alt={rowData.size} />;
+	} else if (rowData.size === 'fin') {
+		return <img className="size-image" src={fin} alt={rowData.size} />;
+	} else if (rowData.size === 'huge') {
+		return <img className="size-image" src={huge} alt={rowData.size} />;
+	} else {
+		return <div>N/A</div>;
+	}
 };
 
 // checks local storage to populate checkboxes
@@ -156,8 +180,8 @@ class DashboardPRBugs extends Component {
 		const month_id = date.getMonth();
 		const color = '#a1d6a1';
 		const items = [
-			{ label: 'Bugs', value: 0 },
-			{ label: 'Fish', value: 1 },
+			{ label: 'Bugs 🐛', value: 0 },
+			{ label: 'Fish 🎣', value: 1 },
 			{ label: 'Fossils (coming soon)', value: 2, disabled: true },
 			{ label: 'KK Albums (coming soon)', value: 3, disabled: true },
 		];

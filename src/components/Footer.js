@@ -8,18 +8,31 @@ class Footer extends Component {
 			<div className="footer">
 				<ul>
 					<li>
-						<p className="made-by">💻 Version 1.0</p>
+						<p className="made-by">
+							<span role="img" aria-label="laptop">
+								💻
+							</span>
+							Version 1.0
+						</p>
 					</li>
 					<li>
 						<TwitterFollowButton screenName={'matthughes2112'} />
 					</li>
 					<li>
-						<p className="made-by">Contact me for suggestions / bug fixes 😊</p>
+						<p className="made-by">
+							<span role="img" aria-label="smile">
+								😊
+							</span>
+							Contact me for suggestions / bug fixes
+						</p>
 					</li>
 					<li>
 						<p className="made-by">
 							<a href="https://github.com/zeepk/wildlife">
-								&#60; &#62; Github Source
+								<span role="img" aria-label="cat">
+									🐈
+								</span>
+								Github Source
 							</a>
 						</p>
 					</li>
