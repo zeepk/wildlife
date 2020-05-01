@@ -80,12 +80,23 @@ const fish_icon_display = (rowData) => {
 const time_display = (rowData, column) => {
 	let today = new Date();
 	let hour = today.getHours();
-	if (rowData.start_time === 'Any time') {
+	if (!rowData.start_time || rowData.start_time === 'Any time') {
 		return (
-			<div style={{ backgroundColor: '#a1d6a1', height: '100%' }}>
-				{rowData.time_string}
-			</div>
+			<div style={{ backgroundColor: '#a1d6a1', height: '100%' }}>Any Time</div>
 		);
+	} else if (rowData.start_time_2 && rowData.id === 40) {
+		// hardcoding for Pirahna
+		if (
+			(hour >= rowData.start_time && hour < rowData.end_time) ||
+			hour >= rowData.start_time_2 ||
+			hour < rowData.end_time_2
+		) {
+			return (
+				<div style={{ backgroundColor: '#a1d6a1' }}>{rowData.time_string}</div>
+			);
+		} else {
+			return <div>{rowData.time_string}</div>;
+		}
 	} else if (rowData.start_time_2) {
 		if (
 			(hour >= rowData.start_time && hour < rowData.end_time) ||
@@ -200,7 +211,7 @@ class DashboardPRBugs extends Component {
 				{/* <TabMenu model={items} /> */}
 				{this.state.activeItem === 0 ? (
 					<DataTable
-						className="datatable-container"
+						className="bugs-datatable-container"
 						value={bugs}
 						// responsive={true}
 					>
@@ -329,7 +340,7 @@ class DashboardPRBugs extends Component {
 					</DataTable>
 				) : (
 					<DataTable
-						className="datatable-container"
+						className="fish-datatable-container"
 						value={fish}
 						// responsive={true}
 					>
@@ -371,6 +382,8 @@ class DashboardPRBugs extends Component {
 							header="Location"
 						/>
 						<Column className="size-column" header="Size" body={size_display} />
+						<Column className="time-column" body={time_display} header="Time" />
+
 						<Column
 							className="month-column"
 							style={month_id === 0 ? { backgroundColor: color } : {}}

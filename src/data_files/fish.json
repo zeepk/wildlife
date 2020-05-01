@@ -38,7 +38,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": "1"
+			"december": "1",
+			"time_string": "9a ➡ 4p",
+			"start_time": 9,
+			"end_time": 16
 		},
 		{
 			"id": "3",
@@ -78,7 +81,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": "1"
+			"december": "1",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "5",
@@ -118,7 +124,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": "1"
+			"december": "1",
+			"time_string": "2p ➡ 9a",
+			"start_time": 14,
+			"end_time": 9
 		},
 		{
 			"id": "7",
@@ -158,7 +167,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": "1"
+			"december": "1",
+			"time_string": "9a ➡ 4p",
+			"start_time": 9,
+			"end_time": 16
 		},
 		{
 			"id": "9",
@@ -178,7 +190,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": "1"
+			"december": "1",
+			"time_string": "9a ➡ 4p",
+			"start_time": 9,
+			"end_time": 16
 		},
 		{
 			"id": "10",
@@ -238,7 +253,10 @@
 			"september": "1",
 			"october": "",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "13",
@@ -258,7 +276,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "9p ➡ 4a",
+			"start_time": 21,
+			"end_time": 4
 		},
 		{
 			"id": "14",
@@ -318,7 +339,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": "1"
+			"december": "1",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "17",
@@ -358,7 +382,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "19",
@@ -378,7 +405,10 @@
 			"september": "",
 			"october": "",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "9a ➡ 4p",
+			"start_time": 9,
+			"end_time": 16
 		},
 		{
 			"id": "20",
@@ -398,7 +428,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": "1"
+			"december": "1",
+			"time_string": "9a ➡ 4p",
+			"start_time": 9,
+			"end_time": 16
 		},
 		{
 			"id": "21",
@@ -538,7 +571,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": ""
+			"december": "",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "28",
@@ -558,7 +594,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": ""
+			"december": "",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "29",
@@ -578,7 +617,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": ""
+			"december": "",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "30",
@@ -598,7 +640,10 @@
 			"september": "",
 			"october": "",
 			"november": "",
-			"december": "1"
+			"december": "1",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "31",
@@ -658,7 +703,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": ""
+			"december": "",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "34",
@@ -678,7 +726,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": ""
+			"december": "",
+			"time_string": "9a ➡ 4p",
+			"start_time": 9,
+			"end_time": 16
 		},
 		{
 			"id": "35",
@@ -698,7 +749,10 @@
 			"september": "1",
 			"october": "",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "9a ➡ 4p",
+			"start_time": 9,
+			"end_time": 16
 		},
 		{
 			"id": "36",
@@ -718,7 +772,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "37",
@@ -738,7 +795,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "9a ➡ 4p",
+			"start_time": 9,
+			"end_time": 16
 		},
 		{
 			"id": "38",
@@ -758,7 +818,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": ""
+			"december": "",
+			"time_string": "9a ➡ 4p",
+			"start_time": 9,
+			"end_time": 16
 		},
 		{
 			"id": "39",
@@ -778,7 +841,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "9a ➡ 4p",
+			"start_time": 9,
+			"end_time": 16
 		},
 		{
 			"id": "40",
@@ -798,7 +864,12 @@
 			"september": "1",
 			"october": "",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "9a ➡ 4p & 9p ➡ 4a",
+			"start_time": 9,
+			"end_time": 16,
+			"start_time_2": 21,
+			"end_time_2": 4
 		},
 		{
 			"id": "41",
@@ -818,7 +889,10 @@
 			"september": "1",
 			"october": "",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "4a ➡ 9p",
+			"start_time": 4,
+			"end_time": 21
 		},
 		{
 			"id": "42",
@@ -838,7 +912,10 @@
 			"september": "1",
 			"october": "",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "43",
@@ -858,7 +935,10 @@
 			"september": "1",
 			"october": "",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "44",
@@ -878,7 +958,10 @@
 			"september": "1",
 			"october": "",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "9p ➡ 4a",
+			"start_time": 21,
+			"end_time": 4
 		},
 		{
 			"id": "45",
@@ -1038,7 +1121,10 @@
 			"september": "",
 			"october": "",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "4a ➡ 9p",
+			"start_time": 4,
+			"end_time": 21
 		},
 		{
 			"id": "53",
@@ -1078,7 +1164,10 @@
 			"september": "",
 			"october": "",
 			"november": "1",
-			"december": "1"
+			"december": "1",
+			"time_string": "9p ➡ 4a",
+			"start_time": 21,
+			"end_time": 4
 		},
 		{
 			"id": "55",
@@ -1118,7 +1207,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": "1"
+			"december": "1",
+			"time_string": "4a ➡ 9p",
+			"start_time": 4,
+			"end_time": 21
 		},
 		{
 			"id": "57",
@@ -1398,7 +1490,10 @@
 			"september": "1",
 			"october": "",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "4a ➡ 9p",
+			"start_time": 4,
+			"end_time": 21
 		},
 		{
 			"id": "71",
@@ -1418,7 +1513,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": ""
+			"december": "",
+			"time_string": "4a ➡ 9p",
+			"start_time": 4,
+			"end_time": 21
 		},
 		{
 			"id": "72",
@@ -1438,7 +1536,10 @@
 			"september": "1",
 			"october": "",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "73",
@@ -1458,7 +1559,10 @@
 			"september": "1",
 			"october": "",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "74",
@@ -1478,7 +1582,10 @@
 			"september": "1",
 			"october": "",
 			"november": "",
-			"december": ""
+			"december": "",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "75",
@@ -1538,7 +1645,10 @@
 			"september": "",
 			"october": "",
 			"november": "1",
-			"december": "1"
+			"december": "1",
+			"time_string": "4p ➡ 9a",
+			"start_time": 16,
+			"end_time": 9
 		},
 		{
 			"id": "78",
@@ -1578,7 +1688,10 @@
 			"september": "1",
 			"october": "1",
 			"november": "1",
-			"december": "1"
+			"december": "1",
+			"time_string": "9p ➡ 4a",
+			"start_time": 21,
+			"end_time": 4
 		},
 		{
 			"id": "80",
