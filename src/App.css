@@ -1,4 +1,12 @@
+:root {
+	--blue: #a1d4cb;
+	--yellow: #e9cb56;
+	--light-yellow: rgba(255, 242, 191);
+	--pink: rgb(214, 127, 141);
+	--green: #d9ffdc;
+	--tan: #e7d1b0;
+}
 .App {
 	text-align: center;
-	background-color: #e7d1b0;
+	background-color: var(--tan);
 }

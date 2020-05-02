@@ -13,13 +13,13 @@
 .header-container {
 	position: relative;
 	height: 14vh;
-	background-color: #a1d4cb;
+	background-color: var(--blue);
 	font-size: 7vh;
 	font-family: 'Patua One';
 	/* z-index: -; */
 }
 .title {
-	color: #e9cb56;
+	color: var(--yellow);
 	text-shadow: 2px 2px 9px black;
 	/* z-index: -1; */
 	display: inline;

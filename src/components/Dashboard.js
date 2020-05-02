@@ -12,12 +12,14 @@ import large from '../images/large.png';
 import long from '../images/long.png';
 import fin from '../images/fin.png';
 import huge from '../images/huge.png';
+import MobileName from './MobileName';
 
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { TabMenu } from 'primereact/tabmenu'; // displays a green check if the month is set to 1 instead of 0
+import { TabMenu } from 'primereact/tabmenu';
+
+// displays a green check if the month is set to 1 instead of 0
 const month_display = (rowData, column) => {
-	// console.log(column);
 	if (rowData[column.field] === '1') {
 		return (
 			<CheckCircleIcon
@@ -25,6 +27,13 @@ const month_display = (rowData, column) => {
 			/>
 		);
 	}
+};
+const name_display = (rowData, column) => {
+	return window.innerWidth < 480 ? (
+		<MobileName data={rowData} />
+	) : (
+		<div>{rowData.name}</div>
+	);
 };
 
 // TODO: add img size
@@ -200,7 +209,6 @@ class Dashboard extends Component {
 					activeItem={items[this.state.activeItem]}
 					onTabChange={(e) => tab_change(e.value.value)}
 				/>
-				{/* <TabMenu model={items} /> */}
 				{this.state.activeItem === '0' ? (
 					<DataTable
 						className="bugs-datatable-container"
@@ -209,11 +217,12 @@ class Dashboard extends Component {
 					>
 						<Column
 							className="name-column"
-							field="name"
+							// field="name"
 							header="Name"
 							sortable={true}
 							filter={true}
 							filterPlaceholder="Search"
+							body={name_display}
 						/>
 						<Column className="icon-column" header="Icon" body={icon_display} />
 						<Column
@@ -334,11 +343,12 @@ class Dashboard extends Component {
 					>
 						<Column
 							className="name-column"
-							field="name"
+							// field="name"
 							header="Name"
 							sortable={true}
 							filter={true}
 							filterPlaceholder="Search"
+							body={name_display}
 						/>
 						<Column className="icon-column" header="Icon" body={icon_display} />
 						<Column
