@@ -1,21 +1,50 @@
 import React, { Component } from 'react';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import { bugs } from '../data_files/bugs.json';
+import { fish } from '../data_files/fish.json';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Checkbox from '@material-ui/core/Checkbox';
 import '../styles/Dashboard.css';
-import bells_image from '../images/bells.png'; // Tell webpack this JS file uses this image
+import bells_image from '../images/bells.png';
+import tiny from '../images/tiny.png';
+import small from '../images/small.png';
+import medium from '../images/medium.png';
+import large from '../images/large.png';
+import long from '../images/long.png';
+import fin from '../images/fin.png';
+import huge from '../images/huge.png';
 
-// displays a green check if the month is set to 1 instead of 0
-const month_display = (is_available) => {
-	if (is_available === '1') {
-		return <CheckCircleIcon style={{ color: 'green' }} />;
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
+import { TabMenu } from 'primereact/tabmenu'; // displays a green check if the month is set to 1 instead of 0
+const month_display = (rowData, column) => {
+	// console.log(column);
+	if (rowData[column.field] === '1') {
+		return (
+			<CheckCircleIcon
+				style={{ color: 'green', fontSize: '30px', zIndex: '' }}
+			/>
+		);
+	}
+};
+
+// TODO: add img size
+const size_display = (rowData) => {
+	if (rowData.size === 'tiny') {
+		return <img className="size-image" src={tiny} alt={rowData.size} />;
+	} else if (rowData.size === 'small') {
+		return <img className="size-image" src={small} alt={rowData.size} />;
+	} else if (rowData.size === 'medium') {
+		return <img className="size-image" src={medium} alt={rowData.size} />;
+	} else if (rowData.size === 'large') {
+		return <img className="size-image" src={large} alt={rowData.size} />;
+	} else if (rowData.size === 'long') {
+		return <img className="size-image" src={long} alt={rowData.size} />;
+	} else if (rowData.size === 'fin') {
+		return <img className="size-image" src={fin} alt={rowData.size} />;
+	} else if (rowData.size === 'huge') {
+		return <img className="size-image" src={huge} alt={rowData.size} />;
+	} else {
+		return <div>N/A</div>;
 	}
 };
 
@@ -28,65 +57,103 @@ const is_checked = (name) => {
 	}
 };
 
-const time_display = (bug, hour) => {
-	if (bug.start_time === 'Any time') {
+const bug_icon_display = (rowData) => {
+	return (
+		<img
+			className="bug-image"
+			src={`http://acnhapi.com/icons/bugs/${rowData.id}`}
+			alt="Price"
+		/>
+	);
+};
+
+const fish_icon_display = (rowData) => {
+	return (
+		<img
+			className="bug-image"
+			src={`http://acnhapi.com/icons/fish/${rowData.id}`}
+			alt="Price"
+		/>
+	);
+};
+
+const time_display = (rowData, column) => {
+	let today = new Date();
+	let hour = today.getHours();
+	if (!rowData.start_time || rowData.start_time === 'Any time') {
 		return (
-			<TableCell style={{ backgroundColor: '#a1d4cb' }} align="left">
-				{bug.start_time}
-			</TableCell>
+			<div style={{ backgroundColor: '#a1d6a1', height: '100%' }}>Any Time</div>
 		);
-	} else if (bug.start_time_2) {
+	} else if (rowData.start_time_2 && rowData.id === 40) {
+		// hardcoding for Pirahna
 		if (
-			(hour >= bug.start_time && hour < bug.end_time) ||
-			(hour >= bug.start_time_2 && hour < bug.end_time_2)
+			(hour >= rowData.start_time && hour < rowData.end_time) ||
+			hour >= rowData.start_time_2 ||
+			hour < rowData.end_time_2
 		) {
 			return (
-				<TableCell style={{ backgroundColor: '#a1d4cb' }} align="left">
-					{bug.time_string}
-				</TableCell>
+				<div style={{ backgroundColor: '#a1d6a1' }}>{rowData.time_string}</div>
 			);
 		} else {
-			return <TableCell align="left">{bug.time_string}</TableCell>;
+			return <div>{rowData.time_string}</div>;
 		}
-	} else if (bug.start_time < bug.end_time) {
-		if (hour >= bug.start_time && hour < bug.end_time) {
+	} else if (rowData.start_time_2) {
+		if (
+			(hour >= rowData.start_time && hour < rowData.end_time) ||
+			(hour >= rowData.start_time_2 && hour < rowData.end_time_2)
+		) {
 			return (
-				<TableCell style={{ backgroundColor: '#a1d4cb' }} align="left">
-					{bug.time_string}
-				</TableCell>
+				<div style={{ backgroundColor: '#a1d6a1' }}>{rowData.time_string}</div>
 			);
 		} else {
-			return <TableCell align="left">{bug.time_string}</TableCell>;
+			return <div>{rowData.time_string}</div>;
+		}
+	} else if (rowData.start_time < rowData.end_time) {
+		if (hour >= rowData.start_time && hour < rowData.end_time) {
+			return (
+				<div style={{ backgroundColor: '#a1d6a1' }}>{rowData.time_string}</div>
+			);
+		} else {
+			return <div>{rowData.time_string}</div>;
 		}
 	} else {
-		if (hour >= bug.start_time || hour < bug.end_time) {
+		if (hour >= rowData.start_time || hour < rowData.end_time) {
 			return (
-				<TableCell style={{ backgroundColor: '#a1d4cb' }} align="left">
-					{bug.time_string}
-				</TableCell>
+				<div style={{ backgroundColor: '#a1d6a1' }}>{rowData.time_string}</div>
 			);
 		} else {
-			return <TableCell align="left">{bug.time_string}</TableCell>;
+			return <div>{rowData.time_string}</div>;
 		}
 	}
 };
-
-class Dashboard extends Component {
+class DashboardPRBugs extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { ren: false };
+		this.state = {
+			ren: false,
+			activeItem:
+				window.localStorage.getItem('chart') === null
+					? 0
+					: window.localStorage.getItem('chart'),
+		};
 	}
 
 	componentDidMount() {
 		if (
 			typeof Storage !== 'undefined' &&
-			localStorage.getItem('Spider') === null
+			(localStorage.getItem('Spider') === null ||
+				localStorage.getItem('Bitterling') === null)
 		) {
 			console.log('Could not find local storage. Creating...');
 			bugs.map((bug) => {
 				window.localStorage.setItem(bug.name, false);
 				return bug;
 			});
+			fish.map((fish) => {
+				window.localStorage.setItem(fish.name, false);
+				return fish;
+			});
+			window.localStorage.setItem('chart', 0);
 		}
 	}
 	// check for local storage, create if not found
@@ -105,206 +172,307 @@ class Dashboard extends Component {
 		});
 		return name;
 	};
-
+	caught_display = (rowData) => {
+		return (
+			<Checkbox
+				color="primary"
+				checked={is_checked(rowData.name)}
+				onChange={() => this.checkbox_change(rowData.name)}
+			/>
+		);
+	};
 	render() {
+		// let offset;
+		// document.addEventListener('scroll', function (e) {
+		// 	offset = window.pageYOffset;
+		// 	console.log(offset);
+		// });
 		const date = new Date();
 		const month_id = date.getMonth();
-		const hour = date.getHours();
-		const color = '#a1d4cb';
-		const bugs_rows = bugs.map((bug) => (
-			<TableRow key={bug.id}>
-				<TableCell component="th" scope="row">
-					{bug.name}
-				</TableCell>
-				<TableCell component="th" scope="row">
-					<img
-						className="bug-image"
-						src={`http://acnhapi.com/icons/bugs/${bug.id}`}
-						alt="Price"
-					/>
-				</TableCell>
-				<TableCell align="left">
-					<Checkbox
-						color="primary"
-						checked={is_checked(bug.name)}
-						onChange={() => this.checkbox_change(bug.name)}
-					/>
-				</TableCell>
-				<TableCell align="left">{bug.rarity}</TableCell>
-				<TableCell align="left">{bug.price}</TableCell>
-				<TableCell align="left">{bug.location}</TableCell>
-				{time_display(bug, hour)}
+		const color = '#a1d6a1';
+		const items = [
+			{ label: 'Bugs 🐛', value: 0 },
+			{ label: 'Fish 🎣', value: 1 },
+			{ label: 'Fossils (coming soon)', value: 2, disabled: true },
+			{ label: 'KK Albums (coming soon)', value: 3, disabled: true },
+		];
 
-				<TableCell
-					style={month_id === 0 ? { backgroundColor: color } : {}}
-					align="left"
-				>
-					{month_display(bug.january)}
-				</TableCell>
-				<TableCell
-					style={month_id === 1 ? { backgroundColor: color } : {}}
-					align="left"
-				>
-					{month_display(bug.february)}
-				</TableCell>
-				<TableCell
-					style={month_id === 2 ? { backgroundColor: color } : {}}
-					align="left"
-				>
-					{month_display(bug.march)}
-				</TableCell>
-				<TableCell
-					style={month_id === 3 ? { backgroundColor: color } : {}}
-					align="left"
-				>
-					{month_display(bug.april)}
-				</TableCell>
-				<TableCell
-					style={month_id === 4 ? { backgroundColor: color } : {}}
-					align="left"
-				>
-					{month_display(bug.may)}
-				</TableCell>
-				<TableCell
-					style={month_id === 5 ? { backgroundColor: color } : {}}
-					align="left"
-				>
-					{month_display(bug.june)}
-				</TableCell>
-				<TableCell
-					style={month_id === 6 ? { backgroundColor: color } : {}}
-					align="left"
-				>
-					{month_display(bug.july)}
-				</TableCell>
-				<TableCell
-					style={month_id === 7 ? { backgroundColor: color } : {}}
-					align="left"
-				>
-					{month_display(bug.august)}
-				</TableCell>
-				<TableCell
-					style={month_id === 8 ? { backgroundColor: color } : {}}
-					align="left"
-				>
-					{month_display(bug.september)}
-				</TableCell>
-				<TableCell
-					style={month_id === 9 ? { backgroundColor: color } : {}}
-					align="left"
-				>
-					{month_display(bug.october)}
-				</TableCell>
-				<TableCell
-					style={month_id === 10 ? { backgroundColor: color } : {}}
-					align="left"
-				>
-					{month_display(bug.november)}
-				</TableCell>
-				<TableCell
-					style={month_id === 11 ? { backgroundColor: color } : {}}
-					align="left"
-				>
-					{month_display(bug.december)}
-				</TableCell>
-			</TableRow>
-		));
+		const tab_change = (num) => {
+			window.localStorage.setItem('chart', num);
+			this.setState({ activeItem: num });
+		};
 		return (
 			<div className="table-container">
-				<TableContainer component={Paper}>
-					<Table stickyHeader aria-label="sticky table">
-						<TableHead>
-							<TableRow>
-								<TableCell>Name</TableCell>
-								<TableCell align="center">Icon</TableCell>
-								<TableCell align="left">Caught</TableCell>
-								<TableCell align="left">Rarity</TableCell>
-								<TableCell align="left">
-									<img className="bells-image" src={bells_image} alt="Price" />
-								</TableCell>
-								<TableCell align="left">Location</TableCell>
-								<TableCell align="left">Time</TableCell>
+				<TabMenu
+					model={items}
+					activeItem={items[this.state.activeItem]}
+					onTabChange={(e) => tab_change(e.value.value)}
+				/>
+				{/* <TabMenu model={items} /> */}
+				{this.state.activeItem === 0 ? (
+					<DataTable
+						className="bugs-datatable-container"
+						value={bugs}
+						// responsive={true}
+					>
+						<Column
+							className="name-column"
+							field="name"
+							header="Name"
+							sortable={true}
+							filter={true}
+							filterPlaceholder="Search"
+						/>
+						<Column
+							className="icon-column"
+							header="Icon"
+							body={bug_icon_display}
+						/>
+						<Column
+							className="caught-column"
+							header="Caught"
+							body={this.caught_display}
+						/>
+						<Column
+							className="rarity-column"
+							field="rarity"
+							header="Rarity"
+							sortable={true}
+						/>
+						<Column
+							className="price-column"
+							field="price"
+							header={
+								<img className="bells-image" src={bells_image} alt="Price" />
+							}
+							sortable={true}
+						/>
+						<Column
+							className="location-column"
+							field="location"
+							header="Location"
+						/>
+						<Column className="time-column" body={time_display} header="Time" />
+						<Column
+							className="month-column"
+							style={month_id === 0 ? { backgroundColor: color } : {}}
+							field="january"
+							header="Jan"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 1 ? { backgroundColor: color } : {}}
+							field="february"
+							header="Feb"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 2 ? { backgroundColor: color } : {}}
+							field="march"
+							header="Mar"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 3 ? { backgroundColor: color } : {}}
+							field="april"
+							header="Apr"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 4 ? { backgroundColor: color } : {}}
+							field="may"
+							header="May"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 5 ? { backgroundColor: color } : {}}
+							field="june"
+							header="June"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 6 ? { backgroundColor: color } : {}}
+							field="july"
+							header="July"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 7 ? { backgroundColor: color } : {}}
+							field="august"
+							header="Aug"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 8 ? { backgroundColor: color } : {}}
+							field="september"
+							header="Sept"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 9 ? { backgroundColor: color } : {}}
+							field="october"
+							header="Oct"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 10 ? { backgroundColor: color } : {}}
+							field="november"
+							header="Nov"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 11 ? { backgroundColor: color } : {}}
+							field="december"
+							header="Dec"
+							body={month_display}
+						/>
+					</DataTable>
+				) : (
+					<DataTable
+						className="fish-datatable-container"
+						value={fish}
+						// responsive={true}
+					>
+						<Column
+							className="name-column"
+							field="name"
+							header="Name"
+							sortable={true}
+							filter={true}
+							filterPlaceholder="Search"
+						/>
+						<Column
+							className="icon-column"
+							header="Icon"
+							body={fish_icon_display}
+						/>
+						<Column
+							className="caught-column"
+							header="Caught"
+							body={this.caught_display}
+						/>
+						<Column
+							className="rarity-column"
+							field="rarity"
+							header="Rarity"
+							sortable={true}
+						/>
+						<Column
+							className="price-column"
+							field="price"
+							header={
+								<img className="bells-image" src={bells_image} alt="Price" />
+							}
+							sortable={true}
+						/>
+						<Column
+							className="location-column"
+							field="location"
+							header="Location"
+						/>
+						<Column className="size-column" header="Size" body={size_display} />
+						<Column className="time-column" body={time_display} header="Time" />
 
-								<TableCell
-									style={month_id === 0 ? { backgroundColor: color } : {}}
-									align="left"
-								>
-									Jan
-								</TableCell>
-								<TableCell
-									style={month_id === 1 ? { backgroundColor: color } : {}}
-									align="left"
-								>
-									Feb
-								</TableCell>
-								<TableCell
-									style={month_id === 2 ? { backgroundColor: color } : {}}
-									align="left"
-								>
-									Mar
-								</TableCell>
-								<TableCell
-									style={month_id === 3 ? { backgroundColor: color } : {}}
-									align="left"
-								>
-									Apr
-								</TableCell>
-								<TableCell
-									style={month_id === 4 ? { backgroundColor: color } : {}}
-									align="left"
-								>
-									May
-								</TableCell>
-								<TableCell
-									style={month_id === 5 ? { backgroundColor: color } : {}}
-									align="left"
-								>
-									June
-								</TableCell>
-								<TableCell
-									style={month_id === 6 ? { backgroundColor: color } : {}}
-									align="left"
-								>
-									July
-								</TableCell>
-								<TableCell
-									style={month_id === 7 ? { backgroundColor: color } : {}}
-									align="left"
-								>
-									Aug
-								</TableCell>
-								<TableCell
-									style={month_id === 8 ? { backgroundColor: color } : {}}
-									align="left"
-								>
-									Sept
-								</TableCell>
-								<TableCell
-									style={month_id === 9 ? { backgroundColor: color } : {}}
-									align="left"
-								>
-									Oct
-								</TableCell>
-								<TableCell
-									style={month_id === 10 ? { backgroundColor: color } : {}}
-									align="left"
-								>
-									Nov
-								</TableCell>
-								<TableCell
-									style={month_id === 11 ? { backgroundColor: color } : {}}
-									align="left"
-								>
-									Dec
-								</TableCell>
-							</TableRow>
-						</TableHead>
-						<TableBody>{bugs_rows}</TableBody>
-					</Table>
-				</TableContainer>
+						<Column
+							className="month-column"
+							style={month_id === 0 ? { backgroundColor: color } : {}}
+							field="january"
+							header="Jan"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 1 ? { backgroundColor: color } : {}}
+							field="february"
+							header="Feb"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 2 ? { backgroundColor: color } : {}}
+							field="march"
+							header="Mar"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 3 ? { backgroundColor: color } : {}}
+							field="april"
+							header="Apr"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 4 ? { backgroundColor: color } : {}}
+							field="may"
+							header="May"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 5 ? { backgroundColor: color } : {}}
+							field="june"
+							header="June"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 6 ? { backgroundColor: color } : {}}
+							field="july"
+							header="July"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 7 ? { backgroundColor: color } : {}}
+							field="august"
+							header="Aug"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 8 ? { backgroundColor: color } : {}}
+							field="september"
+							header="Sept"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 9 ? { backgroundColor: color } : {}}
+							field="october"
+							header="Oct"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 10 ? { backgroundColor: color } : {}}
+							field="november"
+							header="Nov"
+							body={month_display}
+						/>
+						<Column
+							className="month-column"
+							style={month_id === 11 ? { backgroundColor: color } : {}}
+							field="december"
+							header="Dec"
+							body={month_display}
+						/>
+					</DataTable>
+				)}
 			</div>
 		);
 	}
 }
 
-export default Dashboard;
+export default DashboardPRBugs;

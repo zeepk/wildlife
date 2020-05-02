@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header.js';
-import DashboardPRBug from './components/DashboardPRBug.js';
+import Dashboard from './components/Dashboard.js';
 import Footer from './components/Footer.js';
 
 import 'primereact/resources/themes/nova-light/theme.css';
@@ -12,7 +12,7 @@ function App() {
 	return (
 		<div className="App">
 			<Header />
-			<DashboardPRBug />
+			<Dashboard />
 			<Footer />
 		</div>
 	);

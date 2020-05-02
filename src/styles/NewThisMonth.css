@@ -1,0 +1,20 @@
+@media screen and (max-width: 480px) {
+	.button-container {
+		left: 35% !important;
+		top: 8% !important;
+	}
+	.location-column {
+		display: none;
+	}
+	.time-column {
+		display: none;
+	}
+	.dialog-container {
+		width: 90vw !important;
+	}
+}
+.button-container {
+	position: fixed !important;
+	left: 10%;
+	top: 5%;
+}
