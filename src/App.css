@@ -3,13 +3,11 @@
 	--yellow: #e9cb56;
 	--light-yellow: rgba(255, 242, 191);
 	--pink: rgb(214, 127, 141);
-	--green: #d9ffdc;
+	--green: #c1fac6;
 	--tan: #e7d1b0;
 }
 .App {
 	text-align: center;
-	/* background-color: var(--tan); */
-	/* background-image: url('./images/pattern.jpg'); */
 	background: linear-gradient(#e7d1b070, #e7d1b060), url('./images/pattern.jpg');
 	background-attachment: fixed;
 	background-position: center;

@@ -98,12 +98,13 @@ export default class Fish extends Component {
 			>
 				<Column
 					className="name-column"
-					// field="name"
+					field="name"
 					header="Name"
 					sortable={true}
 					filter={true}
 					filterPlaceholder="Search"
 					body={name_display}
+					filterMatchMode="contains"
 				/>
 				<Column className="icon-column" header="Icon" body={icon_display} />
 				<Column
