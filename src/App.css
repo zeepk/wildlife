@@ -3,7 +3,7 @@
 	--yellow: #e9cb56;
 	--light-yellow: rgba(255, 242, 191);
 	--pink: rgb(214, 127, 141);
-	--green: #c1fac6;
+	--green: hsl(125, 85%, 87%);
 	--tan: #e7d1b0;
 }
 .App {

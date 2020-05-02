@@ -12,7 +12,7 @@ class Footer extends Component {
 							<span role="img" aria-label="laptop">
 								💻
 							</span>
-							Version 1.0
+							Version 1.1.0
 						</p>
 					</li>
 					<li>

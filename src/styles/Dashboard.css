@@ -110,7 +110,7 @@ th {
 .p-tabmenu-nav {
 	border-bottom: none !important;
 	text-align: center;
-	width: 100vw !important;
+	/* width: 100vw !important; */
 }
 .p-tabmenuitem {
 	float: none !important;
@@ -127,3 +127,6 @@ th {
 .p-datatable .p-datatable-thead > tr > th {
 	border: none !important;
 } */
+.p-menuitem-link {
+	padding: 10px 2vw !important;
+}
