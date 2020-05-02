@@ -183,11 +183,6 @@ class Dashboard extends Component {
 		);
 	};
 	render() {
-		// let offset;
-		// document.addEventListener('scroll', function (e) {
-		// 	offset = window.pageYOffset;
-		// 	console.log(offset);
-		// });
 		const date = new Date();
 		const month_id = date.getMonth();
 		const color = '#a1d6a1';
@@ -252,6 +247,7 @@ class Dashboard extends Component {
 						<Column className="time-column" body={time_display} header="Time" />
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 0 ? { backgroundColor: color } : {}}
 							field="january"
 							header="Jan"
@@ -259,6 +255,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 1 ? { backgroundColor: color } : {}}
 							field="february"
 							header="Feb"
@@ -266,6 +263,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 2 ? { backgroundColor: color } : {}}
 							field="march"
 							header="Mar"
@@ -273,6 +271,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 3 ? { backgroundColor: color } : {}}
 							field="april"
 							header="Apr"
@@ -280,6 +279,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 4 ? { backgroundColor: color } : {}}
 							field="may"
 							header="May"
@@ -287,6 +287,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 5 ? { backgroundColor: color } : {}}
 							field="june"
 							header="June"
@@ -294,6 +295,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 6 ? { backgroundColor: color } : {}}
 							field="july"
 							header="July"
@@ -301,6 +303,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 7 ? { backgroundColor: color } : {}}
 							field="august"
 							header="Aug"
@@ -308,6 +311,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 8 ? { backgroundColor: color } : {}}
 							field="september"
 							header="Sept"
@@ -315,6 +319,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 9 ? { backgroundColor: color } : {}}
 							field="october"
 							header="Oct"
@@ -322,6 +327,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 10 ? { backgroundColor: color } : {}}
 							field="november"
 							header="Nov"
@@ -329,6 +335,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 11 ? { backgroundColor: color } : {}}
 							field="december"
 							header="Dec"
@@ -380,6 +387,7 @@ class Dashboard extends Component {
 
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 0 ? { backgroundColor: color } : {}}
 							field="january"
 							header="Jan"
@@ -387,6 +395,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 1 ? { backgroundColor: color } : {}}
 							field="february"
 							header="Feb"
@@ -394,6 +403,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 2 ? { backgroundColor: color } : {}}
 							field="march"
 							header="Mar"
@@ -401,6 +411,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 3 ? { backgroundColor: color } : {}}
 							field="april"
 							header="Apr"
@@ -408,6 +419,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 4 ? { backgroundColor: color } : {}}
 							field="may"
 							header="May"
@@ -415,6 +427,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 5 ? { backgroundColor: color } : {}}
 							field="june"
 							header="June"
@@ -422,6 +435,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 6 ? { backgroundColor: color } : {}}
 							field="july"
 							header="July"
@@ -429,6 +443,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 7 ? { backgroundColor: color } : {}}
 							field="august"
 							header="Aug"
@@ -436,6 +451,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 8 ? { backgroundColor: color } : {}}
 							field="september"
 							header="Sept"
@@ -443,6 +459,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 9 ? { backgroundColor: color } : {}}
 							field="october"
 							header="Oct"
@@ -450,6 +467,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 10 ? { backgroundColor: color } : {}}
 							field="november"
 							header="Nov"
@@ -457,6 +475,7 @@ class Dashboard extends Component {
 						/>
 						<Column
 							className="month-column"
+							sortable={true}
 							style={month_id === 11 ? { backgroundColor: color } : {}}
 							field="december"
 							header="Dec"
