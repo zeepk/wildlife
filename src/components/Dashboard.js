@@ -57,22 +57,14 @@ const is_checked = (name) => {
 	}
 };
 
-const bug_icon_display = (rowData) => {
+const icon_display = (rowData) => {
 	return (
 		<img
-			className="bug-image"
-			src={`http://acnhapi.com/icons/bugs/${rowData.id}`}
-			alt="Price"
-		/>
-	);
-};
-
-const fish_icon_display = (rowData) => {
-	return (
-		<img
-			className="bug-image"
-			src={`http://acnhapi.com/icons/fish/${rowData.id}`}
-			alt="Price"
+			className="critter-image"
+			src={`http://acnhapi.com/icons/${rowData.size ? 'fish' : 'bugs'}/${
+				rowData.id
+			}`}
+			alt="Icon"
 		/>
 	);
 };
@@ -126,14 +118,14 @@ const time_display = (rowData, column) => {
 		}
 	}
 };
-class DashboardPRBugs extends Component {
+class Dashboard extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			ren: false,
 			activeItem:
 				window.localStorage.getItem('chart') === null
-					? 0
+					? '0'
 					: window.localStorage.getItem('chart'),
 		};
 	}
@@ -153,7 +145,7 @@ class DashboardPRBugs extends Component {
 				window.localStorage.setItem(fish.name, false);
 				return fish;
 			});
-			window.localStorage.setItem('chart', 0);
+			window.localStorage.setItem('chart', '0');
 		}
 	}
 	// check for local storage, create if not found
@@ -191,8 +183,8 @@ class DashboardPRBugs extends Component {
 		const month_id = date.getMonth();
 		const color = '#a1d6a1';
 		const items = [
-			{ label: 'Bugs 🐛', value: 0 },
-			{ label: 'Fish 🎣', value: 1 },
+			{ label: 'Bugs 🐛', value: '0' },
+			{ label: 'Fish 🎣', value: '1' },
 			{ label: 'Fossils (coming soon)', value: 2, disabled: true },
 			{ label: 'KK Albums (coming soon)', value: 3, disabled: true },
 		];
@@ -209,7 +201,7 @@ class DashboardPRBugs extends Component {
 					onTabChange={(e) => tab_change(e.value.value)}
 				/>
 				{/* <TabMenu model={items} /> */}
-				{this.state.activeItem === 0 ? (
+				{this.state.activeItem === '0' ? (
 					<DataTable
 						className="bugs-datatable-container"
 						value={bugs}
@@ -223,11 +215,7 @@ class DashboardPRBugs extends Component {
 							filter={true}
 							filterPlaceholder="Search"
 						/>
-						<Column
-							className="icon-column"
-							header="Icon"
-							body={bug_icon_display}
-						/>
+						<Column className="icon-column" header="Icon" body={icon_display} />
 						<Column
 							className="caught-column"
 							header="Caught"
@@ -352,11 +340,7 @@ class DashboardPRBugs extends Component {
 							filter={true}
 							filterPlaceholder="Search"
 						/>
-						<Column
-							className="icon-column"
-							header="Icon"
-							body={fish_icon_display}
-						/>
+						<Column className="icon-column" header="Icon" body={icon_display} />
 						<Column
 							className="caught-column"
 							header="Caught"
@@ -475,4 +459,4 @@ class DashboardPRBugs extends Component {
 	}
 }
 
-export default DashboardPRBugs;
+export default Dashboard;

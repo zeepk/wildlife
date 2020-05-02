@@ -11,7 +11,7 @@ function NewThisMonth(props) {
 	const icon_display = (rowData) => {
 		return (
 			<img
-				className="bug-image"
+				className="new-critter-image"
 				src={`http://acnhapi.com/icons/${rowData.size ? 'fish' : 'bugs'}/${
 					rowData.id
 				}`}
@@ -71,9 +71,9 @@ function NewThisMonth(props) {
 			</Dialog>
 
 			<Button
-				label={'New for ' + current_month + '!'}
-				className="button-container"
-				icon="pi pi-info-circle"
+				label={'😯 New for ' + current_month + '!'}
+				className="button-container p-button-raised p-button-rounded"
+				icon=""
 				onClick={(e) => setVisible(true)}
 			/>
 		</div>

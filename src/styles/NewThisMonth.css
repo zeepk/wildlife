@@ -1,7 +1,8 @@
 @media screen and (max-width: 480px) {
 	.button-container {
 		left: 35% !important;
-		top: 8% !important;
+		top: 60% !important;
+		transform: none !important;
 	}
 	.location-column {
 		display: none;
@@ -12,9 +13,30 @@
 	.dialog-container {
 		width: 90vw !important;
 	}
+	.new-critter-image {
+		width: 15vw !important;
+	}
 }
 .button-container {
-	position: fixed !important;
+	position: absolute !important;
 	left: 10%;
-	top: 5%;
+	top: 40%;
+	/* color: black !important; */
+	background-color: rgb(214, 127, 141) !important;
+	border: 1px solid white !important;
+	transition: all 0.2s ease-in-out !important;
+	transform: scale(1.3);
+}
+.button-container:hover {
+	transform: scale(1.6);
+}
+.new-container {
+	padding-bottom: 20px;
+	/* font-size: 20px !important; */
+}
+.new-critter-image {
+	width: 4vw;
+}
+.p-dialog-content {
+	padding-top: 0 !important;
 }
