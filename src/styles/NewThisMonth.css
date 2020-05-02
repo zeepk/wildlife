@@ -31,7 +31,7 @@
 	transform: scale(1.6);
 }
 .new-container {
-	padding-bottom: 20px;
+	padding: 20px;
 	/* font-size: 20px !important; */
 }
 .new-critter-image {

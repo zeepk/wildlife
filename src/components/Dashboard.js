@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
 import { bugs } from '../data_files/bugs.json';
 import { fish } from '../data_files/fish.json';
+import { fossils } from '../data_files/fossils.json';
+import { songs } from '../data_files/songs.json';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import Checkbox from '@material-ui/core/Checkbox';
 import '../styles/Dashboard.css';
-import bells_image from '../images/bells.png';
-import tiny from '../images/tiny.png';
-import small from '../images/small.png';
-import medium from '../images/medium.png';
-import large from '../images/large.png';
-import long from '../images/long.png';
-import fin from '../images/fin.png';
-import huge from '../images/huge.png';
 import MobileName from './MobileName';
+import ShadowSize from './ShadowSize';
+import TimeDisplay from './TimeDisplay';
+import Fossils from './Fossils';
+import Songs from './Songs';
+import Fish from './Fish';
+import Bugs from './Bugs';
 
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
 import { TabMenu } from 'primereact/tabmenu';
 
 // displays a green check if the month is set to 1 instead of 0
@@ -36,25 +33,8 @@ const name_display = (rowData, column) => {
 	);
 };
 
-// TODO: add img size
 const size_display = (rowData) => {
-	if (rowData.size === 'tiny') {
-		return <img className="size-image" src={tiny} alt={rowData.size} />;
-	} else if (rowData.size === 'small') {
-		return <img className="size-image" src={small} alt={rowData.size} />;
-	} else if (rowData.size === 'medium') {
-		return <img className="size-image" src={medium} alt={rowData.size} />;
-	} else if (rowData.size === 'large') {
-		return <img className="size-image" src={large} alt={rowData.size} />;
-	} else if (rowData.size === 'long') {
-		return <img className="size-image" src={long} alt={rowData.size} />;
-	} else if (rowData.size === 'fin') {
-		return <img className="size-image" src={fin} alt={rowData.size} />;
-	} else if (rowData.size === 'huge') {
-		return <img className="size-image" src={huge} alt={rowData.size} />;
-	} else {
-		return <div>N/A</div>;
-	}
+	return <ShadowSize size={rowData.size} />;
 };
 
 // checks local storage to populate checkboxes
@@ -78,54 +58,8 @@ const icon_display = (rowData) => {
 	);
 };
 
-const time_display = (rowData, column) => {
-	let today = new Date();
-	let hour = today.getHours();
-	if (!rowData.start_time || rowData.start_time === 'Any time') {
-		return (
-			<div style={{ backgroundColor: '#a1d6a1', height: '100%' }}>Any Time</div>
-		);
-	} else if (rowData.start_time_2 && rowData.id === 40) {
-		// hardcoding for Pirahna
-		if (
-			(hour >= rowData.start_time && hour < rowData.end_time) ||
-			hour >= rowData.start_time_2 ||
-			hour < rowData.end_time_2
-		) {
-			return (
-				<div style={{ backgroundColor: '#a1d6a1' }}>{rowData.time_string}</div>
-			);
-		} else {
-			return <div>{rowData.time_string}</div>;
-		}
-	} else if (rowData.start_time_2) {
-		if (
-			(hour >= rowData.start_time && hour < rowData.end_time) ||
-			(hour >= rowData.start_time_2 && hour < rowData.end_time_2)
-		) {
-			return (
-				<div style={{ backgroundColor: '#a1d6a1' }}>{rowData.time_string}</div>
-			);
-		} else {
-			return <div>{rowData.time_string}</div>;
-		}
-	} else if (rowData.start_time < rowData.end_time) {
-		if (hour >= rowData.start_time && hour < rowData.end_time) {
-			return (
-				<div style={{ backgroundColor: '#a1d6a1' }}>{rowData.time_string}</div>
-			);
-		} else {
-			return <div>{rowData.time_string}</div>;
-		}
-	} else {
-		if (hour >= rowData.start_time || hour < rowData.end_time) {
-			return (
-				<div style={{ backgroundColor: '#a1d6a1' }}>{rowData.time_string}</div>
-			);
-		} else {
-			return <div>{rowData.time_string}</div>;
-		}
-	}
+const time_display = (rowData) => {
+	return <TimeDisplay critter={rowData} />;
 };
 class Dashboard extends Component {
 	constructor(props) {
@@ -143,7 +77,9 @@ class Dashboard extends Component {
 		if (
 			typeof Storage !== 'undefined' &&
 			(localStorage.getItem('Spider') === null ||
-				localStorage.getItem('Bitterling') === null)
+				localStorage.getItem('Bitterling') === null ||
+				localStorage.getItem('Acanthostega') === null ||
+				localStorage.getItem('Agent K.K.') === null)
 		) {
 			console.log('Could not find local storage. Creating...');
 			bugs.map((bug) => {
@@ -154,49 +90,48 @@ class Dashboard extends Component {
 				window.localStorage.setItem(fish.name, false);
 				return fish;
 			});
+			fossils.map((fossil) => {
+				window.localStorage.setItem(fossil.name.name, false);
+				return fossil;
+			});
+			songs.map((song) => {
+				window.localStorage.setItem(song.name.name, false);
+				return song;
+			});
 			window.localStorage.setItem('chart', '0');
 		}
 	}
 	// check for local storage, create if not found
 
-	checkbox_change = (name) => {
-		console.log('changing...');
-		if (window.localStorage.getItem(name) === 'false') {
-			window.localStorage.setItem(name, 'true');
-		} else if (window.localStorage.getItem(name) === 'true') {
-			window.localStorage.setItem(name, 'false');
-		} else {
-			alert('Something went wrong with updating local storage');
-		}
-		this.setState({
-			ren: !this.state.ren,
-		});
-		return name;
-	};
-	caught_display = (rowData) => {
-		return (
-			<Checkbox
-				color="primary"
-				checked={is_checked(rowData.name)}
-				onChange={() => this.checkbox_change(rowData.name)}
-			/>
-		);
-	};
 	render() {
-		const date = new Date();
-		const month_id = date.getMonth();
-		const color = '#a1d6a1';
+		// Notification.requestPermission().then(function (result) {
+		// 	console.log(result);
+		// });
 		const items = [
-			{ label: 'Bugs 🐛', value: '0' },
-			{ label: 'Fish 🎣', value: '1' },
-			{ label: 'Fossils (coming soon)', value: 2, disabled: true },
-			{ label: 'KK Albums (coming soon)', value: 3, disabled: true },
+			{ label: '🐛 Bugs', value: '0' },
+			{ label: '🎣 Fish', value: '1' },
+			{ label: '⛏ Fossils', value: '2' },
+			{ label: '🎵 KK Songs', value: '3' },
 		];
 
 		const tab_change = (num) => {
 			window.localStorage.setItem('chart', num);
 			this.setState({ activeItem: num });
 		};
+
+		let current_table;
+		if (this.state.activeItem === '0') {
+			current_table = <Bugs />;
+		} else if (this.state.activeItem === '1') {
+			current_table = <Fish />;
+		} else if (this.state.activeItem === '2') {
+			current_table = <Fossils />;
+		} else if (this.state.activeItem === '3') {
+			current_table = <Songs />;
+		} else {
+			current_table = <div>No data found</div>;
+		}
+
 		return (
 			<div className="table-container">
 				<TabMenu
@@ -204,285 +139,7 @@ class Dashboard extends Component {
 					activeItem={items[this.state.activeItem]}
 					onTabChange={(e) => tab_change(e.value.value)}
 				/>
-				{this.state.activeItem === '0' ? (
-					<DataTable
-						className="bugs-datatable-container"
-						value={bugs}
-						// responsive={true}
-					>
-						<Column
-							className="name-column"
-							// field="name"
-							header="Name"
-							sortable={true}
-							filter={true}
-							filterPlaceholder="Search"
-							body={name_display}
-						/>
-						<Column className="icon-column" header="Icon" body={icon_display} />
-						<Column
-							className="caught-column"
-							header="Caught"
-							body={this.caught_display}
-						/>
-						<Column
-							className="rarity-column"
-							field="rarity"
-							header="Rarity"
-							sortable={true}
-						/>
-						<Column
-							className="price-column"
-							field="price"
-							header={
-								<img className="bells-image" src={bells_image} alt="Price" />
-							}
-							sortable={true}
-						/>
-						<Column
-							className="location-column"
-							field="location"
-							header="Location"
-						/>
-						<Column className="time-column" body={time_display} header="Time" />
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 0 ? { backgroundColor: color } : {}}
-							field="january"
-							header="Jan"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 1 ? { backgroundColor: color } : {}}
-							field="february"
-							header="Feb"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 2 ? { backgroundColor: color } : {}}
-							field="march"
-							header="Mar"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 3 ? { backgroundColor: color } : {}}
-							field="april"
-							header="Apr"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 4 ? { backgroundColor: color } : {}}
-							field="may"
-							header="May"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 5 ? { backgroundColor: color } : {}}
-							field="june"
-							header="June"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 6 ? { backgroundColor: color } : {}}
-							field="july"
-							header="July"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 7 ? { backgroundColor: color } : {}}
-							field="august"
-							header="Aug"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 8 ? { backgroundColor: color } : {}}
-							field="september"
-							header="Sept"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 9 ? { backgroundColor: color } : {}}
-							field="october"
-							header="Oct"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 10 ? { backgroundColor: color } : {}}
-							field="november"
-							header="Nov"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 11 ? { backgroundColor: color } : {}}
-							field="december"
-							header="Dec"
-							body={month_display}
-						/>
-					</DataTable>
-				) : (
-					<DataTable
-						className="fish-datatable-container"
-						value={fish}
-						// responsive={true}
-					>
-						<Column
-							className="name-column"
-							// field="name"
-							header="Name"
-							sortable={true}
-							filter={true}
-							filterPlaceholder="Search"
-							body={name_display}
-						/>
-						<Column className="icon-column" header="Icon" body={icon_display} />
-						<Column
-							className="caught-column"
-							header="Caught"
-							body={this.caught_display}
-						/>
-						<Column
-							className="rarity-column"
-							field="rarity"
-							header="Rarity"
-							sortable={true}
-						/>
-						<Column
-							className="price-column"
-							field="price"
-							header={
-								<img className="bells-image" src={bells_image} alt="Price" />
-							}
-							sortable={true}
-						/>
-						<Column
-							className="location-column"
-							field="location"
-							header="Location"
-						/>
-						<Column className="size-column" header="Size" body={size_display} />
-						<Column className="time-column" body={time_display} header="Time" />
-
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 0 ? { backgroundColor: color } : {}}
-							field="january"
-							header="Jan"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 1 ? { backgroundColor: color } : {}}
-							field="february"
-							header="Feb"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 2 ? { backgroundColor: color } : {}}
-							field="march"
-							header="Mar"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 3 ? { backgroundColor: color } : {}}
-							field="april"
-							header="Apr"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 4 ? { backgroundColor: color } : {}}
-							field="may"
-							header="May"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 5 ? { backgroundColor: color } : {}}
-							field="june"
-							header="June"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 6 ? { backgroundColor: color } : {}}
-							field="july"
-							header="July"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 7 ? { backgroundColor: color } : {}}
-							field="august"
-							header="Aug"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 8 ? { backgroundColor: color } : {}}
-							field="september"
-							header="Sept"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 9 ? { backgroundColor: color } : {}}
-							field="october"
-							header="Oct"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 10 ? { backgroundColor: color } : {}}
-							field="november"
-							header="Nov"
-							body={month_display}
-						/>
-						<Column
-							className="month-column"
-							sortable={true}
-							style={month_id === 11 ? { backgroundColor: color } : {}}
-							field="december"
-							header="Dec"
-							body={month_display}
-						/>
-					</DataTable>
-				)}
+				{current_table}
 			</div>
 		);
 	}
