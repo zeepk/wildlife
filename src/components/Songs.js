@@ -57,7 +57,7 @@ export default class Songs extends Component {
 	render() {
 		return (
 			<DataTable
-				className="bugs-datatable-container"
+				className="songs-datatable-container"
 				value={songs}
 				style={{ width: '50vw' }}
 			>
@@ -68,6 +68,7 @@ export default class Songs extends Component {
 					filter={true}
 					filterPlaceholder="Search"
 					field="name.name"
+					filterMatchMode="contains"
 				/>
 				<Column className="icon-column" header="Icon" body={icon_display} />
 				<Column

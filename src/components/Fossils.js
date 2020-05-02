@@ -57,7 +57,7 @@ export default class Fossils extends Component {
 	render() {
 		return (
 			<DataTable
-				className="bugs-datatable-container"
+				className="fossils-datatable-container"
 				value={fossils}
 				style={{ width: '50vw' }}
 			>
@@ -68,6 +68,7 @@ export default class Fossils extends Component {
 					filter={true}
 					filterPlaceholder="Search"
 					field="name.name"
+					filterMatchMode="contains"
 				/>
 				<Column className="icon-column" header="Icon" body={icon_display} />
 				<Column

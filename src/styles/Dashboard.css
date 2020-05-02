@@ -3,42 +3,31 @@
 		max-width: 12vw !important;
 		min-width: 12vw !important;
 	}
-	.month-column {
+	.month-column,
+	.rarity-column,
+	.location-column,
+	.price-column,
+	.bells-image,
+	.time-column,
+	.p-filter-column:nth-child(n + 4),
+	.size-column {
 		display: none;
 	}
 	.name-column {
 		width: 150px !important;
 	}
-	.rarity-column {
-		width: 100px;
-		display: none;
-	}
-	.location-column {
-		width: 100px;
-		display: none;
-	}
-	.price-column {
-		width: 100px;
-		display: none;
-	}
-	.bells-image {
-		height: 20px;
-		display: none;
-	}
+
 	.icon-column {
 		width: 100px;
 	}
-	.time-column {
-		display: none;
-	}
+
 	.caught-column {
 		width: 100px !important;
 	}
-	.p-filter-column:nth-child(n + 4) {
-		display: none;
-	}
-	.size-column {
-		display: none;
+
+	.fossils-datatable-container,
+	.songs-datatable-container {
+		width: 95vw !important;
 	}
 }
 
@@ -121,6 +110,7 @@ th {
 .p-tabmenu-nav {
 	border-bottom: none !important;
 	text-align: center;
+	width: 100vw !important;
 }
 .p-tabmenuitem {
 	float: none !important;

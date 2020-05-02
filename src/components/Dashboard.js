@@ -111,7 +111,7 @@ class Dashboard extends Component {
 			{ label: '🐛 Bugs', value: '0' },
 			{ label: '🎣 Fish', value: '1' },
 			{ label: '⛏ Fossils', value: '2' },
-			{ label: '🎵 KK Songs', value: '3' },
+			{ label: '🎵 Songs', value: '3' },
 		];
 
 		const tab_change = (num) => {
