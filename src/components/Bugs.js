@@ -85,10 +85,13 @@ export default class Bugs extends Component {
 		const date = new Date();
 		const month_id = date.getMonth();
 		const color = '#a1d6a1';
+		const bug_data = this.props.hideCaught
+			? bugs.filter((bug) => window.localStorage.getItem(bug.name) === 'false')
+			: bugs;
 		return (
 			<DataTable
 				className="bugs-datatable-container"
-				value={bugs}
+				value={bug_data}
 				// responsive={true}
 			>
 				<Column

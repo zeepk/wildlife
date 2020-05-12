@@ -55,10 +55,15 @@ export default class Fossils extends Component {
 		);
 	};
 	render() {
+		const fossils_data = this.props.hideCaught
+			? fossils.filter(
+					(fossil) => window.localStorage.getItem(fossil.name.name) === 'false'
+			  )
+			: fossils;
 		return (
 			<DataTable
 				className="fossils-datatable-container"
-				value={fossils}
+				value={fossils_data}
 				style={{ width: '50vw' }}
 			>
 				<Column

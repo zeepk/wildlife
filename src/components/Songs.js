@@ -55,10 +55,15 @@ export default class Songs extends Component {
 		);
 	};
 	render() {
+		const songs_data = this.props.hideCaught
+			? songs.filter(
+					(song) => window.localStorage.getItem(song.name.name) === 'false'
+			  )
+			: songs;
 		return (
 			<DataTable
 				className="songs-datatable-container"
-				value={songs}
+				value={songs_data}
 				style={{ width: '50vw' }}
 			>
 				<Column

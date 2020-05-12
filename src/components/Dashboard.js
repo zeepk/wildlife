@@ -12,7 +12,7 @@ import Fossils from './Fossils';
 import Songs from './Songs';
 import Fish from './Fish';
 import Bugs from './Bugs';
-
+import { InputSwitch } from 'primereact/inputswitch';
 import { TabMenu } from 'primereact/tabmenu';
 
 // displays a green check if the month is set to 1 instead of 0
@@ -66,6 +66,7 @@ class Dashboard extends Component {
 		super(props);
 		this.state = {
 			ren: false,
+			hideCaught: false,
 			activeItem:
 				window.localStorage.getItem('chart') === null
 					? '0'
@@ -107,6 +108,7 @@ class Dashboard extends Component {
 		// Notification.requestPermission().then(function (result) {
 		// 	console.log(result);
 		// });
+
 		const items = [
 			{ label: '🐛 Bugs', value: '0' },
 			{ label: '🎣 Fish', value: '1' },
@@ -121,19 +123,25 @@ class Dashboard extends Component {
 
 		let current_table;
 		if (this.state.activeItem === '0') {
-			current_table = <Bugs />;
+			current_table = <Bugs hideCaught={this.state.hideCaught} />;
 		} else if (this.state.activeItem === '1') {
-			current_table = <Fish />;
+			current_table = <Fish hideCaught={this.state.hideCaught} />;
 		} else if (this.state.activeItem === '2') {
-			current_table = <Fossils />;
+			current_table = <Fossils hideCaught={this.state.hideCaught} />;
 		} else if (this.state.activeItem === '3') {
-			current_table = <Songs />;
+			current_table = <Songs hideCaught={this.state.hideCaught} />;
 		} else {
 			current_table = <div>No data found</div>;
 		}
 
 		return (
 			<div className="table-container">
+				<InputSwitch
+					checked={this.state.hideCaught}
+					onChange={(e) =>
+						this.setState({ hideCaught: !this.state.hideCaught })
+					}
+				/>
 				<TabMenu
 					model={items}
 					activeItem={items[this.state.activeItem]}

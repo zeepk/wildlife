@@ -90,10 +90,15 @@ export default class Fish extends Component {
 		const date = new Date();
 		const month_id = date.getMonth();
 		const color = '#a1d6a1';
+		const fish_data = this.props.hideCaught
+			? fish.filter(
+					(fish) => window.localStorage.getItem(fish.name) === 'false'
+			  )
+			: fish;
 		return (
 			<DataTable
 				className="fish-datatable-container"
-				value={fish}
+				value={fish_data}
 				// responsive={true}
 			>
 				<Column
