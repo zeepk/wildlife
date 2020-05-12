@@ -3,64 +3,17 @@ import { bugs } from '../data_files/bugs.json';
 import { fish } from '../data_files/fish.json';
 import { fossils } from '../data_files/fossils.json';
 import { songs } from '../data_files/songs.json';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import '../styles/Dashboard.css';
-import MobileName from './MobileName';
-import ShadowSize from './ShadowSize';
-import TimeDisplay from './TimeDisplay';
 import Fossils from './Fossils';
 import Songs from './Songs';
 import Fish from './Fish';
 import Bugs from './Bugs';
-import { InputSwitch } from 'primereact/inputswitch';
+import SubMenu from './SubMenu';
 import { TabMenu } from 'primereact/tabmenu';
+import Grid from '@material-ui/core/Grid';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { Card } from 'primereact/card';
 
-// displays a green check if the month is set to 1 instead of 0
-const month_display = (rowData, column) => {
-	if (rowData[column.field] === '1') {
-		return (
-			<CheckCircleIcon
-				style={{ color: 'green', fontSize: '30px', zIndex: '' }}
-			/>
-		);
-	}
-};
-const name_display = (rowData, column) => {
-	return window.innerWidth < 480 ? (
-		<MobileName data={rowData} />
-	) : (
-		<div>{rowData.name}</div>
-	);
-};
-
-const size_display = (rowData) => {
-	return <ShadowSize size={rowData.size} />;
-};
-
-// checks local storage to populate checkboxes
-const is_checked = (name) => {
-	if (window.localStorage.getItem(name) === 'true') {
-		return true;
-	} else {
-		return false;
-	}
-};
-
-const icon_display = (rowData) => {
-	return (
-		<img
-			className="critter-image"
-			src={`http://acnhapi.com/icons/${rowData.size ? 'fish' : 'bugs'}/${
-				rowData.id
-			}`}
-			alt="Icon"
-		/>
-	);
-};
-
-const time_display = (rowData) => {
-	return <TimeDisplay critter={rowData} />;
-};
 class Dashboard extends Component {
 	constructor(props) {
 		super(props);
@@ -136,17 +89,33 @@ class Dashboard extends Component {
 
 		return (
 			<div className="table-container">
-				<InputSwitch
-					checked={this.state.hideCaught}
-					onChange={(e) =>
-						this.setState({ hideCaught: !this.state.hideCaught })
-					}
-				/>
-				<TabMenu
-					model={items}
-					activeItem={items[this.state.activeItem]}
-					onTabChange={(e) => tab_change(e.value.value)}
-				/>
+				<Grid container spacing={3}>
+					<Grid className="grid-item" item xs={12} sm={2}>
+						<SubMenu
+							hideCaught={this.state.hideCaught}
+							changeHide={(e) =>
+								this.setState({ hideCaught: !this.state.hideCaught })
+							}
+						/>
+					</Grid>
+					<Grid className="grid-item" item xs={12} sm={8}>
+						<TabMenu
+							model={items}
+							activeItem={items[this.state.activeItem]}
+							onTabChange={(e) => tab_change(e.value.value)}
+						/>
+					</Grid>
+					<Grid className="grid-item" item xs={12} sm={2}>
+						{/* <Card>
+							<CircularProgress
+								variant="static"
+								value={50}
+								className="fish-image"
+							/>
+						</Card> */}
+					</Grid>
+				</Grid>
+
 				{current_table}
 			</div>
 		);

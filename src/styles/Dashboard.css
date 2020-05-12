@@ -130,3 +130,14 @@ th {
 .p-menuitem-link {
 	padding: 10px 2vw !important;
 }
+.hide-text {
+	display: inline;
+	padding-right: 5px;
+}
+.p-card-content {
+	display: flex !important;
+	align-items: center !important;
+}
+.hide-caught {
+	max-width: 160px;
+}
