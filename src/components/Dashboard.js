@@ -9,6 +9,7 @@ import Songs from './Songs';
 import Fish from './Fish';
 import Bugs from './Bugs';
 import SubMenu from './SubMenu';
+import TotalsMenu from './TotalsMenu';
 import { TabMenu } from 'primereact/tabmenu';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -19,12 +20,59 @@ class Dashboard extends Component {
 		super(props);
 		this.state = {
 			ren: false,
+			totals: {
+				fish_total: 0,
+				bugs_total: 0,
+				fossils_total: 0,
+				songs_total: 0,
+			},
+
 			hideCaught: false,
 			activeItem:
 				window.localStorage.getItem('chart') === null
 					? '0'
 					: window.localStorage.getItem('chart'),
 		};
+	}
+
+	calcTotals() {
+		let test = 0;
+		let temp_bugs = 0;
+		let temp_fish = 0;
+		let temp_fossils = 0;
+		let temp_songs = 0;
+		bugs.map((bug) => {
+			window.localStorage.getItem(bug.name) === 'true'
+				? (temp_bugs += 1)
+				: (test = 0);
+			return bug;
+		});
+		fish.map((fish) => {
+			window.localStorage.getItem(fish.name) === 'true'
+				? (temp_fish += 1)
+				: (test = 0);
+			return fish;
+		});
+		fossils.map((fossil) => {
+			window.localStorage.getItem(fossil.name.name) === 'true'
+				? (temp_fossils += 1)
+				: (test = 0);
+			return fossil;
+		});
+		songs.map((song) => {
+			window.localStorage.getItem(song.name.name) === 'true'
+				? (temp_songs += 1)
+				: (test = 0);
+			return song;
+		});
+		this.setState({
+			totals: {
+				fish_total: temp_fish,
+				bugs_total: temp_bugs,
+				fossils_total: temp_fossils,
+				songs_total: temp_songs,
+			},
+		});
 	}
 
 	componentDidMount() {
@@ -53,6 +101,8 @@ class Dashboard extends Component {
 				return song;
 			});
 			window.localStorage.setItem('chart', '0');
+		} else {
+			this.calcTotals();
 		}
 	}
 	// check for local storage, create if not found
@@ -90,7 +140,7 @@ class Dashboard extends Component {
 		return (
 			<div className="table-container">
 				<Grid container spacing={3}>
-					<Grid className="grid-item" item xs={12} sm={2}>
+					<Grid className="grid-item" item xs={12} sm={3}>
 						<SubMenu
 							hideCaught={this.state.hideCaught}
 							changeHide={(e) =>
@@ -98,21 +148,15 @@ class Dashboard extends Component {
 							}
 						/>
 					</Grid>
-					<Grid className="grid-item" item xs={12} sm={8}>
+					<Grid className="grid-item" item xs={12} sm={6}>
 						<TabMenu
 							model={items}
 							activeItem={items[this.state.activeItem]}
 							onTabChange={(e) => tab_change(e.value.value)}
 						/>
 					</Grid>
-					<Grid className="grid-item" item xs={12} sm={2}>
-						{/* <Card>
-							<CircularProgress
-								variant="static"
-								value={50}
-								className="fish-image"
-							/>
-						</Card> */}
+					<Grid className="grid-item" item xs={12} sm={3}>
+						<TotalsMenu totals={this.state.totals} />
 					</Grid>
 				</Grid>
 
