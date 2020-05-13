@@ -2,5 +2,9 @@
 	padding-right: 10px;
 }
 .totals-container {
-	/* width: 500px; */
+	margin: 0 auto !important;
+	width: 250px;
+}
+.hide-caught {
+	margin: 0 auto !important;
 }

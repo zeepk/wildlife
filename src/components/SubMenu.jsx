@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { InputSwitch } from 'primereact/inputswitch';
 import { Card } from 'primereact/card';
+import '../styles/TotalsMenu.css';
 class SubMenu extends Component {
 	render() {
 		return (

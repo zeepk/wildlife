@@ -12,8 +12,6 @@ import SubMenu from './SubMenu';
 import TotalsMenu from './TotalsMenu';
 import { TabMenu } from 'primereact/tabmenu';
 import Grid from '@material-ui/core/Grid';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import { Card } from 'primereact/card';
 
 class Dashboard extends Component {
 	constructor(props) {
@@ -73,6 +71,7 @@ class Dashboard extends Component {
 				songs_total: temp_songs,
 			},
 		});
+		console.log(test);
 	}
 
 	componentDidMount() {
