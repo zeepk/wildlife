@@ -53,7 +53,7 @@
 				"name-nl": "Animal City",
 				"name-ru": "Город а зверушек"
 			},
-			"price": "Not for sale",
+			"price": "Specific request",
 			"sell-price": 800,
 			"isOrderable": false
 		},
@@ -148,7 +148,7 @@
 				"name-nl": "Achter het stuur",
 				"name-ru": "За рулем"
 			},
-			"price": "Not for sale",
+			"price": "Specific request",
 			"sell-price": 800,
 			"isOrderable": false
 		},
@@ -167,7 +167,7 @@
 				"name-nl": "Vaarwel",
 				"name-ru": "Прощани"
 			},
-			"price": "Not for sale",
+			"price": "Specific request",
 			"sell-price": 800,
 			"isOrderable": false
 		},
@@ -357,7 +357,7 @@
 				"name-nl": "Fijne verjaardag",
 				"name-ru": "День рождения К. К."
 			},
-			"price": "Not for sale",
+			"price": "Birthday party",
 			"sell-price": 800,
 			"isOrderable": false
 		},
@@ -1801,7 +1801,7 @@
 				"name-nl": "Welkome horizon",
 				"name-ru": "Светлые горизонты"
 			},
-			"price": "Not for sale",
+			"price": "3-star island",
 			"sell-price": 800,
 			"isOrderable": false
 		}
