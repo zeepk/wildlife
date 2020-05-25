@@ -101,6 +101,12 @@ class Dashboard extends Component {
 			});
 			window.localStorage.setItem('chart', '0');
 		} else {
+			if (localStorage.getItem('Giant Trevally') === null) {
+				window.localStorage.setItem(
+					'Giant Trevally',
+					localStorage.getItem('Gian Trevally')
+				);
+			}
 			this.calcTotals();
 		}
 	}
