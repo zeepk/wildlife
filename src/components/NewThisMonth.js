@@ -35,8 +35,14 @@ function NewThisMonth(props) {
 		'December',
 	];
 	const date = new Date();
-	const current_month_id = date.getMonth();
+	const is_end_of_month = date.getDate() > 20;
+	const current_month_id = is_end_of_month
+		? date.getMonth() + 1
+		: date.getMonth();
 	const current_month = monthNames[current_month_id];
+	const message = is_end_of_month
+		? `Coming soon in ${current_month}!`
+		: `New for ${current_month}!`;
 	const last_month = monthNames[current_month_id - 1].toLocaleLowerCase();
 	const current_month_lower = current_month.toLocaleLowerCase();
 	const new_fish = fish.filter((f) => {
@@ -52,7 +58,7 @@ function NewThisMonth(props) {
 		<div>
 			<Dialog
 				className="dialog-container"
-				header={'New for ' + current_month + '!'}
+				header={message}
 				visible={visible}
 				style={{ width: '50vw', zIndex: 1000 }}
 				modal={true}
@@ -71,7 +77,7 @@ function NewThisMonth(props) {
 			</Dialog>
 
 			<Button
-				label={'😯 New for ' + current_month + '!'}
+				label={'😯 ' + message}
 				className="button-container p-button-raised p-button-rounded"
 				icon=""
 				onClick={(e) => setVisible(true)}
