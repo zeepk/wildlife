@@ -4,10 +4,11 @@
 		top: 60% !important;
 		transform: none !important;
 		margin-left: auto !important;
-		margin-right: auto !important;
+		/* margin-right: auto !important; */
 		left: 0 !important;
-		right: 0 !important;
+		right: 5vw !important;
 		text-align: center !important;
+		max-width: 70vw;
 	}
 	.location-column {
 		display: none;

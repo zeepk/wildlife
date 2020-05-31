@@ -12,6 +12,8 @@ import SubMenu from './SubMenu';
 import TotalsMenu from './TotalsMenu';
 import { TabMenu } from 'primereact/tabmenu';
 import Grid from '@material-ui/core/Grid';
+import { Sidebar } from 'primereact/sidebar';
+import { Button } from 'primereact/button';
 
 class Dashboard extends Component {
 	constructor(props) {
@@ -24,7 +26,7 @@ class Dashboard extends Component {
 				fossils_total: 0,
 				songs_total: 0,
 			},
-
+			sidebarVisible: false,
 			hideCaught: false,
 			activeItem:
 				window.localStorage.getItem('chart') === null
@@ -144,7 +146,41 @@ class Dashboard extends Component {
 
 		return (
 			<div className="table-container">
-				<Grid container spacing={3}>
+				<Sidebar
+					className="mobile sidebar"
+					position="top"
+					visible={this.state.sidebarVisible}
+					onHide={() => this.setState({ sidebarVisible: false })}
+				>
+					<h3 style={{}}>Tools</h3>
+					<Grid container spacing={3}>
+						<Grid className="mobile-grid-item" item xs={12}>
+							<TabMenu
+								model={items}
+								activeItem={items[this.state.activeItem]}
+								onTabChange={(e) => tab_change(e.value.value)}
+							/>
+						</Grid>
+						<Grid className="mobile-grid-item" item xs={12}>
+							<SubMenu
+								hideCaught={this.state.hideCaught}
+								changeHide={(e) =>
+									this.setState({ hideCaught: !this.state.hideCaught })
+								}
+							/>
+						</Grid>
+						<Grid className="mobile-grid-item" item xs={12}>
+							<TotalsMenu totals={this.state.totals} />
+						</Grid>
+					</Grid>
+				</Sidebar>
+				<Button
+					className="mobile settings p-button-raised p-button-rounded"
+					icon="pi pi-cog"
+					onClick={(e) => this.setState({ sidebarVisible: true })}
+					label="Menu"
+				/>
+				<Grid className="desktop" container spacing={3}>
 					<Grid className="grid-item" item xs={12} sm={3}>
 						<SubMenu
 							hideCaught={this.state.hideCaught}

@@ -3,6 +3,7 @@
 		max-width: 12vw !important;
 		min-width: 12vw !important;
 	}
+	.desktop,
 	.month-column,
 	.rarity-column,
 	.location-column,
@@ -11,7 +12,7 @@
 	.time-column,
 	.p-filter-column:nth-child(n + 4),
 	.size-column {
-		display: none;
+		display: none !important;
 	}
 	.name-column {
 		width: 150px !important;
@@ -29,6 +30,22 @@
 	.songs-datatable-container {
 		width: 95vw !important;
 	}
+	.settings {
+		visibility: visible !important;
+	}
+}
+
+.sidebar {
+	height: 50vh !important;
+	background-color: var(--green) !important;
+}
+.settings {
+	border: 1px solid white !important;
+
+	position: absolute !important;
+	top: 9vh !important;
+	left: 5vw !important;
+	visibility: hidden;
 }
 
 .table-container {
