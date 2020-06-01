@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header.js';
 import Dashboard from './components/Dashboard.js';
@@ -17,10 +17,12 @@ function initializeReactGA() {
 initializeReactGA();
 
 function App() {
+	const [showMenu, toggleMenu] = useState(false);
+
 	return (
 		<div className="App">
-			<Header />
-			<Dashboard />
+			<Header toggle={() => toggleMenu(!showMenu)} />
+			<Dashboard menu={showMenu} />
 			<Footer />
 		</div>
 	);

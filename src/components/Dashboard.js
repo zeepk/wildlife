@@ -73,7 +73,6 @@ class Dashboard extends Component {
 				songs_total: temp_songs,
 			},
 		});
-		console.log(test);
 	}
 
 	componentDidMount() {
@@ -152,7 +151,16 @@ class Dashboard extends Component {
 					visible={this.state.sidebarVisible}
 					onHide={() => this.setState({ sidebarVisible: false })}
 				>
-					<h3 style={{}}>Tools</h3>
+					<h3
+						style={{
+							width: '100vw',
+							margin: '20px 0',
+							padding: '10px 0',
+							backgroundColor: 'lightgreen',
+						}}
+					>
+						Tools
+					</h3>
 					<Grid container spacing={3}>
 						<Grid className="mobile-grid-item" item xs={12}>
 							<TabMenu
@@ -174,12 +182,7 @@ class Dashboard extends Component {
 						</Grid>
 					</Grid>
 				</Sidebar>
-				<Button
-					className="mobile settings p-button-raised p-button-rounded"
-					icon="pi pi-cog"
-					onClick={(e) => this.setState({ sidebarVisible: true })}
-					label="Menu"
-				/>
+
 				<Grid className="desktop" container spacing={3}>
 					<Grid className="grid-item" item xs={12} sm={3}>
 						<SubMenu

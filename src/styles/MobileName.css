@@ -30,7 +30,7 @@ td {
 }
 .p-dialog-content {
 	padding: 0 !important;
-	background-color: var(--light-yellow) !important;
+	background-color: white !important;
 }
 .displayed-name {
 	text-decoration: underline;

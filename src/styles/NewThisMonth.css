@@ -24,10 +24,6 @@
 	}
 }
 .button-container {
-	position: absolute !important;
-	left: 10%;
-	top: 40%;
-	/* color: black !important; */
 	background-color: rgb(199, 96, 0) !important;
 	border: 1px solid white !important;
 	transition: all 0.2s ease-in-out !important;

@@ -38,13 +38,14 @@
 .sidebar {
 	height: 50vh !important;
 	background-color: var(--green) !important;
+	padding: 0 !important;
 }
 .settings {
 	border: 1px solid white !important;
 
 	position: absolute !important;
 	top: 9vh !important;
-	left: 5vw !important;
+	left: 2vw !important;
 	visibility: hidden;
 }
 

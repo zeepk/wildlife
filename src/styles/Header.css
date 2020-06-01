@@ -8,8 +8,14 @@
 	.logo-image {
 		width: 17vw;
 	}
+	.MuiGrid-item {
+		padding: none !important;
+	}
 }
 
+.MuiGrid-item {
+	padding: none !important;
+}
 .header-container {
 	position: relative;
 	height: 14vh;
