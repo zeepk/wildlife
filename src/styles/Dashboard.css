@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
+.p-column-title,
+.p-datatable-row {
+	font-family: 'Baloo 2', cursive !important;
+	font-size: larger;
+}
 @media screen and (max-width: 480px) {
 	.critter-image {
 		max-width: 12vw !important;
@@ -32,6 +38,9 @@
 	}
 	.settings {
 		visibility: visible !important;
+	}
+	.nav-item {
+		padding: 10px 0 !important;
 	}
 }
 
@@ -149,12 +158,22 @@ th {
 	padding: 10px 2vw !important;
 }
 .hide-text {
+	font-family: 'Baloo 2', cursive !important;
+
 	display: inline;
 	padding-right: 5px;
 }
 .p-card-content {
 	display: flex !important;
 	align-items: center !important;
+	text-align: center !important;
+	margin: 0 auto !important;
+}
+.p-card-body {
+	display: flex !important;
+	/* align-items: center !important; */
+	text-align: center !important;
+	/* margin: 0 auto !important; */
 }
 .hide-caught {
 	/* max-width: 160px; */
@@ -163,4 +182,7 @@ th {
 	background-color: transparent !important;
 	box-shadow: none !important;
 	color: white !important;
+}
+.nav-item {
+	margin: 0 20px 0 0 !important;
 }

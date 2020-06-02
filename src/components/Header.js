@@ -59,7 +59,7 @@ class Header extends Component {
 	render() {
 		return (
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="/">
 					<p className="title">WildLife Tracker</p>
 				</a>
 				<button
@@ -73,12 +73,6 @@ class Header extends Component {
 				>
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<Button
-					className="mobile settings p-button-raised p-button-rounded"
-					icon="pi pi-cog"
-					onClick={() => this.props.toggle()}
-					label="Menu"
-				/>
 
 				<div class="nav-text collapse navbar-collapse" id="navbarColor01">
 					<ul class="navbar-nav mr-auto">
@@ -99,11 +93,10 @@ class Header extends Component {
 					<div className="mr-5">
 						<TotalsMenu totals={this.state.totals} />
 					</div>
-					<div className="mr-5">
+					<div className="nav-item mr-0">
 						<Card className="hide-caught">
 							<div className="hide-text">Hide Caught</div>
 							<InputSwitch
-								tooltip="Nice"
 								checked={this.state.hideCaught}
 								onChange={() => {
 									this.props.toggleCaught();
@@ -114,7 +107,7 @@ class Header extends Component {
 							/>
 						</Card>
 					</div>
-					<div className="mr-5">
+					<div className="nav-item mr-0">
 						<NewThisMonth />
 					</div>
 				</div>
