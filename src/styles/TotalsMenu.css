@@ -1,28 +1,28 @@
 .total {
-	padding-right: 30px;
+	padding-right: 40px;
 }
 .totals-container {
 	padding-left: 10px;
 	margin: 0 auto !important;
 	width: 200px;
 	position: relative;
+	background-color: transparent !important;
+	box-shadow: none !important;
 }
-.hide-caught {
-	margin: 0 auto !important;
-}
+
 .spinner {
 	/* right: 0px; */
 	position: absolute;
 }
 .bug-spinner {
-	left: 10px;
+	left: 12px;
 }
 .fish-spinner {
-	left: 55px;
+	left: 72px;
 }
 .fossil-spinner {
-	left: 100px;
+	left: 128px;
 }
 .song-spinner {
-	left: 145px;
+	left: 185px;
 }
