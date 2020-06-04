@@ -12,7 +12,7 @@ function NewThisMonth(props) {
 		return (
 			<img
 				className="new-critter-image"
-				src={`http://acnhapi.com/icons/${rowData.size ? 'fish' : 'bugs'}/${
+				src={`https://acnhapi.com/icons/${rowData.size ? 'fish' : 'bugs'}/${
 					rowData.id
 				}`}
 				alt="Icon"

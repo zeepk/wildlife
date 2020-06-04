@@ -39,7 +39,7 @@ const icon_display = (rowData) => {
 	return (
 		<img
 			className="critter-image"
-			src={`http://acnhapi.com/icons/${rowData.size ? 'fish' : 'bugs'}/${
+			src={`https://acnhapi.com/icons/${rowData.size ? 'fish' : 'bugs'}/${
 				rowData.id
 			}`}
 			alt="Icon"
