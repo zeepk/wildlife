@@ -940,7 +940,7 @@
 			"size": "huge",
 			"rarity": "Rare",
 			"price": "6,000",
-			"location": "River",
+			"location": "Pond",
 			"january": "",
 			"february": "",
 			"march": "",
@@ -999,7 +999,9 @@
 			"october": "",
 			"november": "",
 			"december": "",
-			"time_string": "Any time"
+			"time_string": "9p ➡ 4a",
+			"start_time": 21,
+			"end_time": 4
 		},
 		{
 			"id": "46",

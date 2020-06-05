@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
+.p-column-title,
+.p-datatable-row {
+	font-family: 'Baloo 2', cursive !important;
+	font-size: larger;
+}
 @media screen and (max-width: 480px) {
 	.critter-image {
 		max-width: 12vw !important;
@@ -33,18 +39,22 @@
 	.settings {
 		visibility: visible !important;
 	}
+	.nav-item {
+		padding: 10px 0 !important;
+	}
 }
 
 .sidebar {
 	height: 50vh !important;
 	background-color: var(--green) !important;
+	padding: 0 !important;
 }
 .settings {
 	border: 1px solid white !important;
 
 	position: absolute !important;
 	top: 9vh !important;
-	left: 5vw !important;
+	left: 2vw !important;
 	visibility: hidden;
 }
 
@@ -148,13 +158,31 @@ th {
 	padding: 10px 2vw !important;
 }
 .hide-text {
+	font-family: 'Baloo 2', cursive !important;
+
 	display: inline;
 	padding-right: 5px;
 }
 .p-card-content {
 	display: flex !important;
 	align-items: center !important;
+	text-align: center !important;
+	margin: 0 auto !important;
+}
+.p-card-body {
+	display: flex !important;
+	/* align-items: center !important; */
+	text-align: center !important;
+	/* margin: 0 auto !important; */
 }
 .hide-caught {
-	max-width: 160px;
+	/* max-width: 160px; */
+	/* font-weight: bold !important; */
+	font-size: 20px !important;
+	background-color: transparent !important;
+	box-shadow: none !important;
+	color: white !important;
+}
+.nav-item {
+	margin: 0 20px 0 0 !important;
 }

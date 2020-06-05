@@ -18,7 +18,7 @@ const icon_display = (rowData) => {
 	return (
 		<img
 			className="critter-image"
-			src={`http://acnhapi.com/images/songs/${rowData.id}`}
+			src={`https://acnhapi.com/images/songs/${rowData.id}`}
 			alt="Icon"
 		/>
 	);

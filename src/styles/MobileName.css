@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
+
 .mobile-dialog-container {
 	width: 90vw !important;
 	text-align: left;
@@ -30,8 +32,11 @@ td {
 }
 .p-dialog-content {
 	padding: 0 !important;
-	background-color: var(--light-yellow) !important;
+	background-color: white !important;
 }
 .displayed-name {
 	text-decoration: underline;
+}
+.mobile-dialog-table {
+	font-family: 'Baloo 2', cursive !important;
 }

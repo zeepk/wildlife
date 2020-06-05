@@ -13,7 +13,7 @@ import TotalsMenu from './TotalsMenu';
 import { TabMenu } from 'primereact/tabmenu';
 import Grid from '@material-ui/core/Grid';
 import { Sidebar } from 'primereact/sidebar';
-import { Button } from 'primereact/button';
+import Header from './Header.js';
 
 class Dashboard extends Component {
 	constructor(props) {
@@ -35,83 +35,7 @@ class Dashboard extends Component {
 		};
 	}
 
-	calcTotals() {
-		let test = 0;
-		let temp_bugs = 0;
-		let temp_fish = 0;
-		let temp_fossils = 0;
-		let temp_songs = 0;
-		bugs.map((bug) => {
-			window.localStorage.getItem(bug.name) === 'true'
-				? (temp_bugs += 1)
-				: (test = 0);
-			return bug;
-		});
-		fish.map((fish) => {
-			window.localStorage.getItem(fish.name) === 'true'
-				? (temp_fish += 1)
-				: (test = 0);
-			return fish;
-		});
-		fossils.map((fossil) => {
-			window.localStorage.getItem(fossil.name.name) === 'true'
-				? (temp_fossils += 1)
-				: (test = 0);
-			return fossil;
-		});
-		songs.map((song) => {
-			window.localStorage.getItem(song.name.name) === 'true'
-				? (temp_songs += 1)
-				: (test = 0);
-			return song;
-		});
-		this.setState({
-			totals: {
-				fish_total: temp_fish,
-				bugs_total: temp_bugs,
-				fossils_total: temp_fossils,
-				songs_total: temp_songs,
-			},
-		});
-		console.log(test);
-	}
-
-	componentDidMount() {
-		if (
-			typeof Storage !== 'undefined' &&
-			(localStorage.getItem('Spider') === null ||
-				localStorage.getItem('Bitterling') === null ||
-				localStorage.getItem('Acanthostega') === null ||
-				localStorage.getItem('Agent K.K.') === null)
-		) {
-			console.log('Could not find local storage. Creating...');
-			bugs.map((bug) => {
-				window.localStorage.setItem(bug.name, false);
-				return bug;
-			});
-			fish.map((fish) => {
-				window.localStorage.setItem(fish.name, false);
-				return fish;
-			});
-			fossils.map((fossil) => {
-				window.localStorage.setItem(fossil.name.name, false);
-				return fossil;
-			});
-			songs.map((song) => {
-				window.localStorage.setItem(song.name.name, false);
-				return song;
-			});
-			window.localStorage.setItem('chart', '0');
-		} else {
-			if (localStorage.getItem('Giant Trevally') === null) {
-				window.localStorage.setItem(
-					'Giant Trevally',
-					localStorage.getItem('Gian Trevally')
-				);
-			}
-			this.calcTotals();
-		}
-	}
+	componentDidMount() {}
 	// check for local storage, create if not found
 
 	render() {
@@ -146,13 +70,24 @@ class Dashboard extends Component {
 
 		return (
 			<div className="table-container">
-				<Sidebar
+				<Header />
+
+				{/* <Sidebar
 					className="mobile sidebar"
 					position="top"
 					visible={this.state.sidebarVisible}
 					onHide={() => this.setState({ sidebarVisible: false })}
 				>
-					<h3 style={{}}>Tools</h3>
+					<h3
+						style={{
+							width: '100vw',
+							margin: '20px 0',
+							padding: '10px 0',
+							backgroundColor: 'lightgreen',
+						}}
+					>
+						Tools
+					</h3>
 					<Grid container spacing={3}>
 						<Grid className="mobile-grid-item" item xs={12}>
 							<TabMenu
@@ -173,13 +108,8 @@ class Dashboard extends Component {
 							<TotalsMenu totals={this.state.totals} />
 						</Grid>
 					</Grid>
-				</Sidebar>
-				<Button
-					className="mobile settings p-button-raised p-button-rounded"
-					icon="pi pi-cog"
-					onClick={(e) => this.setState({ sidebarVisible: true })}
-					label="Menu"
-				/>
+				</Sidebar> */}
+
 				<Grid className="desktop" container spacing={3}>
 					<Grid className="grid-item" item xs={12} sm={3}>
 						<SubMenu

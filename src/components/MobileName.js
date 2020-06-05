@@ -39,7 +39,7 @@ function MobileName(props) {
 				<div className="dialog-icon-container">
 					<img
 						className="dialog-critter-image"
-						src={`http://acnhapi.com/icons/${
+						src={`https://acnhapi.com/icons/${
 							props.data.size ? 'fish' : 'bugs'
 						}/${props.data.id}`}
 						alt="Icon"

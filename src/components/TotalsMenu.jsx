@@ -21,6 +21,7 @@ class TotalsMenu extends Component {
 					<CircularProgress
 						variant="static"
 						value={(this.props.totals.bugs_total / 80) * 100}
+						// value={100}
 						className="bug-spinner spinner"
 						style={{
 							color: `${
@@ -44,6 +45,7 @@ class TotalsMenu extends Component {
 					<CircularProgress
 						variant="static"
 						value={(this.props.totals.fish_total / 80) * 100}
+						// value={100}
 						className="fish-spinner spinner"
 						style={{
 							color: `${
@@ -67,6 +69,7 @@ class TotalsMenu extends Component {
 					<CircularProgress
 						variant="static"
 						value={(this.props.totals.fossils_total / 73) * 100}
+						// value={100}
 						className="fossil-spinner spinner"
 						style={{
 							color: `${
@@ -90,6 +93,7 @@ class TotalsMenu extends Component {
 					<CircularProgress
 						variant="static"
 						value={(this.props.totals.songs_total / 95) * 100}
+						// value={100}
 						className="song-spinner spinner"
 						style={{
 							color: `${
