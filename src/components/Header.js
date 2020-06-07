@@ -6,7 +6,7 @@ import { InputSwitch } from 'primereact/inputswitch';
 import { Card } from 'primereact/card';
 import '../styles/TotalsMenu.css';
 
-import { BrowserRouter as Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { bugs } from '../data_files/bugs.json';
 import { fish } from '../data_files/fish.json';
 import { fossils } from '../data_files/fossils.json';
