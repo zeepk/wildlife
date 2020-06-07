@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Fish from './Fish';
 import Bugs from './Bugs';
 import Fossils from './Fossils';
