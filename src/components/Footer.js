@@ -16,7 +16,7 @@ class Footer extends Component {
 							<span role="img" aria-label="laptop">
 								💻
 							</span>
-							Version 2.1.1
+							Version 2.1.2
 						</p>
 					</li>
 					<li>
@@ -44,7 +44,7 @@ class Footer extends Component {
 						<Dialog
 							header="Export your data or Import to this device!"
 							visible={this.state.visible}
-							style={{ maxWidth: '500px', width: '90vw', height: '50vh' }}
+							style={{ maxWidth: '500px', width: '90vw' }}
 							modal={true}
 							onHide={() => this.setState({ visible: false })}
 						>
