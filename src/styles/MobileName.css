@@ -5,6 +5,8 @@
 	text-align: left;
 
 	font-family: 'Baloo 2', cursive !important;
+	max-height: 90vh;
+	overflow: auto !important;
 }
 .mobile-dialog {
 	display: inline;
