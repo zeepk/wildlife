@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import '../styles/Footer.css';
 import { TwitterFollowButton } from 'react-twitter-embed';
+import { Dialog } from 'primereact/dialog';
+import { Button } from 'primereact/button';
+import ImportExport from './ImportExport';
 
 class Footer extends Component {
+	state = {};
 	render() {
 		return (
 			<div className="footer">
@@ -12,7 +16,7 @@ class Footer extends Component {
 							<span role="img" aria-label="laptop">
 								💻
 							</span>
-							Version 2.0.1
+							Version 2.1.1
 						</p>
 					</li>
 					<li>
@@ -35,6 +39,23 @@ class Footer extends Component {
 								Github Source
 							</a>
 						</p>
+					</li>
+					<li>
+						<Dialog
+							header="Export your data or Import to this device!"
+							visible={this.state.visible}
+							style={{ maxWidth: '500px', width: '90vw', height: '50vh' }}
+							modal={true}
+							onHide={() => this.setState({ visible: false })}
+						>
+							<ImportExport />
+						</Dialog>
+
+						<Button
+							label="📂 Import/Export Data"
+							className="data-button"
+							onClick={(e) => this.setState({ visible: true })}
+						/>
 					</li>
 				</ul>
 			</div>

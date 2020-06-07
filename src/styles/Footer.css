@@ -3,7 +3,7 @@
 	padding: 5px 0;
 	/* background-color: #a1d4cb; */
 	background-color: rgb(104, 104, 104);
-	font-size: 12px;
+	font-size: 16px;
 }
 .made-by {
 	display: inline;
@@ -16,9 +16,10 @@
 }
 a {
 	display: inline;
+	color: white !important;
 	padding: 5px 0;
 	/* text-shadow: 2px 2px 9px black; */
-	color: rgb(210, 240, 255) !important;
+	/* color: rgb(210, 240, 255) !important; */
 }
 #count {
 	display: none !important;
@@ -42,3 +43,18 @@ li {
 	padding: 16px;
 	text-decoration: none;
 } */
+.data-button {
+	background-color: transparent !important;
+	border: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.data-button:hover {
+	text-decoration: underline !important;
+}
+.data-button > span:nth-child(1) {
+	padding: 0 !important;
+}
+.p-dialog .p-dialog-content {
+	overflow-y: visible !important;
+}
