@@ -5,8 +5,8 @@ import TotalsMenu from './TotalsMenu';
 import { InputSwitch } from 'primereact/inputswitch';
 import { Card } from 'primereact/card';
 import '../styles/TotalsMenu.css';
-import { Button } from 'primereact/button';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
+import { BrowserRouter as Link } from 'react-router-dom';
 import { bugs } from '../data_files/bugs.json';
 import { fish } from '../data_files/fish.json';
 import { fossils } from '../data_files/fossils.json';
@@ -58,12 +58,12 @@ class Header extends Component {
 	}
 	render() {
 		return (
-			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-				<a class="navbar-brand" href="/">
+			<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+				<a className="navbar-brand" href="/">
 					<p className="title">WildLife Tracker</p>
 				</a>
 				<button
-					class="navbar-toggler"
+					className="navbar-toggler"
 					type="button"
 					data-toggle="collapse"
 					data-target="#navbarColor01"
@@ -71,21 +71,21 @@ class Header extends Component {
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-					<span class="navbar-toggler-icon"></span>
+					<span className="navbar-toggler-icon"></span>
 				</button>
 
-				<div class="nav-text collapse navbar-collapse" id="navbarColor01">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
+				<div className="nav-text collapse navbar-collapse" id="navbarColor01">
+					<ul className="navbar-nav mr-auto">
+						<li className="nav-item active">
 							<Link to="/">🎣 Fish</Link>
 						</li>
-						<li class="nav-item">
+						<li className="nav-item">
 							<Link to="/bugs">🐛 Bugs</Link>
 						</li>
-						<li class="nav-item">
+						<li className="nav-item">
 							<Link to="/fossils">⛏ Fossils</Link>
 						</li>
-						<li class="nav-item">
+						<li className="nav-item">
 							<Link to="/songs">🎵 Songs</Link>
 						</li>
 					</ul>

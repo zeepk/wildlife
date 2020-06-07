@@ -4,7 +4,7 @@ import Header from './components/Header.js';
 import LocalStorage from './components/LocalStorage.js';
 import Footer from './components/Footer.js';
 import Routing from './components/Routing.js';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
