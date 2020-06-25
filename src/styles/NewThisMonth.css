@@ -48,5 +48,6 @@
 	width: 4vw;
 }
 .p-dialog-content {
+	overflow: auto;
 	padding-top: 0 !important;
 }
