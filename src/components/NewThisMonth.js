@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { Button } from 'primereact/button';
-import { bugs } from '../data_files/bugs.json';
-import { fish } from '../data_files/fish.json';
-import '../styles/NewThisMonth.css';
-import { Dialog } from 'primereact/dialog';
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
+import React, { useState } from 'react'
+import { Button } from 'primereact/button'
+import { bugs } from '../data_files/bugs.json'
+import { fish } from '../data_files/fish.json'
+import '../styles/NewThisMonth.css'
+import { Dialog } from 'primereact/dialog'
+import { DataTable } from 'primereact/datatable'
+import { Column } from 'primereact/column'
 
 function NewThisMonth(props) {
 	const icon_display = (rowData) => {
 		return (
 			<img
 				className="new-critter-image"
-				src={`https://acnhapi.com/icons/${rowData.size ? 'fish' : 'bugs'}/${
+				src={`https://acnhapi.com/v1/icons/${rowData.size ? 'fish' : 'bugs'}/${
 					rowData.id
 				}`}
 				alt="Icon"
 			/>
-		);
-	};
-	const [visible, setVisible] = useState(false);
+		)
+	}
+	const [visible, setVisible] = useState(false)
 	const monthNames = [
 		'January',
 		'February',
@@ -33,26 +33,26 @@ function NewThisMonth(props) {
 		'October',
 		'November',
 		'December',
-	];
-	const date = new Date();
-	const is_end_of_month = date.getDate() > 20;
+	]
+	const date = new Date()
+	const is_end_of_month = date.getDate() > 20
 	const current_month_id = is_end_of_month
 		? date.getMonth() + 1
-		: date.getMonth();
-	const current_month = monthNames[current_month_id];
+		: date.getMonth()
+	const current_month = monthNames[current_month_id]
 	const message = is_end_of_month
 		? `Coming soon in ${current_month}!`
-		: `New for ${current_month}!`;
-	const last_month = monthNames[current_month_id - 1].toLocaleLowerCase();
-	const current_month_lower = current_month.toLocaleLowerCase();
+		: `New for ${current_month}!`
+	const last_month = monthNames[current_month_id - 1].toLocaleLowerCase()
+	const current_month_lower = current_month.toLocaleLowerCase()
 	const new_fish = fish.filter((f) => {
-		return f[current_month_lower] === '1' && f[last_month] === '';
-	});
+		return f[current_month_lower] === '1' && f[last_month] === ''
+	})
 	const new_bugs = bugs.filter((f) => {
-		return f[current_month_lower] === '1' && f[last_month] === '';
-	});
+		return f[current_month_lower] === '1' && f[last_month] === ''
+	})
 
-	const new_data = new_fish.concat(new_bugs);
+	const new_data = new_fish.concat(new_bugs)
 
 	return (
 		<div>
@@ -83,7 +83,7 @@ function NewThisMonth(props) {
 				onClick={(e) => setVisible(true)}
 			/>
 		</div>
-	);
+	)
 }
 
-export default NewThisMonth;
+export default NewThisMonth
