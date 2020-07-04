@@ -83,7 +83,7 @@ class Header extends Component {
 							<Link to="/bugs">🐛 Bugs</Link>
 						</li>
 						<li className=" pr-0 nav-item">
-							<Link to="/">🐙 Sea</Link>
+							<Link to="/sea">🐙 Sea</Link>
 						</li>
 						<li className=" pr-0 nav-item">
 							<Link to="/fossils">⛏ Fossils</Link>
