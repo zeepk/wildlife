@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Dialog } from 'primereact/dialog';
-import '../styles/MobileName.css';
-import ShadowSize from './ShadowSize';
+import React, { useState } from 'react'
+import { Dialog } from 'primereact/dialog'
+import '../styles/MobileName.css'
+import ShadowSize from './ShadowSize'
 
 function MobileName(props) {
-	const [visible, setVisible] = useState(false);
+	const [visible, setVisible] = useState(false)
 	const monthNames = [
 		'January',
 		'February',
@@ -18,11 +18,11 @@ function MobileName(props) {
 		'October',
 		'November',
 		'December',
-	];
+	]
 	const active_months = monthNames.filter(
 		(month) => props.data[month.toLocaleLowerCase()] === '1'
-	);
-	const active_array = active_months.join(', ');
+	)
+	const active_array = active_months.join(', ')
 	return (
 		<div>
 			<div className="displayed-name" onClick={(e) => setVisible(true)}>
@@ -39,7 +39,7 @@ function MobileName(props) {
 				<div className="dialog-icon-container">
 					<img
 						className="dialog-critter-image"
-						src={`https://acnhapi.com/icons/${
+						src={`https://acnhapi.com/v1/icons/${
 							props.data.size ? 'fish' : 'bugs'
 						}/${props.data.id}`}
 						alt="Icon"
@@ -81,7 +81,7 @@ function MobileName(props) {
 				</table>
 			</Dialog>
 		</div>
-	);
+	)
 }
 
-export default MobileName;
+export default MobileName
