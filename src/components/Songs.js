@@ -1,50 +1,50 @@
-import React, { Component } from 'react';
-import { songs } from '../data_files/songs.json';
-import Checkbox from '@material-ui/core/Checkbox';
-import bells_image from '../images/bells.png';
+import React, { Component } from 'react'
+import { songs } from '../data_files/songs.json'
+import Checkbox from '@material-ui/core/Checkbox'
+import bells_image from '../images/bells.png'
 
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
+import { DataTable } from 'primereact/datatable'
+import { Column } from 'primereact/column'
 
 const is_checked = (name) => {
 	if (window.localStorage.getItem(name) === 'true') {
-		return true;
+		return true
 	} else {
-		return false;
+		return false
 	}
-};
+}
 
 const icon_display = (rowData) => {
 	return (
 		<img
 			className="critter-image"
-			src={`https://acnhapi.com/images/songs/${rowData.id}`}
+			src={`https://acnhapi.com/v1/images/songs/${rowData.id}`}
 			alt="Icon"
 		/>
-	);
-};
+	)
+}
 
 export default class Songs extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			ren: false,
-		};
+		}
 	}
 	checkbox_change = (name) => {
-		console.log('changing...');
+		console.log('changing...')
 		if (window.localStorage.getItem(name) === 'false') {
-			window.localStorage.setItem(name, 'true');
+			window.localStorage.setItem(name, 'true')
 		} else if (window.localStorage.getItem(name) === 'true') {
-			window.localStorage.setItem(name, 'false');
+			window.localStorage.setItem(name, 'false')
 		} else {
-			alert('Something went wrong with updating local storage');
+			alert('Something went wrong with updating local storage')
 		}
 		this.setState({
 			ren: !this.state.ren,
-		});
-		return name;
-	};
+		})
+		return name
+	}
 	caught_display = (rowData) => {
 		return (
 			<Checkbox
@@ -52,14 +52,14 @@ export default class Songs extends Component {
 				checked={is_checked(rowData.name.name)}
 				onChange={() => this.checkbox_change(rowData.name.name)}
 			/>
-		);
-	};
+		)
+	}
 	render() {
 		const songs_data = this.props.hideCaught
 			? songs.filter(
 					(song) => window.localStorage.getItem(song.name.name) === 'false'
 			  )
-			: songs;
+			: songs
 		return (
 			<DataTable
 				className="songs-datatable-container"
@@ -88,6 +88,6 @@ export default class Songs extends Component {
 					sortable={true}
 				/>
 			</DataTable>
-		);
+		)
 	}
 }

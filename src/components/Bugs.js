@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { bugs } from '../data_files/bugs.json';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import Checkbox from '@material-ui/core/Checkbox';
-import bells_image from '../images/bells.png';
-import MobileName from './MobileName';
-import TimeDisplay from './TimeDisplay';
+import React, { Component } from 'react'
+import { bugs } from '../data_files/bugs.json'
+import CheckCircleIcon from '@material-ui/icons/CheckCircle'
+import Checkbox from '@material-ui/core/Checkbox'
+import bells_image from '../images/bells.png'
+import MobileName from './MobileName'
+import TimeDisplay from './TimeDisplay'
 
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
+import { DataTable } from 'primereact/datatable'
+import { Column } from 'primereact/column'
 
 const month_display = (rowData, column) => {
 	if (rowData[column.field] === '1') {
@@ -15,63 +15,63 @@ const month_display = (rowData, column) => {
 			<CheckCircleIcon
 				style={{ color: 'green', fontSize: '30px', zIndex: '' }}
 			/>
-		);
+		)
 	}
-};
+}
 const name_display = (rowData, column) => {
 	return window.innerWidth < 480 ? (
 		<MobileName data={rowData} />
 	) : (
 		<div>{rowData.name}</div>
-	);
-};
+	)
+}
 
 // checks local storage to populate checkboxes
 const is_checked = (name) => {
 	if (window.localStorage.getItem(name) === 'true') {
-		return true;
+		return true
 	} else {
-		return false;
+		return false
 	}
-};
+}
 
 const icon_display = (rowData) => {
 	return (
 		<img
 			className="critter-image"
-			src={`https://acnhapi.com/icons/${rowData.size ? 'fish' : 'bugs'}/${
+			src={`https://acnhapi.com/v1/icons/${rowData.size ? 'fish' : 'bugs'}/${
 				rowData.id
 			}`}
 			alt="Icon"
 		/>
-	);
-};
+	)
+}
 
 const time_display = (rowData) => {
-	return <TimeDisplay critter={rowData} />;
-};
+	return <TimeDisplay critter={rowData} />
+}
 
 export default class Bugs extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			ren: false,
-		};
+		}
 	}
 	checkbox_change = (name) => {
-		console.log('changing...');
+		console.log('changing...')
 		if (window.localStorage.getItem(name) === 'false') {
-			window.localStorage.setItem(name, 'true');
+			window.localStorage.setItem(name, 'true')
 		} else if (window.localStorage.getItem(name) === 'true') {
-			window.localStorage.setItem(name, 'false');
+			window.localStorage.setItem(name, 'false')
 		} else {
-			alert('Something went wrong with updating local storage');
+			alert('Something went wrong with updating local storage')
 		}
 		this.setState({
 			ren: !this.state.ren,
-		});
-		return name;
-	};
+		})
+		return name
+	}
 	caught_display = (rowData) => {
 		return (
 			<Checkbox
@@ -79,15 +79,15 @@ export default class Bugs extends Component {
 				checked={is_checked(rowData.name)}
 				onChange={() => this.checkbox_change(rowData.name)}
 			/>
-		);
-	};
+		)
+	}
 	render() {
-		const date = new Date();
-		const month_id = date.getMonth();
-		const color = '#a1d6a1';
+		const date = new Date()
+		const month_id = date.getMonth()
+		const color = '#a1d6a1'
 		const bug_data = this.props.hideCaught
 			? bugs.filter((bug) => window.localStorage.getItem(bug.name) === 'false')
-			: bugs;
+			: bugs
 		return (
 			<DataTable
 				className="bugs-datatable-container"
@@ -225,6 +225,6 @@ export default class Bugs extends Component {
 					body={month_display}
 				/>
 			</DataTable>
-		);
+		)
 	}
 }
