@@ -22,15 +22,31 @@ function MobileName(props) {
 	const active_months = monthNames.filter(
 		(month) => props.data[month.toLocaleLowerCase()] === '1'
 	)
-	const active_array = active_months.join(', ')
+	let active_array = active_months.join(', ')
+	let type = ''
+	if (props.data.size) {
+		type = 'fish'
+	} else if (props.data.availability) {
+		type = 'sea'
+		const months = props.data.availability['month-northern'].split('-')
+		console.log(months)
+		// console.log(props.data.availability['month-northern'])
+		active_array = props.data.availability.isAllYear
+			? 'All Year!'
+			: `${monthNames[parseInt(months[0])]} - ${
+					monthNames[parseInt(months[1])]
+			  }`
+	} else {
+		type = 'bugs'
+	}
 	return (
-		<div>
+		<div style={{ textTransform: 'capitalize' }}>
 			<div className="displayed-name" onClick={(e) => setVisible(true)}>
-				{props.data.name}
+				{props.data.name.split('_').join(' ')}
 			</div>
 			<Dialog
 				className="mobile-dialog-container"
-				header={props.data.name}
+				header={props.data.name.split('_').join(' ')}
 				visible={visible}
 				style={{ width: '50vw', zIndex: 1000 }}
 				modal={true}
@@ -39,9 +55,7 @@ function MobileName(props) {
 				<div className="dialog-icon-container">
 					<img
 						className="dialog-critter-image"
-						src={`https://acnhapi.com/v1/icons/${
-							props.data.size ? 'fish' : 'bugs'
-						}/${props.data.id}`}
+						src={`https://acnhapi.com/v1/icons/${type}/${props.data.id}`}
 						alt="Icon"
 					/>
 				</div>
@@ -53,16 +67,33 @@ function MobileName(props) {
 						</tr>
 						<tr>
 							<td>Time</td>
-							<td>{props.data.time_string}</td>
+							<td>
+								{props.data.time_string || props.data.availability.time_string}
+							</td>
 						</tr>
-						<tr>
-							<td>Location</td>
-							<td>{props.data.location}</td>
-						</tr>
-						<tr>
-							<td>Rarity</td>
-							<td>{props.data.rarity}</td>
-						</tr>
+						{props.data.availability ? (
+							<React.Fragment>
+								<tr>
+									<td>Speed</td>
+									<td>{props.data.speed}</td>
+								</tr>
+								<tr>
+									<td>Size</td>
+									<td>{props.data.shadow}</td>
+								</tr>
+							</React.Fragment>
+						) : (
+							<React.Fragment>
+								<tr>
+									<td>Location</td>
+									<td>{props.data.location}</td>
+								</tr>
+								<tr>
+									<td>Rarity</td>
+									<td>{props.data.rarity}</td>
+								</tr>
+							</React.Fragment>
+						)}
 						<tr>
 							<td>Price</td>
 							<td>{props.data.price}</td>
