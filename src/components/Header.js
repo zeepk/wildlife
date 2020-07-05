@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import '../styles/Header.css'
 import NewThisMonth from './NewThisMonth'
-import TotalsMenu from './TotalsMenu'
 import { InputSwitch } from 'primereact/inputswitch'
 import { Card } from 'primereact/card'
 import '../styles/TotalsMenu.css'
@@ -77,19 +76,44 @@ class Header extends Component {
 				<div className="nav-text collapse navbar-collapse" id="navbarColor01">
 					<ul className="navbar-nav ml-3">
 						<li className=" pr-0 nav-item active">
-							<Link to="/">🎣 Fish</Link>
+							<Link to="/">
+								<span role="img" aria-label="icon">
+									🎣
+								</span>{' '}
+								Fish
+							</Link>
 						</li>
 						<li className=" pr-0 nav-item">
-							<Link to="/bugs">🐛 Bugs</Link>
+							<Link to="/bugs">
+								<span role="img" aria-label="icon">
+									🐛
+								</span>{' '}
+								Bugs
+							</Link>
 						</li>
 						<li className=" pr-0 nav-item">
-							<Link to="/sea">🐙 Sea</Link>
+							<Link to="/sea">
+								<span role="img" aria-label="icon">
+									🐙
+								</span>{' '}
+								Sea
+							</Link>
 						</li>
 						<li className=" pr-0 nav-item">
-							<Link to="/fossils">⛏ Fossils</Link>
+							<Link to="/fossils">
+								<span role="img" aria-label="icon">
+									⛏
+								</span>{' '}
+								Fossils
+							</Link>
 						</li>
 						<li className=" pr-0 nav-item">
-							<Link to="/songs">🎵 Songs</Link>
+							<Link to="/songs">
+								<span role="img" aria-label="icon">
+									🎵
+								</span>{' '}
+								Songs
+							</Link>
 						</li>
 					</ul>
 

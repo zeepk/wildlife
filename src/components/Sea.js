@@ -4,7 +4,6 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle'
 import Checkbox from '@material-ui/core/Checkbox'
 import bells_image from '../images/bells.png'
 import MobileName from './MobileName'
-import ShadowSize from './ShadowSize'
 import TimeDisplay from './TimeDisplay'
 
 import { DataTable } from 'primereact/datatable'
@@ -30,10 +29,6 @@ const name_display = (rowData, column) => {
 			{rowData.name.split('_').join(' ')}
 		</div>
 	)
-}
-
-const size_display = (rowData) => {
-	return <ShadowSize size={rowData.shadow} />
 }
 
 // checks local storage to populate checkboxes
