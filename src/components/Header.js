@@ -1,52 +1,51 @@
-import React, { Component } from 'react';
-import '../styles/Header.css';
-import NewThisMonth from './NewThisMonth';
-import TotalsMenu from './TotalsMenu';
-import { InputSwitch } from 'primereact/inputswitch';
-import { Card } from 'primereact/card';
-import '../styles/TotalsMenu.css';
+import React, { Component } from 'react'
+import '../styles/Header.css'
+import NewThisMonth from './NewThisMonth'
+import { InputSwitch } from 'primereact/inputswitch'
+import { Card } from 'primereact/card'
+import '../styles/TotalsMenu.css'
 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { bugs } from '../data_files/bugs.json';
-import { fish } from '../data_files/fish.json';
-import { fossils } from '../data_files/fossils.json';
-import { songs } from '../data_files/songs.json';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { bugs } from '../data_files/bugs.json'
+import { fish } from '../data_files/fish.json'
+import { fossils } from '../data_files/fossils.json'
+import { songs } from '../data_files/songs.json'
 
 class Header extends Component {
 	state = {
 		hideCaught: false,
 		totals: { fish_total: 0, bugs_total: 0, fossils_total: 0, songs_total: 0 },
-	};
+	}
 	componentDidMount() {
-		let temp_bugs = 0;
-		let temp_fish = 0;
-		let temp_fossils = 0;
-		let temp_songs = 0;
-		let test;
+		let temp_bugs = 0
+		let temp_fish = 0
+		let temp_fossils = 0
+		let temp_songs = 0
+		let test
 		bugs.map((bug) => {
 			window.localStorage.getItem(bug.name) === 'true'
 				? (temp_bugs += 1)
-				: (test = 0);
-			return bug;
-		});
+				: (test = 0)
+			return bug
+		})
 		fish.map((fish) => {
 			window.localStorage.getItem(fish.name) === 'true'
 				? (temp_fish += 1)
-				: (test = 0);
-			return fish;
-		});
+				: (test = 0)
+			return fish
+		})
 		fossils.map((fossil) => {
 			window.localStorage.getItem(fossil.name.name) === 'true'
 				? (temp_fossils += 1)
-				: (test = 0);
-			return fossil;
-		});
+				: (test = 0)
+			return fossil
+		})
 		songs.map((song) => {
 			window.localStorage.getItem(song.name.name) === 'true'
 				? (temp_songs += 1)
-				: (test = 0);
-			return song;
-		});
+				: (test = 0)
+			return song
+		})
 		this.setState({
 			totals: {
 				fish_total: temp_fish,
@@ -54,7 +53,7 @@ class Header extends Component {
 				fossils_total: temp_fossils,
 				songs_total: temp_songs,
 			},
-		});
+		})
 	}
 	render() {
 		return (
@@ -75,23 +74,51 @@ class Header extends Component {
 				</button>
 
 				<div className="nav-text collapse navbar-collapse" id="navbarColor01">
-					<ul className="navbar-nav mr-auto">
-						<li className="nav-item active">
-							<Link to="/">🎣 Fish</Link>
+					<ul className="navbar-nav ml-3">
+						<li className=" pr-0 nav-item active">
+							<Link to="/">
+								<span role="img" aria-label="icon">
+									🎣
+								</span>{' '}
+								Fish
+							</Link>
 						</li>
-						<li className="nav-item">
-							<Link to="/bugs">🐛 Bugs</Link>
+						<li className=" pr-0 nav-item">
+							<Link to="/bugs">
+								<span role="img" aria-label="icon">
+									🐛
+								</span>{' '}
+								Bugs
+							</Link>
 						</li>
-						<li className="nav-item">
-							<Link to="/fossils">⛏ Fossils</Link>
+						<li className=" pr-0 nav-item">
+							<Link to="/sea">
+								<span role="img" aria-label="icon">
+									🐙
+								</span>{' '}
+								Sea
+							</Link>
 						</li>
-						<li className="nav-item">
-							<Link to="/songs">🎵 Songs</Link>
+						<li className=" pr-0 nav-item">
+							<Link to="/fossils">
+								<span role="img" aria-label="icon">
+									⛏
+								</span>{' '}
+								Fossils
+							</Link>
+						</li>
+						<li className=" pr-0 nav-item">
+							<Link to="/songs">
+								<span role="img" aria-label="icon">
+									🎵
+								</span>{' '}
+								Songs
+							</Link>
 						</li>
 					</ul>
 
 					<div className="mr-5">
-						<TotalsMenu totals={this.state.totals} />
+						{/* <TotalsMenu totals={this.state.totals} /> */}
 					</div>
 					<div className="nav-item mr-0">
 						<Card className="hide-caught">
@@ -99,10 +126,10 @@ class Header extends Component {
 							<InputSwitch
 								checked={this.state.hideCaught}
 								onChange={() => {
-									this.props.toggleCaught();
+									this.props.toggleCaught()
 									this.setState({
 										hideCaught: !this.state.hideCaught,
-									});
+									})
 								}}
 							/>
 						</Card>
@@ -148,8 +175,8 @@ class Header extends Component {
 					</div>
 				</Toolbar>
 			</div> */
-		);
+		)
 	}
 }
 
-export default Header;
+export default Header

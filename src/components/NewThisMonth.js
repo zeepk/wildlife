@@ -2,19 +2,33 @@ import React, { useState } from 'react'
 import { Button } from 'primereact/button'
 import { bugs } from '../data_files/bugs.json'
 import { fish } from '../data_files/fish.json'
+import { sea } from '../data_files/sea.json'
 import '../styles/NewThisMonth.css'
 import { Dialog } from 'primereact/dialog'
 import { DataTable } from 'primereact/datatable'
 import { Column } from 'primereact/column'
 
 function NewThisMonth(props) {
+	const name_display = (rowData, column) => {
+		return (
+			<div style={{ textTransform: 'capitalize' }}>
+				{rowData.name.split('_').join(' ')}
+			</div>
+		)
+	}
 	const icon_display = (rowData) => {
+		let type = ''
+		if (rowData.size) {
+			type = 'fish'
+		} else if (rowData.availability) {
+			type = 'sea'
+		} else {
+			type = 'bugs'
+		}
 		return (
 			<img
 				className="new-critter-image"
-				src={`https://acnhapi.com/v1/icons/${rowData.size ? 'fish' : 'bugs'}/${
-					rowData.id
-				}`}
+				src={`https://acnhapi.com/v1/icons/${type}/${rowData.id}`}
 				alt="Icon"
 			/>
 		)
@@ -48,11 +62,21 @@ function NewThisMonth(props) {
 	const new_fish = fish.filter((f) => {
 		return f[current_month_lower] === '1' && f[last_month] === ''
 	})
+	const new_sea = sea.filter((creature) => {
+		return (
+			creature.availability['month-array-northern'].includes(
+				current_month_id
+			) &&
+			!creature.availability['month-array-northern'].includes(
+				current_month_id - 1
+			)
+		)
+	})
 	const new_bugs = bugs.filter((f) => {
 		return f[current_month_lower] === '1' && f[last_month] === ''
 	})
 
-	const new_data = new_fish.concat(new_bugs)
+	const new_data = [...new_sea, ...new_fish, ...new_bugs]
 
 	return (
 		<div>
@@ -65,7 +89,12 @@ function NewThisMonth(props) {
 				onHide={() => setVisible(false)}
 			>
 				<DataTable className="new-container" value={new_data}>
-					<Column className="name-column" field="name" header="Name" />
+					<Column
+						className="name-column"
+						field="name"
+						header="Name"
+						body={name_display}
+					/>
 					<Column className="name-column" header="Icon" body={icon_display} />
 					<Column
 						className="location-column"
