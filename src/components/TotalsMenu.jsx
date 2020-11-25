@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+import FossilIcon from '../images/fossilIcon.png';
+import FishIcon from '../images/fishIcon.webp';
+import BugIcon from '../images/bugIcon.webp';
 import { Card } from 'primereact/card';
 import '../styles/TotalsMenu.css';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -9,109 +12,80 @@ const DarkTooltip = withStyles((theme) => ({
 		fontSize: 20,
 	},
 }))(Tooltip);
-class TotalsMenu extends Component {
-	render() {
-		return (
-			<Card className="totals-container">
-				<DarkTooltip
-					placement="top"
-					arrow
-					title={`${this.props.totals.bugs_total}/80`}
-				>
-					<CircularProgress
-						variant="static"
-						value={(this.props.totals.bugs_total / 80) * 100}
-						// value={100}
-						className="bug-spinner spinner"
-						style={{
-							color: `${
-								(this.props.totals.bugs_total / 80) * 100 >= 100
-									? 'gold'
-									: 'green'
-							}`,
-						}}
-					/>
-				</DarkTooltip>
-				<div className="total">
-					<span role="img" aria-label="emoji">
-						🐛
-					</span>
-				</div>
-				<DarkTooltip
-					placement="top"
-					arrow
-					title={`${this.props.totals.fish_total}/80`}
-				>
-					<CircularProgress
-						variant="static"
-						value={(this.props.totals.fish_total / 80) * 100}
-						// value={100}
-						className="fish-spinner spinner"
-						style={{
-							color: `${
-								(this.props.totals.fish_total / 80) * 100 >= 100
-									? 'gold'
-									: 'blue'
-							}`,
-						}}
-					/>
-				</DarkTooltip>
-				<div className="total">
-					<span role="img" aria-label="emoji">
-						🎣
-					</span>
-				</div>
-				<DarkTooltip
-					placement="top"
-					arrow
-					title={`${this.props.totals.fossils_total}/73`}
-				>
-					<CircularProgress
-						variant="static"
-						value={(this.props.totals.fossils_total / 73) * 100}
-						// value={100}
-						className="fossil-spinner spinner"
-						style={{
-							color: `${
-								(this.props.totals.fossils_total / 73) * 100 >= 100
-									? 'gold'
-									: 'green'
-							}`,
-						}}
-					/>
-				</DarkTooltip>
-				<div className="total">
-					<span role="img" aria-label="emoji">
-						⛏
-					</span>
-				</div>
-				<DarkTooltip
-					placement="top"
-					arrow
-					title={`${this.props.totals.songs_total}/95`}
-				>
-					<CircularProgress
-						variant="static"
-						value={(this.props.totals.songs_total / 95) * 100}
-						// value={100}
-						className="song-spinner spinner"
-						style={{
-							color: `${
-								(this.props.totals.songs_total / 95) * 100 >= 100
-									? 'gold'
-									: 'blue'
-							}`,
-						}}
-					/>
-				</DarkTooltip>
-				<div className="total">
-					<span role="img" aria-label="emoji">
-						🎵
-					</span>
-				</div>
-			</Card>
-		);
-	}
-}
+
+const TotalsMenu = (props) => {
+	const bugTotal = props.totals.bugs_total;
+	const fishTotal = props.totals.fish_total;
+	const fossilTotal = props.totals.fossils_total;
+	const songTotal = props.totals.songs_total;
+	return (
+		<Card className="totals-container">
+			<DarkTooltip placement="top" arrow title={`${bugTotal}/80`}>
+				<CircularProgress
+					variant="static"
+					value={(bugTotal / 80) * 100}
+					// value={100}
+					className="bug-spinner spinner"
+					style={{
+						color: `${(bugTotal / 80) * 100 >= 100 ? 'gold' : 'green'}`,
+					}}
+				/>
+			</DarkTooltip>
+			<div className="total">
+				<span role="img">
+					<img src={BugIcon} alt="Bug" className="icon" />
+				</span>
+			</div>
+			<DarkTooltip placement="top" arrow title={`${fishTotal}/80`}>
+				<CircularProgress
+					variant="static"
+					value={(fishTotal / 80) * 100}
+					// value={100}
+					className="fish-spinner spinner"
+					style={{
+						color: `${(fishTotal / 80) * 100 >= 100 ? 'gold' : 'blue'}`,
+					}}
+				/>
+			</DarkTooltip>
+			<div className="total">
+				<span role="img">
+					<img src={FishIcon} alt="Fish" className="icon" />
+				</span>
+			</div>
+			<DarkTooltip placement="top" arrow title={`${fossilTotal}/73`}>
+				<CircularProgress
+					variant="static"
+					value={(fossilTotal / 73) * 100}
+					// value={100}
+					className="fossil-spinner spinner"
+					style={{
+						color: `${(fossilTotal / 73) * 100 >= 100 ? 'gold' : 'green'}`,
+					}}
+				/>
+			</DarkTooltip>
+			<div className="total">
+				<span role="img">
+					<img src={FossilIcon} alt="Fossils" className="icon" />
+				</span>
+			</div>
+			<DarkTooltip placement="top" arrow title={`${songTotal}/95`}>
+				<CircularProgress
+					variant="static"
+					value={(songTotal / 95) * 100}
+					// value={100}
+					className="song-spinner spinner"
+					style={{
+						color: `${(songTotal / 95) * 100 >= 100 ? 'gold' : 'blue'}`,
+					}}
+				/>
+			</DarkTooltip>
+			<div className="total">
+				<span role="img" aria-label="emoji">
+					🎵
+				</span>
+			</div>
+		</Card>
+	);
+};
 
 export default TotalsMenu;

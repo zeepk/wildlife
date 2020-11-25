@@ -1,5 +1,5 @@
 .total {
-	padding-right: 40px;
+	padding-right: 25px;
 }
 .totals-container {
 	padding-left: 10px;
@@ -9,20 +9,22 @@
 	background-color: transparent !important;
 	box-shadow: none !important;
 }
-
 .spinner {
 	/* right: 0px; */
 	position: absolute;
 }
 .bug-spinner {
-	left: 12px;
+	left: 18px;
 }
 .fish-spinner {
-	left: 65px;
+	left: 73px;
 }
 .fossil-spinner {
-	left: 120px;
+	left: 129px;
 }
 .song-spinner {
 	left: 175px;
+}
+.icon {
+	max-height: 30px;
 }
