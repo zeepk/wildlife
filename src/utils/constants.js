@@ -1,3 +1,4 @@
+export const version = '2.2.1';
 export const monthColumnHighlightColor = '#a1d6a1';
 
 export const months = [

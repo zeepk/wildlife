@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
-import '../styles/Footer.css'
-import { TwitterFollowButton } from 'react-twitter-embed'
-import { Dialog } from 'primereact/dialog'
-import { Button } from 'primereact/button'
-import ImportExport from './ImportExport'
+import React, { Component } from 'react';
+import '../styles/Footer.css';
+import { TwitterFollowButton } from 'react-twitter-embed';
+import { Dialog } from 'primereact/dialog';
+import { Button } from 'primereact/button';
+import ImportExport from './ImportExport';
+import { version } from '../../src/utils/constants';
 
 class Footer extends Component {
-	state = {}
+	state = {};
 	render() {
 		return (
 			<div className="footer">
@@ -16,7 +17,7 @@ class Footer extends Component {
 							<span role="img" aria-label="laptop">
 								💻
 							</span>
-							Version 2.2.0
+							Version {version || 'x.x.x'}
 						</p>
 					</li>
 					<li>
@@ -59,8 +60,8 @@ class Footer extends Component {
 					</li>
 				</ul>
 			</div>
-		)
+		);
 	}
 }
 
-export default Footer
+export default Footer;
