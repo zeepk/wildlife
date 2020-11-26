@@ -26,8 +26,8 @@ const TotalsMenu = (props) => {
 			<DarkTooltip placement="top" arrow title={`${fishTotal}/80`}>
 				<CircularProgress
 					variant="static"
-					// value={(fishTotal / 80) * 100}
-					value={100}
+					value={(fishTotal / 80) * 100}
+					// value={100}
 					className="fish-spinner spinner"
 					style={{
 						color: `${(fishTotal / 80) * 100 >= 100 ? 'gold' : 'blue'}`,
@@ -42,8 +42,8 @@ const TotalsMenu = (props) => {
 			<DarkTooltip placement="top" arrow title={`${bugTotal}/80`}>
 				<CircularProgress
 					variant="static"
-					// value={(bugTotal / 80) * 100}
-					value={100}
+					value={(bugTotal / 80) * 100}
+					// value={100}
 					className="bug-spinner spinner"
 					style={{
 						color: `${(bugTotal / 80) * 100 >= 100 ? 'gold' : 'green'}`,
@@ -58,8 +58,8 @@ const TotalsMenu = (props) => {
 			<DarkTooltip placement="top" arrow title={`${seaTotal}/40`}>
 				<CircularProgress
 					variant="static"
-					// value={(seaTotal / 40) * 100}
-					value={100}
+					value={(seaTotal / 40) * 100}
+					// value={100}
 					className="sea-spinner spinner"
 					style={{
 						color: `${(seaTotal / 40) * 100 >= 100 ? 'gold' : 'blue'}`,
@@ -74,8 +74,8 @@ const TotalsMenu = (props) => {
 			<DarkTooltip placement="top" arrow title={`${fossilTotal}/73`}>
 				<CircularProgress
 					variant="static"
-					// value={(fossilTotal / 73) * 100}
-					value={100}
+					value={(fossilTotal / 73) * 100}
+					// value={100}
 					className="fossil-spinner spinner"
 					style={{
 						color: `${(fossilTotal / 73) * 100 >= 100 ? 'gold' : 'green'}`,
@@ -90,8 +90,8 @@ const TotalsMenu = (props) => {
 			<DarkTooltip placement="top" arrow title={`${songTotal}/95`}>
 				<CircularProgress
 					variant="static"
-					// value={(songTotal / 95) * 100}
-					value={100}
+					value={(songTotal / 95) * 100}
+					// value={100}
 					className="song-spinner spinner"
 					style={{
 						color: `${(songTotal / 95) * 100 >= 100 ? 'gold' : 'blue'}`,
