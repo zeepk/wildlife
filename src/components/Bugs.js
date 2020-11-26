@@ -52,7 +52,8 @@ const Bugs = (props) => {
 
 	const nameDisplay = (rowData, column) => {
 		return window.innerWidth < 480 ? (
-			<MobileName data={rowData} />
+			// <MobileName data={rowData} />
+			<div>{rowData.name}</div>
 		) : (
 			<div>{rowData.name}</div>
 		);

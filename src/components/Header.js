@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { messageOfTheDay } from '../utils/constants';
 import '../styles/Header.css';
 import NewThisMonth from './NewThisMonth';
 import { InputSwitch } from 'primereact/inputswitch';
@@ -65,6 +66,7 @@ class Header extends Component {
 			<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 				<a className="navbar-brand" href="/">
 					<p className="title">WildLife Tracker</p>
+					<p className="motd">{messageOfTheDay}</p>
 				</a>
 				<button
 					className="navbar-toggler"

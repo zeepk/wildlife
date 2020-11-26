@@ -37,6 +37,9 @@
 	/* -webkit-text-stroke: 1px black; */
 	margin: 0 !important;
 }
+.motd {
+	font-size: 0.8em;
+}
 .navbar-collapse.collapse.in {
 	display: block !important;
 }
