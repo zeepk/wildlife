@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { Dialog } from 'primereact/dialog'
-import '../styles/MobileName.css'
-import ShadowSize from './ShadowSize'
+import React, { useState } from 'react';
+import { Dialog } from 'primereact/dialog';
+import '../styles/MobileName.css';
+import ShadowSize from './ShadowSize';
 
 function MobileName(props) {
-	const [visible, setVisible] = useState(false)
+	const [visible, setVisible] = useState(false);
 	const monthNames = [
 		'January',
 		'February',
@@ -18,26 +18,26 @@ function MobileName(props) {
 		'October',
 		'November',
 		'December',
-	]
-	const active_months = monthNames.filter(
+	];
+	const activeMonths = monthNames.filter(
 		(month) => props.data[month.toLocaleLowerCase()] === '1'
-	)
-	let active_array = active_months.join(', ')
-	let type = ''
+	);
+	let activeMonthsArray = activeMonths.join(', ');
+	let type = '';
 	if (props.data.size) {
-		type = 'fish'
+		type = 'fish';
 	} else if (props.data.availability) {
-		type = 'sea'
-		const months = props.data.availability['month-northern'].split('-')
-		console.log(months)
+		type = 'sea';
+		const months = props.data.availability['month-northern'].split('-');
+		console.log(months);
 		// console.log(props.data.availability['month-northern'])
-		active_array = props.data.availability.isAllYear
+		activeMonthsArray = props.data.availability.isAllYear
 			? 'All Year!'
 			: `${monthNames[parseInt(months[0])]} - ${
 					monthNames[parseInt(months[1])]
-			  }`
+			  }`;
 	} else {
-		type = 'bugs'
+		type = 'bugs';
 	}
 	return (
 		<div style={{ textTransform: 'capitalize' }}>
@@ -63,12 +63,12 @@ function MobileName(props) {
 					<tbody>
 						<tr>
 							<td>Months</td>
-							<td>{active_array}</td>
+							<td>{activeMonthsArray}</td>
 						</tr>
 						<tr>
 							<td>Time</td>
 							<td>
-								{props.data.time_string || props.data.availability.time_string}
+								{props.data.timeString || props.data.availability.timeString}
 							</td>
 						</tr>
 						{props.data.availability ? (
@@ -112,7 +112,7 @@ function MobileName(props) {
 				</table>
 			</Dialog>
 		</div>
-	)
+	);
 }
 
-export default MobileName
+export default MobileName;

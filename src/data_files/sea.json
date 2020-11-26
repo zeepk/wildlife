@@ -5,7 +5,7 @@
 			"location": "Diving 🐙",
 			"id": 1,
 			"file-name": "seaweed",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "10-7",
 				"month-southern": "4-1",
@@ -14,7 +14,7 @@
 				"isAllYear": false,
 				"month-array-northern": [10, 11, 12, 1, 2, 3, 4, 5, 6, 7],
 				"month-array-southern": [4, 5, 6, 7, 8, 9, 10, 11, 12, 1],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Stationary",
 			"shadow": "Large",
@@ -27,7 +27,7 @@
 			"location": "Diving 🐙",
 			"id": 2,
 			"file-name": "sea_grapes",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "6-9",
 				"month-southern": "12-3",
@@ -36,7 +36,7 @@
 				"isAllYear": false,
 				"month-array-northern": [6, 7, 8, 9],
 				"month-array-southern": [12, 1, 2, 3],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Stationary",
 			"shadow": "Small",
@@ -49,7 +49,7 @@
 			"location": "Diving 🐙",
 			"id": 3,
 			"file-name": "sea_cucumber",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "11-4",
 				"month-southern": "5-10",
@@ -58,7 +58,7 @@
 				"isAllYear": false,
 				"month-array-northern": [11, 12, 1, 2, 3, 4],
 				"month-array-southern": [5, 6, 7, 8, 9, 10],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Very slow",
 			"shadow": "Medium",
@@ -71,7 +71,7 @@
 			"location": "Diving 🐙",
 			"id": 4,
 			"file-name": "sea_pig",
-			"time_string": "4p ➡ 9a",
+			"timeString": "4p ➡ 9a",
 			"availability": {
 				"month-northern": "11-2",
 				"month-southern": "5-8",
@@ -80,9 +80,9 @@
 				"isAllYear": false,
 				"month-array-northern": [11, 12, 1, 2],
 				"month-array-southern": [5, 6, 7, 8],
-				"time_string": "4p ➡ 9a",
-				"start_time": 16,
-				"end_time": 9
+				"timeString": "4p ➡ 9a",
+				"startTime": 16,
+				"endTime": 9
 			},
 			"speed": "🔥",
 			"shadow": "Small",
@@ -95,7 +95,7 @@
 			"location": "Diving 🐙",
 			"id": 5,
 			"file-name": "sea_star",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "",
 				"month-southern": "",
@@ -104,7 +104,7 @@
 				"isAllYear": true,
 				"month-array-northern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 				"month-array-southern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Very slow",
 			"shadow": "Small",
@@ -117,7 +117,7 @@
 			"location": "Diving 🐙",
 			"id": 6,
 			"file-name": "sea_urchin",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "5-9",
 				"month-southern": "11-3",
@@ -126,7 +126,7 @@
 				"isAllYear": false,
 				"month-array-northern": [5, 6, 7, 8, 9],
 				"month-array-southern": [11, 12, 1, 2, 3],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Slow",
 			"shadow": "Small",
@@ -139,7 +139,7 @@
 			"location": "Diving 🐙",
 			"id": 7,
 			"file-name": "slate_pencil_urchin",
-			"time_string": "4p ➡ 9a",
+			"timeString": "4p ➡ 9a",
 			"availability": {
 				"month-northern": "5-9",
 				"month-southern": "11-3",
@@ -148,9 +148,9 @@
 				"isAllYear": false,
 				"month-array-northern": [5, 6, 7, 8, 9],
 				"month-array-southern": [11, 12, 1, 2, 3],
-				"time_string": "4p ➡ 9a",
-				"start_time": 16,
-				"end_time": 9
+				"timeString": "4p ➡ 9a",
+				"startTime": 16,
+				"endTime": 9
 			},
 			"speed": "Medium",
 			"shadow": "Medium",
@@ -163,7 +163,7 @@
 			"location": "Diving 🐙",
 			"id": 8,
 			"file-name": "sea_anemone",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "",
 				"month-southern": "",
@@ -172,7 +172,7 @@
 				"isAllYear": true,
 				"month-array-northern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 				"month-array-southern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Stationary",
 			"shadow": "Large",
@@ -185,7 +185,7 @@
 			"location": "Diving 🐙",
 			"id": 9,
 			"file-name": "moon_jellyfish",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "7-9",
 				"month-southern": "1-3",
@@ -194,7 +194,7 @@
 				"isAllYear": false,
 				"month-array-northern": [7, 8, 9],
 				"month-array-southern": [1, 2, 3],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Very slow",
 			"shadow": "Small",
@@ -207,7 +207,7 @@
 			"location": "Diving 🐙",
 			"id": 10,
 			"file-name": "sea_slug",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "",
 				"month-southern": "",
@@ -216,7 +216,7 @@
 				"isAllYear": true,
 				"month-array-northern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 				"month-array-southern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Very slow",
 			"shadow": "Smallest",
@@ -229,7 +229,7 @@
 			"location": "Diving 🐙",
 			"id": 11,
 			"file-name": "pearl_oyster",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "",
 				"month-southern": "",
@@ -238,7 +238,7 @@
 				"isAllYear": true,
 				"month-array-northern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 				"month-array-southern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Medium",
 			"shadow": "Small",
@@ -251,7 +251,7 @@
 			"location": "Diving 🐙",
 			"id": 12,
 			"file-name": "mussel",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "6-12",
 				"month-southern": "12-6",
@@ -260,7 +260,7 @@
 				"isAllYear": false,
 				"month-array-northern": [6, 7, 8, 9, 10, 11, 12],
 				"month-array-southern": [12, 1, 2, 3, 4, 5, 6],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Slow",
 			"shadow": "Small",
@@ -273,7 +273,7 @@
 			"location": "Diving 🐙",
 			"id": 13,
 			"file-name": "oyster",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "9-2",
 				"month-southern": "3-8",
@@ -282,7 +282,7 @@
 				"isAllYear": false,
 				"month-array-northern": [9, 10, 11, 12, 1, 2],
 				"month-array-southern": [3, 4, 5, 6, 7, 8],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Slow",
 			"shadow": "Small",
@@ -295,7 +295,7 @@
 			"location": "Diving 🐙",
 			"id": 14,
 			"file-name": "scallop",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "",
 				"month-southern": "",
@@ -304,7 +304,7 @@
 				"isAllYear": true,
 				"month-array-northern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 				"month-array-southern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Slow",
 			"shadow": "Medium",
@@ -317,7 +317,7 @@
 			"location": "Diving 🐙",
 			"id": 15,
 			"file-name": "whelk",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "",
 				"month-southern": "",
@@ -326,7 +326,7 @@
 				"isAllYear": true,
 				"month-array-northern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 				"month-array-southern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Slow",
 			"shadow": "Small",
@@ -339,7 +339,7 @@
 			"location": "Diving 🐙",
 			"id": 16,
 			"file-name": "turban_shell",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "3-5 & 9-12",
 				"month-southern": "3-6 & 9-11",
@@ -348,7 +348,7 @@
 				"isAllYear": false,
 				"month-array-northern": [3, 4, 5, 9, 10, 11, 12],
 				"month-array-southern": [3, 4, 5, 6, 9, 10, 11],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Slow",
 			"shadow": "Small",
@@ -361,7 +361,7 @@
 			"location": "Diving 🐙",
 			"id": 17,
 			"file-name": "abalone",
-			"time_string": "4p ➡ 9a",
+			"timeString": "4p ➡ 9a",
 			"availability": {
 				"month-northern": "6-1",
 				"month-southern": "12-7",
@@ -370,9 +370,9 @@
 				"isAllYear": false,
 				"month-array-northern": [6, 7, 8, 9, 10, 11, 12, 1],
 				"month-array-southern": [12, 1, 2, 7, 4, 5, 6, 7],
-				"time_string": "4p ➡ 9a",
-				"start_time": 16,
-				"end_time": 9
+				"timeString": "4p ➡ 9a",
+				"startTime": 16,
+				"endTime": 9
 			},
 			"speed": "Medium",
 			"shadow": "Medium",
@@ -385,7 +385,7 @@
 			"location": "Diving 🐙",
 			"id": 18,
 			"file-name": "gigas_giant_clam",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "5-8",
 				"month-southern": "11-3",
@@ -394,7 +394,7 @@
 				"isAllYear": false,
 				"month-array-northern": [5, 6, 7, 8],
 				"month-array-southern": [11, 12, 1, 2],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "🔥",
 			"shadow": "Largest",
@@ -407,7 +407,7 @@
 			"location": "Diving 🐙",
 			"id": 19,
 			"file-name": "chambered_nautilus",
-			"time_string": "4p ➡ 9a",
+			"timeString": "4p ➡ 9a",
 			"availability": {
 				"month-northern": "3-6 & 9-11",
 				"month-southern": "3-5 & 9-12",
@@ -416,9 +416,9 @@
 				"isAllYear": false,
 				"month-array-northern": [3, 4, 5, 6, 9, 10, 11],
 				"month-array-southern": [3, 4, 5, 9, 10, 11, 12],
-				"time_string": "4p ➡ 9a",
-				"start_time": 16,
-				"end_time": 9
+				"timeString": "4p ➡ 9a",
+				"startTime": 16,
+				"endTime": 9
 			},
 			"speed": "Medium",
 			"shadow": "Medium",
@@ -431,7 +431,7 @@
 			"location": "Diving 🐙",
 			"id": 20,
 			"file-name": "octopus",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "",
 				"month-southern": "",
@@ -440,7 +440,7 @@
 				"isAllYear": true,
 				"month-array-northern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 				"month-array-southern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Slow",
 			"shadow": "Medium",
@@ -453,7 +453,7 @@
 			"location": "Diving 🐙",
 			"id": 21,
 			"file-name": "umbrella_octopus",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "3-5 & 9-11",
 				"month-southern": "3-5 & 9-11",
@@ -462,7 +462,7 @@
 				"isAllYear": false,
 				"month-array-northern": [3, 4, 5, 9, 10, 11],
 				"month-array-southern": [3, 4, 5, 9, 10, 11],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Fast",
 			"shadow": "Small",
@@ -475,7 +475,7 @@
 			"location": "Diving 🐙",
 			"id": 22,
 			"file-name": "vampire_squid",
-			"time_string": "4p ➡ 9a",
+			"timeString": "4p ➡ 9a",
 			"availability": {
 				"month-northern": "5-8",
 				"month-southern": "11-2",
@@ -484,9 +484,9 @@
 				"isAllYear": false,
 				"month-array-northern": [5, 6, 7, 8],
 				"month-array-southern": [11, 12, 1, 2],
-				"time_string": "4p ➡ 9a",
-				"start_time": 16,
-				"end_time": 9
+				"timeString": "4p ➡ 9a",
+				"startTime": 16,
+				"endTime": 9
 			},
 			"speed": "🔥",
 			"shadow": "Medium",
@@ -499,7 +499,7 @@
 			"location": "Diving 🐙",
 			"id": 23,
 			"file-name": "firefly_squid",
-			"time_string": [21, 22, 23, 0, 1, 2, 3],
+			"timeString": [21, 22, 23, 0, 1, 2, 3],
 			"availability": {
 				"month-northern": "3-6",
 				"month-southern": "9-12",
@@ -508,7 +508,7 @@
 				"isAllYear": false,
 				"month-array-northern": [3, 4, 5, 6],
 				"month-array-southern": [9, 10, 11, 12],
-				"time_string": [21, 22, 23, 0, 1, 2, 3]
+				"timeString": [21, 22, 23, 0, 1, 2, 3]
 			},
 			"speed": "Slow",
 			"shadow": "Smallest",
@@ -521,7 +521,7 @@
 			"location": "Diving 🐙",
 			"id": 24,
 			"file-name": "gazami_crab",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "6-11",
 				"month-southern": "12-5",
@@ -530,7 +530,7 @@
 				"isAllYear": false,
 				"month-array-northern": [6, 7, 8, 9, 10, 11],
 				"month-array-southern": [12, 1, 2, 3, 4, 5],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Medium",
 			"shadow": "Medium",
@@ -543,7 +543,7 @@
 			"location": "Diving 🐙",
 			"id": 25,
 			"file-name": "dungeness_crab",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "11-5",
 				"month-southern": "5-11",
@@ -552,7 +552,7 @@
 				"isAllYear": false,
 				"month-array-northern": [11, 12, 1, 2, 3, 4, 5],
 				"month-array-southern": [5, 6, 7, 8, 9, 10, 11],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Medium",
 			"shadow": "Medium",
@@ -565,7 +565,7 @@
 			"location": "Diving 🐙",
 			"id": 26,
 			"file-name": "snow_crab",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "11-4",
 				"month-southern": "5-10",
@@ -574,7 +574,7 @@
 				"isAllYear": false,
 				"month-array-northern": [11, 12, 1, 2, 3, 4],
 				"month-array-southern": [5, 6, 7, 8, 9, 10],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Fast",
 			"shadow": "Large",
@@ -587,7 +587,7 @@
 			"location": "Diving 🐙",
 			"id": 27,
 			"file-name": "red_king_crab",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "11-3",
 				"month-southern": "5-9",
@@ -596,7 +596,7 @@
 				"isAllYear": false,
 				"month-array-northern": [11, 12, 1, 2, 3],
 				"month-array-southern": [5, 6, 7, 8, 9],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "🔥",
 			"shadow": "Large",
@@ -609,7 +609,7 @@
 			"location": "Diving 🐙",
 			"id": 28,
 			"file-name": "acorn_barnacle",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "",
 				"month-southern": "",
@@ -618,7 +618,7 @@
 				"isAllYear": true,
 				"month-array-northern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 				"month-array-southern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Stationary",
 			"shadow": "Smallest",
@@ -631,7 +631,7 @@
 			"location": "Diving 🐙",
 			"id": 29,
 			"file-name": "spider_crab",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "3-4",
 				"month-southern": "9-10",
@@ -640,7 +640,7 @@
 				"isAllYear": false,
 				"month-array-northern": [3, 4],
 				"month-array-southern": [9, 10],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "🔥",
 			"shadow": "Largest",
@@ -653,7 +653,7 @@
 			"location": "Diving 🐙",
 			"id": 30,
 			"file-name": "tiger_prawn",
-			"time_string": "4p ➡ 9a",
+			"timeString": "4p ➡ 9a",
 			"availability": {
 				"month-northern": "6-9",
 				"month-southern": "12-3",
@@ -662,9 +662,9 @@
 				"isAllYear": false,
 				"month-array-northern": [6, 7, 8, 9],
 				"month-array-southern": [12, 1, 2, 3],
-				"time_string": "4p ➡ 9a",
-				"start_time": 16,
-				"end_time": 9
+				"timeString": "4p ➡ 9a",
+				"startTime": 16,
+				"endTime": 9
 			},
 			"speed": "Medium",
 			"shadow": "Small",
@@ -677,7 +677,7 @@
 			"location": "Diving 🐙",
 			"id": 31,
 			"file-name": "sweet_shrimp",
-			"time_string": "4p ➡ 9a",
+			"timeString": "4p ➡ 9a",
 			"availability": {
 				"month-northern": "9-2",
 				"month-southern": "3-8",
@@ -686,9 +686,9 @@
 				"isAllYear": false,
 				"month-array-northern": [9, 10, 11, 12, 1, 2],
 				"month-array-southern": [3, 4, 5, 6, 7, 8],
-				"time_string": "4p ➡ 9a",
-				"start_time": 16,
-				"end_time": 9
+				"timeString": "4p ➡ 9a",
+				"startTime": 16,
+				"endTime": 9
 			},
 			"speed": "Slow",
 			"shadow": "Small",
@@ -701,7 +701,7 @@
 			"location": "Diving 🐙",
 			"id": 32,
 			"file-name": "mantis_shrimp",
-			"time_string": "4p ➡ 9a",
+			"timeString": "4p ➡ 9a",
 			"availability": {
 				"month-northern": "",
 				"month-southern": "",
@@ -710,9 +710,9 @@
 				"isAllYear": true,
 				"month-array-northern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 				"month-array-southern": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-				"time_string": "4p ➡ 9a",
-				"start_time": 16,
-				"end_time": 9
+				"timeString": "4p ➡ 9a",
+				"startTime": 16,
+				"endTime": 9
 			},
 			"speed": "Medium",
 			"shadow": "Small",
@@ -725,7 +725,7 @@
 			"location": "Diving 🐙",
 			"id": 33,
 			"file-name": "spiny_lobster",
-			"time_string": [21, 22, 23, 0, 1, 2, 3],
+			"timeString": [21, 22, 23, 0, 1, 2, 3],
 			"availability": {
 				"month-northern": "10-12",
 				"month-southern": "4-6",
@@ -734,7 +734,7 @@
 				"isAllYear": false,
 				"month-array-northern": [10, 11, 12],
 				"month-array-southern": [4, 5, 6],
-				"time_string": [21, 22, 23, 0, 1, 2, 3]
+				"timeString": [21, 22, 23, 0, 1, 2, 3]
 			},
 			"speed": "Fast",
 			"shadow": "Large",
@@ -747,7 +747,7 @@
 			"location": "Diving 🐙",
 			"id": 34,
 			"file-name": "lobster",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "12-1 & 4-6",
 				"month-southern": "6-7 & 10-12",
@@ -756,7 +756,7 @@
 				"isAllYear": false,
 				"month-array-northern": [12, 1, 4, 5, 6],
 				"month-array-southern": [6, 7, 10, 11, 12],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Fast",
 			"shadow": "Large",
@@ -769,7 +769,7 @@
 			"location": "Diving 🐙",
 			"id": 35,
 			"file-name": "giant_isopod",
-			"time_string": [9, 10, 11, 12, 13, 14, 15, 16, 21, 22, 23, 0, 1, 2, 3],
+			"timeString": [9, 10, 11, 12, 13, 14, 15, 16, 21, 22, 23, 0, 1, 2, 3],
 			"availability": {
 				"month-northern": "7-10",
 				"month-southern": "1-4",
@@ -778,7 +778,7 @@
 				"isAllYear": false,
 				"month-array-northern": [7, 8, 9, 10],
 				"month-array-southern": [1, 2, 3, 4],
-				"time_string": [9, 10, 11, 12, 13, 14, 15, 16, 21, 22, 23, 0, 1, 2, 3]
+				"timeString": [9, 10, 11, 12, 13, 14, 15, 16, 21, 22, 23, 0, 1, 2, 3]
 			},
 			"speed": "🔥",
 			"shadow": "Medium",
@@ -791,7 +791,7 @@
 			"location": "Diving 🐙",
 			"id": 36,
 			"file-name": "horseshoe_crab",
-			"time_string": [21, 22, 23, 0, 1, 2, 3],
+			"timeString": [21, 22, 23, 0, 1, 2, 3],
 			"availability": {
 				"month-northern": "7-9",
 				"month-southern": "1-3",
@@ -800,7 +800,7 @@
 				"isAllYear": false,
 				"month-array-northern": [7, 8, 9],
 				"month-array-southern": [1, 2, 3],
-				"time_string": [21, 22, 23, 0, 1, 2, 3]
+				"timeString": [21, 22, 23, 0, 1, 2, 3]
 			},
 			"speed": "Medium",
 			"shadow": "Medium",
@@ -813,7 +813,7 @@
 			"location": "Diving 🐙",
 			"id": 37,
 			"file-name": "sea_pineapple",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "4-8",
 				"month-southern": "10-2",
@@ -822,7 +822,7 @@
 				"isAllYear": false,
 				"month-array-northern": [4, 5, 6, 7, 8],
 				"month-array-southern": [10, 11, 12, 1, 2],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Slow",
 			"shadow": "Small",
@@ -835,7 +835,7 @@
 			"location": "Diving 🐙",
 			"id": 38,
 			"file-name": "spotted_garden_eel",
-			"time_string": "4a ➡ 8p",
+			"timeString": "4a ➡ 8p",
 			"availability": {
 				"month-northern": "5-10",
 				"month-southern": "11-4",
@@ -844,7 +844,7 @@
 				"isAllYear": false,
 				"month-array-northern": [5, 6, 7, 8, 9, 10],
 				"month-array-southern": [11, 12, 1, 2, 3, 4],
-				"old_time_string": [
+				"old_timeString": [
 					4,
 					5,
 					6,
@@ -864,9 +864,9 @@
 					19,
 					20
 				],
-				"time_string": "4a ➡ 8p",
-				"start_time": 4,
-				"end_time": 20
+				"timeString": "4a ➡ 8p",
+				"startTime": 4,
+				"endTime": 20
 			},
 			"speed": "Slow",
 			"shadow": "Small",
@@ -879,7 +879,7 @@
 			"location": "Diving 🐙",
 			"id": 39,
 			"file-name": "flatworm",
-			"time_string": "4p ➡ 9a",
+			"timeString": "4p ➡ 9a",
 			"availability": {
 				"month-northern": "8-9",
 				"month-southern": "2-3",
@@ -888,9 +888,9 @@
 				"isAllYear": false,
 				"month-array-northern": [8, 9],
 				"month-array-southern": [2, 3],
-				"time_string": "4p ➡ 9a",
-				"start_time": 16,
-				"end_time": 9
+				"timeString": "4p ➡ 9a",
+				"startTime": 16,
+				"endTime": 9
 			},
 			"speed": "Very slow",
 			"shadow": "Smallest",
@@ -903,7 +903,7 @@
 			"location": "Diving 🐙",
 			"id": 40,
 			"file-name": "venus_flower_basket",
-			"time_string": "Any time",
+			"timeString": "Any time",
 			"availability": {
 				"month-northern": "10-2",
 				"month-southern": "4-8",
@@ -912,7 +912,7 @@
 				"isAllYear": false,
 				"month-array-northern": [10, 11, 12, 1, 2],
 				"month-array-southern": [4, 5, 6, 7, 8],
-				"time_string": "Any time"
+				"timeString": "Any time"
 			},
 			"speed": "Fast",
 			"shadow": "Medium",

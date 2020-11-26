@@ -21,10 +21,10 @@ class Dashboard extends Component {
 		this.state = {
 			ren: false,
 			totals: {
-				fish_total: 0,
-				bugs_total: 0,
-				fossils_total: 0,
-				songs_total: 0,
+				fishTotal: 0,
+				bugsTotal: 0,
+				fossilsTotal: 0,
+				songsTotal: 0,
 			},
 			sidebarVisible: false,
 			hideCaught: false,

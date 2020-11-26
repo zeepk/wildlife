@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import { sea } from '../data_files/sea.json'
-import CheckCircleIcon from '@material-ui/icons/CheckCircle'
-import Checkbox from '@material-ui/core/Checkbox'
-import bells_image from '../images/bells.png'
-import MobileName from './MobileName'
-import TimeDisplay from './TimeDisplay'
+import React, { Component } from 'react';
+import { sea } from '../data_files/sea.json';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import Checkbox from '@material-ui/core/Checkbox';
+import bellsImage from '../images/bells.png';
+import MobileName from './MobileName';
+import TimeDisplay from './TimeDisplay';
 
-import { DataTable } from 'primereact/datatable'
-import { Column } from 'primereact/column'
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
 
 const month_display = (rowData, column) => {
 	// console.log(column)
@@ -18,9 +18,9 @@ const month_display = (rowData, column) => {
 			<CheckCircleIcon
 				style={{ color: 'green', fontSize: '30px', zIndex: '' }}
 			/>
-		)
+		);
 	}
-}
+};
 const name_display = (rowData, column) => {
 	return window.innerWidth < 480 ? (
 		<MobileName data={rowData} />
@@ -28,65 +28,65 @@ const name_display = (rowData, column) => {
 		<div style={{ textTransform: 'capitalize' }}>
 			{rowData.name.split('_').join(' ')}
 		</div>
-	)
-}
+	);
+};
 
 // checks local storage to populate checkboxes
 const is_checked = (name) => {
 	if (window.localStorage.getItem(name) === 'true') {
-		return true
+		return true;
 	} else {
-		return false
+		return false;
 	}
-}
+};
 
 const icon_display = (rowData) => {
-	return <img className="critter-image" src={rowData.icon_uri} alt="Icon" />
-}
+	return <img className="critter-image" src={rowData.icon_uri} alt="Icon" />;
+};
 
-const time_display = (rowData) => {
-	return <TimeDisplay critter={rowData.availability} />
-}
+const timeDisplay = (rowData) => {
+	return <TimeDisplay critter={rowData.availability} />;
+};
 
 export default class Fish extends Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
 			ren: false,
-		}
+		};
 	}
-	checkbox_change = (name) => {
-		console.log('changing...')
+	checkboxChange = (name) => {
+		console.log('changing...');
 		if (window.localStorage.getItem(name) === 'false') {
-			window.localStorage.setItem(name, 'true')
+			window.localStorage.setItem(name, 'true');
 		} else if (window.localStorage.getItem(name) === 'true') {
-			window.localStorage.setItem(name, 'false')
+			window.localStorage.setItem(name, 'false');
 		} else {
-			alert('Something went wrong with updating local storage')
+			alert('Something went wrong with updating local storage');
 		}
 		this.setState({
 			ren: !this.state.ren,
-		})
-		return name
-	}
-	caught_display = (rowData) => {
+		});
+		return name;
+	};
+	caughtDisplay = (rowData) => {
 		return (
 			<Checkbox
 				color="primary"
 				checked={is_checked(rowData.name)}
-				onChange={() => this.checkbox_change(rowData.name)}
+				onChange={() => this.checkboxChange(rowData.name)}
 			/>
-		)
-	}
+		);
+	};
 	render() {
-		const date = new Date()
-		const month_id = date.getMonth()
-		const color = '#a1d6a1'
+		const date = new Date();
+		const monthId = date.getMonth();
+		const color = '#a1d6a1';
 		const sea_data = this.props.hideCaught
 			? sea.filter(
 					(creature) => window.localStorage.getItem(creature.name) === 'false'
 			  )
-			: sea
+			: sea;
 		return (
 			<DataTable
 				className="fish-datatable-container"
@@ -107,7 +107,7 @@ export default class Fish extends Component {
 				<Column
 					className="caught-column"
 					header="Caught"
-					body={this.caught_display}
+					body={this.caughtDisplay}
 				/>
 				<Column
 					className="rarity-column"
@@ -118,15 +118,15 @@ export default class Fish extends Component {
 				<Column
 					className="price-column"
 					field="price"
-					header={<img className="bells-image" src={bells_image} alt="Price" />}
+					header={<img className="bells-image" src={bellsImage} alt="Price" />}
 					sortable={true}
 				/>
 				<Column className="size-column" field="shadow" header="Size" />
-				<Column className="time-column" body={time_display} header="Time" />
+				<Column className="time-column" body={timeDisplay} header="Time" />
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 0 ? { backgroundColor: color } : {}}
+					style={monthId === 0 ? { backgroundColor: color } : {}}
 					header="Jan"
 					monthid={1}
 					body={month_display}
@@ -134,7 +134,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 1 ? { backgroundColor: color } : {}}
+					style={monthId === 1 ? { backgroundColor: color } : {}}
 					header="Feb"
 					monthid={2}
 					body={month_display}
@@ -142,7 +142,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 2 ? { backgroundColor: color } : {}}
+					style={monthId === 2 ? { backgroundColor: color } : {}}
 					header="Mar"
 					monthid={3}
 					body={month_display}
@@ -150,7 +150,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 3 ? { backgroundColor: color } : {}}
+					style={monthId === 3 ? { backgroundColor: color } : {}}
 					header="Apr"
 					monthid={4}
 					body={month_display}
@@ -158,7 +158,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 4 ? { backgroundColor: color } : {}}
+					style={monthId === 4 ? { backgroundColor: color } : {}}
 					header="May"
 					monthid={5}
 					body={month_display}
@@ -166,7 +166,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 5 ? { backgroundColor: color } : {}}
+					style={monthId === 5 ? { backgroundColor: color } : {}}
 					header="June"
 					monthid={6}
 					body={month_display}
@@ -174,7 +174,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 6 ? { backgroundColor: color } : {}}
+					style={monthId === 6 ? { backgroundColor: color } : {}}
 					header="July"
 					monthid={7}
 					body={month_display}
@@ -182,7 +182,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 7 ? { backgroundColor: color } : {}}
+					style={monthId === 7 ? { backgroundColor: color } : {}}
 					header="Aug"
 					monthid={8}
 					body={month_display}
@@ -190,7 +190,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 8 ? { backgroundColor: color } : {}}
+					style={monthId === 8 ? { backgroundColor: color } : {}}
 					header="Sept"
 					monthid={9}
 					body={month_display}
@@ -198,7 +198,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 9 ? { backgroundColor: color } : {}}
+					style={monthId === 9 ? { backgroundColor: color } : {}}
 					header="Oct"
 					monthid={10}
 					body={month_display}
@@ -206,7 +206,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 10 ? { backgroundColor: color } : {}}
+					style={monthId === 10 ? { backgroundColor: color } : {}}
 					header="Nov"
 					monthid={11}
 					body={month_display}
@@ -214,12 +214,12 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 11 ? { backgroundColor: color } : {}}
+					style={monthId === 11 ? { backgroundColor: color } : {}}
 					header="Dec"
 					monthid={12}
 					body={month_display}
 				/>
 			</DataTable>
-		)
+		);
 	}
 }

@@ -14,7 +14,7 @@ import { songs } from '../data_files/songs.json';
 class Header extends Component {
 	state = {
 		hideCaught: false,
-		totals: { fish_total: 0, bugs_total: 0, fossils_total: 0, songs_total: 0 },
+		totals: { fishTotal: 0, bugsTotal: 0, fossilsTotal: 0, songsTotal: 0 },
 	};
 	componentDidMount() {
 		let temp_bugs = 0;
@@ -48,10 +48,10 @@ class Header extends Component {
 		});
 		this.setState({
 			totals: {
-				fish_total: temp_fish,
-				bugs_total: temp_bugs,
-				fossils_total: temp_fossils,
-				songs_total: temp_songs,
+				fishTotal: temp_fish,
+				bugsTotal: temp_bugs,
+				fossilsTotal: temp_fossils,
+				songsTotal: temp_songs,
 			},
 		});
 	}

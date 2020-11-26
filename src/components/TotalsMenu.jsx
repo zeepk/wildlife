@@ -14,10 +14,10 @@ const DarkTooltip = withStyles((theme) => ({
 }))(Tooltip);
 
 const TotalsMenu = (props) => {
-	const bugTotal = props.totals.bugs_total;
-	const fishTotal = props.totals.fish_total;
-	const fossilTotal = props.totals.fossils_total;
-	const songTotal = props.totals.songs_total;
+	const bugTotal = props.totals.bugsTotal;
+	const fishTotal = props.totals.fishTotal;
+	const fossilTotal = props.totals.fossilsTotal;
+	const songTotal = props.totals.songsTotal;
 	return (
 		<Card className="totals-container">
 			<DarkTooltip placement="top" arrow title={`${bugTotal}/80`}>

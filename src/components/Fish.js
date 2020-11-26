@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import { fish } from '../data_files/fish.json'
-import CheckCircleIcon from '@material-ui/icons/CheckCircle'
-import Checkbox from '@material-ui/core/Checkbox'
-import bells_image from '../images/bells.png'
-import MobileName from './MobileName'
-import ShadowSize from './ShadowSize'
-import TimeDisplay from './TimeDisplay'
+import React, { Component } from 'react';
+import { fish } from '../data_files/fish.json';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import Checkbox from '@material-ui/core/Checkbox';
+import bellsImage from '../images/bells.png';
+import MobileName from './MobileName';
+import ShadowSize from './ShadowSize';
+import TimeDisplay from './TimeDisplay';
 
-import { DataTable } from 'primereact/datatable'
-import { Column } from 'primereact/column'
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
 
 const month_display = (rowData, column) => {
 	if (rowData[column.field] === '1') {
@@ -16,29 +16,29 @@ const month_display = (rowData, column) => {
 			<CheckCircleIcon
 				style={{ color: 'green', fontSize: '30px', zIndex: '' }}
 			/>
-		)
+		);
 	}
-}
+};
 const name_display = (rowData, column) => {
 	return window.innerWidth < 480 ? (
 		<MobileName data={rowData} />
 	) : (
 		<div>{rowData.name}</div>
-	)
-}
+	);
+};
 
 const size_display = (rowData) => {
-	return <ShadowSize size={rowData.size} />
-}
+	return <ShadowSize size={rowData.size} />;
+};
 
 // checks local storage to populate checkboxes
 const is_checked = (name) => {
 	if (window.localStorage.getItem(name) === 'true') {
-		return true
+		return true;
 	} else {
-		return false
+		return false;
 	}
-}
+};
 
 const icon_display = (rowData) => {
 	return (
@@ -49,56 +49,56 @@ const icon_display = (rowData) => {
 			}`}
 			alt="Icon"
 		/>
-	)
-}
+	);
+};
 
-const time_display = (rowData) => {
-	return <TimeDisplay critter={rowData} />
-}
+const timeDisplay = (rowData) => {
+	return <TimeDisplay critter={rowData} />;
+};
 
 export default class Fish extends Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
 			ren: false,
-		}
+		};
 	}
-	checkbox_change = (name) => {
-		console.log('changing...')
+	checkboxChange = (name) => {
+		console.log('changing...');
 		if (window.localStorage.getItem(name) === 'false') {
-			window.localStorage.setItem(name, 'true')
+			window.localStorage.setItem(name, 'true');
 		} else if (window.localStorage.getItem(name) === 'true') {
-			window.localStorage.setItem(name, 'false')
+			window.localStorage.setItem(name, 'false');
 		} else {
-			alert('Something went wrong with updating local storage')
+			alert('Something went wrong with updating local storage');
 		}
 		this.setState({
 			ren: !this.state.ren,
-		})
-		return name
-	}
-	caught_display = (rowData) => {
+		});
+		return name;
+	};
+	caughtDisplay = (rowData) => {
 		return (
 			<Checkbox
 				color="primary"
 				checked={is_checked(rowData.name)}
-				onChange={() => this.checkbox_change(rowData.name)}
+				onChange={() => this.checkboxChange(rowData.name)}
 			/>
-		)
-	}
+		);
+	};
 	render() {
-		const date = new Date()
-		const month_id = date.getMonth()
-		const color = '#a1d6a1'
-		const fish_data = this.props.hideCaught
+		const date = new Date();
+		const monthId = date.getMonth();
+		const color = '#a1d6a1';
+		const fishData = this.props.hideCaught
 			? fish.filter(
 					(fish) => window.localStorage.getItem(fish.name) === 'false'
 			  )
-			: fish
+			: fish;
 		return (
 			<DataTable
 				className="fish-datatable-container"
-				value={fish_data}
+				value={fishData}
 				// responsive={true}
 			>
 				<Column
@@ -115,7 +115,7 @@ export default class Fish extends Component {
 				<Column
 					className="caught-column"
 					header="Caught"
-					body={this.caught_display}
+					body={this.caughtDisplay}
 				/>
 				<Column
 					className="rarity-column"
@@ -126,7 +126,7 @@ export default class Fish extends Component {
 				<Column
 					className="price-column"
 					field="price"
-					header={<img className="bells-image" src={bells_image} alt="Price" />}
+					header={<img className="bells-image" src={bellsImage} alt="Price" />}
 					sortable={true}
 				/>
 				<Column
@@ -135,12 +135,12 @@ export default class Fish extends Component {
 					header="Location"
 				/>
 				<Column className="size-column" header="Size" body={size_display} />
-				<Column className="time-column" body={time_display} header="Time" />
+				<Column className="time-column" body={timeDisplay} header="Time" />
 
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 0 ? { backgroundColor: color } : {}}
+					style={monthId === 0 ? { backgroundColor: color } : {}}
 					field="january"
 					header="Jan"
 					body={month_display}
@@ -148,7 +148,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 1 ? { backgroundColor: color } : {}}
+					style={monthId === 1 ? { backgroundColor: color } : {}}
 					field="february"
 					header="Feb"
 					body={month_display}
@@ -156,7 +156,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 2 ? { backgroundColor: color } : {}}
+					style={monthId === 2 ? { backgroundColor: color } : {}}
 					field="march"
 					header="Mar"
 					body={month_display}
@@ -164,7 +164,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 3 ? { backgroundColor: color } : {}}
+					style={monthId === 3 ? { backgroundColor: color } : {}}
 					field="april"
 					header="Apr"
 					body={month_display}
@@ -172,7 +172,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 4 ? { backgroundColor: color } : {}}
+					style={monthId === 4 ? { backgroundColor: color } : {}}
 					field="may"
 					header="May"
 					body={month_display}
@@ -180,7 +180,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 5 ? { backgroundColor: color } : {}}
+					style={monthId === 5 ? { backgroundColor: color } : {}}
 					field="june"
 					header="June"
 					body={month_display}
@@ -188,7 +188,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 6 ? { backgroundColor: color } : {}}
+					style={monthId === 6 ? { backgroundColor: color } : {}}
 					field="july"
 					header="July"
 					body={month_display}
@@ -196,7 +196,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 7 ? { backgroundColor: color } : {}}
+					style={monthId === 7 ? { backgroundColor: color } : {}}
 					field="august"
 					header="Aug"
 					body={month_display}
@@ -204,7 +204,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 8 ? { backgroundColor: color } : {}}
+					style={monthId === 8 ? { backgroundColor: color } : {}}
 					field="september"
 					header="Sept"
 					body={month_display}
@@ -212,7 +212,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 9 ? { backgroundColor: color } : {}}
+					style={monthId === 9 ? { backgroundColor: color } : {}}
 					field="october"
 					header="Oct"
 					body={month_display}
@@ -220,7 +220,7 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 10 ? { backgroundColor: color } : {}}
+					style={monthId === 10 ? { backgroundColor: color } : {}}
 					field="november"
 					header="Nov"
 					body={month_display}
@@ -228,12 +228,12 @@ export default class Fish extends Component {
 				<Column
 					className="month-column"
 					sortable={true}
-					style={month_id === 11 ? { backgroundColor: color } : {}}
+					style={monthId === 11 ? { backgroundColor: color } : {}}
 					field="december"
 					header="Dec"
 					body={month_display}
 				/>
 			</DataTable>
-		)
+		);
 	}
 }
