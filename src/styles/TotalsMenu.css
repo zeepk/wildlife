@@ -13,18 +13,22 @@
 	/* right: 0px; */
 	position: absolute;
 }
-.bug-spinner {
-	left: 18px;
-}
 .fish-spinner {
-	left: 73px;
+	left: 17px;
+}
+.bug-spinner {
+	left: 67px;
+}
+.sea-spinner {
+	left: 117px;
 }
 .fossil-spinner {
-	left: 129px;
+	left: 166px;
 }
 .song-spinner {
-	left: 175px;
+	left: 216px;
 }
 .icon {
-	max-height: 30px;
+	max-height: 25px;
+	max-width: 25px;
 }

@@ -10,6 +10,12 @@ import { bugs } from '../data_files/bugs.json';
 import { fish } from '../data_files/fish.json';
 import { fossils } from '../data_files/fossils.json';
 import { songs } from '../data_files/songs.json';
+import { sea } from '../data_files/sea.json';
+import FossilIcon from '../images/fossilIcon.png';
+import FishIcon from '../images/fishIcon.png';
+import BugIcon from '../images/bugIcon.png';
+import SongIcon from '../images/kkslider.png';
+import SeaIcon from '../images/sea.png';
 
 class Header extends Component {
 	state = {
@@ -21,30 +27,28 @@ class Header extends Component {
 		let temp_fish = 0;
 		let temp_fossils = 0;
 		let temp_songs = 0;
-		let test;
+		let temp_sea = 0;
 		bugs.map((bug) => {
-			window.localStorage.getItem(bug.name) === 'true'
-				? (temp_bugs += 1)
-				: (test = 0);
+			window.localStorage.getItem(bug.name) === 'true' && (temp_bugs += 1);
 			return bug;
 		});
 		fish.map((fish) => {
-			window.localStorage.getItem(fish.name) === 'true'
-				? (temp_fish += 1)
-				: (test = 0);
+			window.localStorage.getItem(fish.name) === 'true' && (temp_fish += 1);
 			return fish;
 		});
 		fossils.map((fossil) => {
-			window.localStorage.getItem(fossil.name.name) === 'true'
-				? (temp_fossils += 1)
-				: (test = 0);
+			window.localStorage.getItem(fossil.name.name) === 'true' &&
+				(temp_fossils += 1);
 			return fossil;
 		});
 		songs.map((song) => {
-			window.localStorage.getItem(song.name.name) === 'true'
-				? (temp_songs += 1)
-				: (test = 0);
+			window.localStorage.getItem(song.name.name) === 'true' &&
+				(temp_songs += 1);
 			return song;
+		});
+		sea.map((sea) => {
+			window.localStorage.getItem(sea.name) === 'true' && (temp_sea += 1);
+			return sea;
 		});
 		this.setState({
 			totals: {
@@ -52,6 +56,7 @@ class Header extends Component {
 				bugsTotal: temp_bugs,
 				fossilsTotal: temp_fossils,
 				songsTotal: temp_songs,
+				seaTotal: temp_sea,
 			},
 		});
 	}
@@ -77,42 +82,42 @@ class Header extends Component {
 					<ul className="navbar-nav ml-3">
 						<li className=" pr-0 nav-item active">
 							<Link to="/">
-								<span role="img" aria-label="icon">
-									🎣
-								</span>{' '}
-								Fish
+								<span role="img">
+									<img src={FishIcon} alt="Fish" className="icon" />
+								</span>
+								{' Fish'}
 							</Link>
 						</li>
 						<li className=" pr-0 nav-item">
 							<Link to="/bugs">
-								<span role="img" aria-label="icon">
-									🐛
-								</span>{' '}
-								Bugs
+								<span role="img">
+									<img src={BugIcon} alt="Bugs" className="icon" />
+								</span>
+								{' Bugs'}
 							</Link>
 						</li>
 						<li className=" pr-0 nav-item">
 							<Link to="/sea">
-								<span role="img" aria-label="icon">
-									🐙
-								</span>{' '}
-								Sea
+								<span role="img">
+									<img src={SeaIcon} alt="Sea" className="icon" />
+								</span>
+								{' Sea'}
 							</Link>
 						</li>
 						<li className=" pr-0 nav-item">
 							<Link to="/fossils">
-								<span role="img" aria-label="icon">
-									⛏
-								</span>{' '}
-								Fossils
+								<span role="img">
+									<img src={FossilIcon} alt="Fossils" className="icon" />
+								</span>
+								{' Fossils'}
 							</Link>
 						</li>
 						<li className=" pr-0 nav-item">
 							<Link to="/songs">
-								<span role="img" aria-label="icon">
-									🎵
-								</span>{' '}
-								Songs
+								<span role="img">
+									<img src={SongIcon} alt="Songs" className="icon" />
+								</span>
+								{' Songs'}
 							</Link>
 						</li>
 					</ul>
