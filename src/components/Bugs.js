@@ -5,7 +5,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import bellsImage from '../images/bells.png';
 import MobileName from './MobileName';
 import TimeDisplay from './TimeDisplay';
-import { months, monthColumnHighlightColor } from '../../src/utils/constants';
+import { months } from '../../src/utils/constants';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 const Bugs = (props) => {
@@ -60,7 +60,7 @@ const Bugs = (props) => {
 				sortable={true}
 				style={
 					new Date().getMonth() === month.id
-						? { backgroundColor: monthColumnHighlightColor }
+						? { backgroundColor: 'var(--monthColor)' }
 						: {}
 				}
 				field={month.name.toLowerCase()}
