@@ -5,12 +5,8 @@ export const apiUrl = 'https://acnhapi.com/v1';
 // verbiage
 
 export const version = '2.2.1';
-export const messageOfTheDay = '🦃 Happy Turkey Day! 🦃';
+export const messageOfTheDay = '⛄ Happy Winter! ⛄';
 export const loadingMessage = 'Loading . . .';
-
-// colors
-
-export const monthColumnHighlightColor = '#a1d6a1';
 
 // functions
 
