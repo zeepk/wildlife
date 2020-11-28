@@ -1,28 +1,54 @@
-import React, { useState } from 'react';
-import { bugs } from '../data_files/bugs.json';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Checkbox from '@material-ui/core/Checkbox';
 import bellsImage from '../images/bells.png';
-import MobileName from './MobileName';
-import TimeDisplay from './TimeDisplay';
-import { months } from '../../src/utils/constants';
+import LoadingScreen from './LoadingScreen';
+import { months, apiUrl } from '../../src/utils/constants';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 const Bugs = (props) => {
 	const [ren, setRen] = useState(false);
+	const [loading, setLoading] = useState(true);
+	const [data, setData] = useState([]);
 
-	const monthDisplay = (rowData, column) => {
-		if (rowData[column.field] === '1') {
-			return (
-				<CheckCircleIcon
-					style={{ color: 'green', fontSize: '30px', zIndex: '' }}
-				/>
-			);
-		}
-	};
+	useEffect(() => {
+		fetch(`${apiUrl}/bugs`)
+			.then((response) => response.json())
+			.then((jsonData) => {
+				const formattedData = [];
+				for (const critter in jsonData) {
+					formattedData.push({
+						id: jsonData[critter]['id'],
+						name: jsonData[critter]['name']['name-USen']
+							.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
+							.replace(/(^|[\s-])\S/g, function (match) {
+								return match.toUpperCase();
+							}),
+						fileName: jsonData[critter]['file-name'],
+						monthArrayNorth:
+							jsonData[critter]['availability']['month-array-northern'],
+						monthArraySouth:
+							jsonData[critter]['availability']['month-array-southern'],
+						timeString: jsonData[critter]['availability']['time'],
+						isAllDay: jsonData[critter]['availability']['isAllDay'],
+						timeArray: jsonData[critter]['availability']['time-array'],
+						price: jsonData[critter]['price'],
+						iconUri: jsonData[critter]['icon_uri'],
+						rarity: jsonData[critter]['availability']['rarity'],
+						location: jsonData[critter]['availability']['location'],
+					});
+				}
+				console.log(formattedData);
+				setData(formattedData);
+			})
+			.then(() => setLoading(false));
+	}, []);
+
 	const nameDisplay = (rowData, column) => {
 		return window.innerWidth < 480 ? (
-			<MobileName data={rowData} />
+			// <MobileName data={rowData} />
+			<div>{rowData.name}</div>
 		) : (
 			<div>{rowData.name}</div>
 		);
@@ -38,19 +64,26 @@ const Bugs = (props) => {
 	};
 
 	const iconDisplay = (rowData) => {
-		return (
-			<img
-				className="critter-image"
-				src={`https://acnhapi.com/v1/icons/${rowData.size ? 'fish' : 'bugs'}/${
-					rowData.id
-				}`}
-				alt="Icon"
-			/>
-		);
+		return <img className="critter-image" src={rowData.iconUri} alt="Icon" />;
 	};
 
 	const timeDisplay = (rowData) => {
-		return <TimeDisplay critter={rowData} />;
+		const isAvailableNow =
+			rowData.isAllDay || rowData.timeArray.includes(new Date().getHours());
+		return (
+			<TimeCell isAvailableNow={isAvailableNow}>
+				{rowData.timeString || 'All Day'}
+			</TimeCell>
+		);
+	};
+	const monthDisplay = (rowData, column) => {
+		if (rowData.monthArrayNorth.includes(column.monthNumber)) {
+			return (
+				<CheckCircleIcon
+					style={{ color: 'green', fontSize: '30px', zIndex: '' }}
+				/>
+			);
+		}
 	};
 
 	const monthColumns = months.map((month) => {
@@ -63,7 +96,7 @@ const Bugs = (props) => {
 						? { backgroundColor: 'var(--monthColor)' }
 						: {}
 				}
-				field={month.name.toLowerCase()}
+				monthNumber={month.order}
 				header={month.abbreviation}
 				body={monthDisplay}
 			/>
@@ -91,13 +124,18 @@ const Bugs = (props) => {
 			/>
 		);
 	};
-	const bugData = props.hideCaught
-		? bugs.filter((bug) => window.localStorage.getItem(bug.name) === 'false')
-		: bugs;
+	const filteredData = props.hideCaught
+		? data.filter(
+				(critter) => window.localStorage.getItem(critter.name) === 'false'
+		  )
+		: data;
+	if (loading) {
+		return <LoadingScreen />;
+	}
 	return (
 		<DataTable
 			className="bugs-datatable-container"
-			value={bugData}
+			value={filteredData}
 			// responsive={true}
 		>
 			<Column
@@ -118,16 +156,22 @@ const Bugs = (props) => {
 				header="Rarity"
 				sortable={true}
 			/>
+			<Column className="location-column" field="location" header="Location" />
 			<Column
 				className="price-column"
 				field="price"
 				header={<img className="bells-image" src={bellsImage} alt="Price" />}
 				sortable={true}
 			/>
-			<Column className="location-column" field="location" header="Location" />
 			<Column className="time-column" body={timeDisplay} header="Time" />
+
 			{monthColumns}
 		</DataTable>
 	);
 };
 export default Bugs;
+
+const TimeCell = styled.div`
+	background-color: ${(props) => (props.isAvailableNow ? '#a1d6a1' : '')};
+	height: 100%;
+`;
