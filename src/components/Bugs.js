@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { months, apiUrl } from '../../src/utils/constants';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
 import Checkbox from '@material-ui/core/Checkbox';
 import bellsImage from '../images/bells.png';
+import IconDisplay from './IconDisplay';
 import LoadingScreen from './LoadingScreen';
 import CellNameDisplay from './CellNameDisplay';
 import CellMonthDisplay from './CellMonthDisplay';
 import TimeStringDisplay from './TimeStringDisplay';
-import IconDisplay from './IconDisplay';
-import { months, apiUrl } from '../../src/utils/constants';
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
 const Bugs = (props) => {
 	const [ren, setRen] = useState(false);
 	const [loading, setLoading] = useState(true);
