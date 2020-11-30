@@ -24,21 +24,11 @@ class Footer extends Component {
 						<TwitterFollowButton screenName={'matthughes2112'} />
 					</li>
 					<li>
-						<p className="made-by">
-							<span role="img" aria-label="smile">
-								😊
-							</span>
-							Contact me for suggestions / bug fixes
-						</p>
+						<p className="made-by">Contact me for suggestions / bug fixes</p>
 					</li>
 					<li>
 						<p className="made-by">
-							<a href="https://github.com/zeepk/wildlife">
-								<span role="img" aria-label="cat">
-									🐈
-								</span>
-								Github Source
-							</a>
+							<a href="https://github.com/zeepk/wildlife">Github Source</a>
 						</p>
 					</li>
 					<li>

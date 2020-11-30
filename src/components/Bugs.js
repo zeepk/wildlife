@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Checkbox from '@material-ui/core/Checkbox';
 import bellsImage from '../images/bells.png';
 import LoadingScreen from './LoadingScreen';
+import CellNameDisplay from './CellNameDisplay';
+import CellMonthDisplay from './CellMonthDisplay';
+import TimeStringDisplay from './TimeStringDisplay';
+import IconDisplay from './IconDisplay';
 import { months, apiUrl } from '../../src/utils/constants';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -45,47 +47,6 @@ const Bugs = (props) => {
 			.then(() => setLoading(false));
 	}, []);
 
-	const nameDisplay = (rowData, column) => {
-		return window.innerWidth < 480 ? (
-			// <MobileName data={rowData} />
-			<div>{rowData.name}</div>
-		) : (
-			<div>{rowData.name}</div>
-		);
-	};
-
-	// checks local storage to populate checkboxes
-	const isChecked = (name) => {
-		if (window.localStorage.getItem(name) === 'true') {
-			return true;
-		} else {
-			return false;
-		}
-	};
-
-	const iconDisplay = (rowData) => {
-		return <img className="critter-image" src={rowData.iconUri} alt="Icon" />;
-	};
-
-	const timeDisplay = (rowData) => {
-		const isAvailableNow =
-			rowData.isAllDay || rowData.timeArray.includes(new Date().getHours());
-		return (
-			<TimeCell isAvailableNow={isAvailableNow}>
-				{rowData.timeString || 'All Day'}
-			</TimeCell>
-		);
-	};
-	const monthDisplay = (rowData, column) => {
-		if (rowData.monthArrayNorth.includes(column.monthNumber)) {
-			return (
-				<CheckCircleIcon
-					style={{ color: 'green', fontSize: '30px', zIndex: '' }}
-				/>
-			);
-		}
-	};
-
 	const monthColumns = months.map((month) => {
 		return (
 			<Column
@@ -93,12 +54,12 @@ const Bugs = (props) => {
 				sortable={true}
 				style={
 					new Date().getMonth() === month.id
-						? { backgroundColor: 'var(--monthColor)' }
+						? { backgroundColor: 'var(--monthHighlight)' }
 						: {}
 				}
 				monthNumber={month.order}
 				header={month.abbreviation}
-				body={monthDisplay}
+				body={CellMonthDisplay}
 			/>
 		);
 	});
@@ -119,7 +80,7 @@ const Bugs = (props) => {
 		return (
 			<Checkbox
 				color="primary"
-				checked={isChecked(rowData.name)}
+				checked={window.localStorage.getItem(rowData.name) === 'true'}
 				onChange={() => checkboxChange(rowData.name)}
 			/>
 		);
@@ -145,10 +106,10 @@ const Bugs = (props) => {
 				sortable={true}
 				filter={true}
 				filterPlaceholder="Search"
-				body={nameDisplay}
+				body={CellNameDisplay}
 				filterMatchMode="contains"
 			/>
-			<Column className="icon-column" header="Icon" body={iconDisplay} />
+			<Column className="icon-column" header="Icon" body={IconDisplay} />
 			<Column className="caught-column" header="Caught" body={caughtDisplay} />
 			<Column
 				className="rarity-column"
@@ -163,15 +124,10 @@ const Bugs = (props) => {
 				header={<img className="bells-image" src={bellsImage} alt="Price" />}
 				sortable={true}
 			/>
-			<Column className="time-column" body={timeDisplay} header="Time" />
+			<Column className="time-column" body={TimeStringDisplay} header="Time" />
 
 			{monthColumns}
 		</DataTable>
 	);
 };
 export default Bugs;
-
-const TimeCell = styled.div`
-	background-color: ${(props) => (props.isAvailableNow ? '#a1d6a1' : '')};
-	height: 100%;
-`;
