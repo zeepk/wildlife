@@ -1,37 +1,42 @@
-import React, { Component } from 'react';
-import { songs } from '../data_files/songs.json';
-import Checkbox from '@material-ui/core/Checkbox';
-import bellsImage from '../images/bells.png';
-
+import React, { useState, useEffect } from 'react';
+import { apiUrl, isOrderableText } from '../../src/utils/constants';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import Checkbox from '@material-ui/core/Checkbox';
+import IconDisplay from './IconDisplay';
+import LoadingScreen from './LoadingScreen';
+import CellNameDisplay from './CellNameDisplay';
+import ReactAudioPlayer from 'react-audio-player';
+const Songs = (props) => {
+	const [ren, setRen] = useState(false);
+	const [loading, setLoading] = useState(true);
+	const [data, setData] = useState([]);
 
-const is_checked = (name) => {
-	if (window.localStorage.getItem(name) === 'true') {
-		return true;
-	} else {
-		return false;
-	}
-};
-
-const icon_display = (rowData) => {
-	return (
-		<img
-			className="critter-image"
-			src={`https://acnhapi.com/v1/images/songs/${rowData.id}`}
-			alt="Icon"
-		/>
-	);
-};
-
-export default class Songs extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			ren: false,
-		};
-	}
-	checkboxChange = (name) => {
+	useEffect(() => {
+		fetch(`${apiUrl}/songs`)
+			.then((response) => response.json())
+			.then((jsonData) => {
+				const formattedData = [];
+				for (const critter in jsonData) {
+					formattedData.push({
+						id: jsonData[critter]['id'],
+						name: jsonData[critter]['name']['name-USen']
+							.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
+							.replace(/(^|[\s-])\S/g, function (match) {
+								return match.toUpperCase();
+							}),
+						fileName: jsonData[critter]['file-name'],
+						price: jsonData[critter]['buy-price'],
+						iconUri: jsonData[critter]['image_uri'],
+						audioUri: jsonData[critter]['music_uri'],
+						isOrderable: jsonData[critter]['isOrderable'],
+					});
+				}
+				setData(formattedData);
+			})
+			.then(() => setLoading(false));
+	}, []);
+	const checkboxChange = (name) => {
 		console.log('changing...');
 		if (window.localStorage.getItem(name) === 'false') {
 			window.localStorage.setItem(name, 'true');
@@ -40,54 +45,81 @@ export default class Songs extends Component {
 		} else {
 			alert('Something went wrong with updating local storage');
 		}
-		this.setState({
-			ren: !this.state.ren,
-		});
+		setRen(!ren);
 		return name;
 	};
-	caughtDisplay = (rowData) => {
+	const caughtDisplay = (rowData) => {
 		return (
 			<Checkbox
 				color="primary"
-				checked={is_checked(rowData.name.name)}
-				onChange={() => this.checkboxChange(rowData.name.name)}
+				checked={window.localStorage.getItem(rowData.name) === 'true'}
+				onChange={() => checkboxChange(rowData.name)}
 			/>
 		);
 	};
-	render() {
-		const songsData = this.props.hideCaught
-			? songs.filter(
-					(song) => window.localStorage.getItem(song.name.name) === 'false'
-			  )
-			: songs;
-		return (
-			<DataTable
-				className="songs-datatable-container"
-				value={songsData}
-				style={{ width: '50vw' }}
-			>
-				<Column
-					className="name-column"
-					header="Name"
-					sortable={true}
-					filter={true}
-					filterPlaceholder="Search"
-					field="name.name"
-					filterMatchMode="contains"
-				/>
-				<Column className="icon-column" header="Icon" body={icon_display} />
-				<Column
-					className="caught-column"
-					header="Found"
-					body={this.caughtDisplay}
-				/>
-				<Column
-					className="price-column"
-					field="price"
-					header={<img className="bells-image" src={bellsImage} alt="Price" />}
-					sortable={true}
-				/>
-			</DataTable>
-		);
+	const methodDisplay = (rowData) => {
+		if (rowData.isOrderable) {
+			return <div>{isOrderableText}</div>;
+		}
+		let methodText = isOrderableText;
+		switch (rowData.id) {
+			case 3:
+			case 8:
+			case 9:
+				methodText = 'Special Request';
+				break;
+			case 19:
+				methodText = 'Your Birthday Party';
+				break;
+			case 95:
+				methodText = '3 Star Island';
+				break;
+			default:
+				methodText = isOrderableText;
+		}
+		return <div>{methodText}</div>;
+	};
+	const filteredData = props.hideCaught
+		? data.filter(
+				(critter) => window.localStorage.getItem(critter.name) === 'false'
+		  )
+		: data;
+	if (loading) {
+		return <LoadingScreen />;
 	}
-}
+	return (
+		<DataTable
+			className="songs-datatable-container"
+			value={filteredData}
+			// responsive={true}
+		>
+			<Column
+				className="name-column"
+				field="name"
+				header="Name"
+				sortable={true}
+				filter={true}
+				filterPlaceholder="Search"
+				body={CellNameDisplay}
+				filterMatchMode="contains"
+				style={{ textDecoration: 'none' }}
+			/>
+			<Column className="icon-column" header="Icon" body={IconDisplay} />
+			<Column className="caught-column" header="Caught" body={caughtDisplay} />
+			<Column className="method-column" header="Method" body={methodDisplay} />
+			<Column
+				className="audio-column"
+				header="Audio"
+				body={(rowData) => (
+					<ReactAudioPlayer
+						src={rowData.audioUri}
+						autoPlay={false}
+						controls
+						style={{ width: '90%' }}
+					/>
+				)}
+			/>
+		</DataTable>
+	);
+};
+export default Songs;

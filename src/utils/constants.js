@@ -7,6 +7,7 @@ export const apiUrl = 'https://acnhapi.com/v1';
 export const version = '2.2.1';
 export const messageOfTheDay = '⛄ Happy Winter! ⛄';
 export const loadingMessage = 'Loading . . .';
+export const isOrderableText = 'Catalog';
 
 // functions
 
@@ -86,3 +87,28 @@ export const months = [
 		name: 'December',
 	},
 ];
+
+export const misspelled = [
+	{
+		incorrect: 'Gian Trevally',
+		correct: 'Giant Trevally',
+	},
+	{
+		incorrect: 'Paper Kit Butterfly',
+		correct: 'Paper Kite Butterfly',
+	},
+	{
+		incorrect: 'Plesio body',
+		correct: 'Plesio torso',
+	},
+	{
+		incorrect: 'Pachysaurus skull',
+		correct: 'Pachy skull',
+	},
+	{
+		incorrect: 'Pachysaurus tail',
+		correct: 'Pachy tail',
+	},
+];
+
+export const specialRequestIds = [3, 8, 9];

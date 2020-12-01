@@ -3,6 +3,7 @@ import { fish } from '../data_files/fish.json';
 import { sea } from '../data_files/sea.json';
 import { fossils } from '../data_files/fossils.json';
 import { songs } from '../data_files/songs.json';
+import { misspelled } from '../utils/constants';
 
 export default function LocalStorage() {
 	if (
@@ -61,17 +62,13 @@ export default function LocalStorage() {
 		});
 	}
 
-	if (localStorage.getItem('Giant Trevally') === null) {
-		window.localStorage.setItem(
-			'Giant Trevally',
-			localStorage.getItem('Gian Trevally')
-		);
-	}
-	if (localStorage.getItem('Paper Kite Butterfly') === null) {
-		window.localStorage.setItem(
-			'Paper Kite Butterfly',
-			localStorage.getItem('Paper Kit Butterfly')
-		);
+	for (const critter in misspelled) {
+		if (localStorage.getItem(misspelled[critter].correct) === null) {
+			window.localStorage.setItem(
+				misspelled[critter].correct,
+				localStorage.getItem(misspelled[critter].incorrect)
+			);
+		}
 	}
 
 	return null;

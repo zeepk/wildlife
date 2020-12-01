@@ -1,37 +1,41 @@
-import React, { Component } from 'react';
-import { fossils } from '../data_files/fossils.json';
-import Checkbox from '@material-ui/core/Checkbox';
-import bellsImage from '../images/bells.png';
-
+import React, { useState, useEffect } from 'react';
+import { apiUrl } from '../../src/utils/constants';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import Checkbox from '@material-ui/core/Checkbox';
+import bellsImage from '../images/bells.png';
+import IconDisplay from './IconDisplay';
+import LoadingScreen from './LoadingScreen';
+import CellNameDisplay from './CellNameDisplay';
+const Fossils = (props) => {
+	const [ren, setRen] = useState(false);
+	const [loading, setLoading] = useState(true);
+	const [data, setData] = useState([]);
 
-const is_checked = (name) => {
-	if (window.localStorage.getItem(name) === 'true') {
-		return true;
-	} else {
-		return false;
-	}
-};
-
-const icon_display = (rowData) => {
-	return (
-		<img
-			className="critter-image"
-			src={`https://acnhapi.com/v1/images/fossils/${rowData.filename}`}
-			alt="Icon"
-		/>
-	);
-};
-
-export default class Fossils extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			ren: false,
-		};
-	}
-	checkboxChange = (name) => {
+	useEffect(() => {
+		fetch(`${apiUrl}/fossils`)
+			.then((response) => response.json())
+			.then((jsonData) => {
+				const formattedData = [];
+				for (const critter in jsonData) {
+					formattedData.push({
+						id: jsonData[critter]['id'],
+						name: jsonData[critter]['name']['name-USen']
+							.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
+							.replace(/(^|[\s-])\S/g, function (match) {
+								return match.toUpperCase();
+							}),
+						fileName: jsonData[critter]['file-name'],
+						price: jsonData[critter]['price'],
+						iconUri: jsonData[critter]['image_uri'],
+					});
+				}
+				console.log(formattedData);
+				setData(formattedData);
+			})
+			.then(() => setLoading(false));
+	}, []);
+	const checkboxChange = (name) => {
 		console.log('changing...');
 		if (window.localStorage.getItem(name) === 'false') {
 			window.localStorage.setItem(name, 'true');
@@ -40,54 +44,56 @@ export default class Fossils extends Component {
 		} else {
 			alert('Something went wrong with updating local storage');
 		}
-		this.setState({
-			ren: !this.state.ren,
-		});
+		setRen(!ren);
 		return name;
 	};
-	caughtDisplay = (rowData) => {
+	const caughtDisplay = (rowData) => {
+		const legacyName = rowData.name
+			.toLowerCase()
+			.replace(/^./, rowData.name[0].toUpperCase());
+		console.log(legacyName);
 		return (
 			<Checkbox
 				color="primary"
-				checked={is_checked(rowData.name.name)}
-				onChange={() => this.checkboxChange(rowData.name.name)}
+				checked={window.localStorage.getItem(legacyName) === 'true'}
+				onChange={() => checkboxChange(legacyName)}
 			/>
 		);
 	};
-	render() {
-		const fossilsData = this.props.hideCaught
-			? fossils.filter(
-					(fossil) => window.localStorage.getItem(fossil.name.name) === 'false'
-			  )
-			: fossils;
-		return (
-			<DataTable
-				className="fossils-datatable-container"
-				value={fossilsData}
-				style={{ width: '50vw' }}
-			>
-				<Column
-					className="name-column"
-					header="Name"
-					sortable={true}
-					filter={true}
-					filterPlaceholder="Search"
-					field="name.name"
-					filterMatchMode="contains"
-				/>
-				<Column className="icon-column" header="Icon" body={icon_display} />
-				<Column
-					className="caught-column"
-					header="Found"
-					body={this.caughtDisplay}
-				/>
-				<Column
-					className="price-column"
-					field="price"
-					header={<img className="bells-image" src={bellsImage} alt="Price" />}
-					sortable={true}
-				/>
-			</DataTable>
-		);
+	const filteredData = props.hideCaught
+		? data.filter(
+				(critter) => window.localStorage.getItem(critter.name) === 'false'
+		  )
+		: data;
+	if (loading) {
+		return <LoadingScreen />;
 	}
-}
+	return (
+		<DataTable
+			className="fossils-datatable-container"
+			value={filteredData}
+			// responsive={true}
+		>
+			<Column
+				className="name-column"
+				field="name"
+				header="Name"
+				sortable={true}
+				filter={true}
+				filterPlaceholder="Search"
+				body={CellNameDisplay}
+				filterMatchMode="contains"
+				style={{ textDecoration: 'none' }}
+			/>
+			<Column className="icon-column" header="Icon" body={IconDisplay} />
+			<Column className="caught-column" header="Caught" body={caughtDisplay} />
+			<Column
+				className="price-column"
+				field="price"
+				header={<img className="bells-image" src={bellsImage} alt="Price" />}
+				sortable={true}
+			/>
+		</DataTable>
+	);
+};
+export default Fossils;

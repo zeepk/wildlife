@@ -14,16 +14,18 @@
 	.rarity-column,
 	.location-column,
 	.price-column,
+	.method-column,
 	.bells-image,
 	.time-column,
+	.audio-column,
 	.p-filter-column:nth-child(n + 4),
 	.size-column {
 		display: none !important;
 	}
 	.name-column {
 		width: 150px !important;
+		text-decoration: underline;
 	}
-
 	.icon-column {
 		width: 100px;
 	}
@@ -72,6 +74,9 @@
 .critter-image {
 	max-width: 4vw;
 }
+.mobile-critter-image {
+	max-width: 95vw;
+}
 .critter-image-container {
 	height: 100%;
 }
@@ -116,7 +121,10 @@ th {
 	width: 100px;
 }
 .price-column {
-	width: auto;
+	width: 80px;
+}
+.method-column {
+	width: 150px;
 }
 .bells-image {
 	height: 20px;
@@ -192,4 +200,7 @@ th {
 }
 .nav-item {
 	margin: 0 20px 0 0 !important;
+}
+.fossils-datatable-container {
+	width: 50vw;
 }
