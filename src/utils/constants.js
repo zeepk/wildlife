@@ -4,7 +4,7 @@ export const apiUrl = 'https://acnhapi.com/v1';
 
 // verbiage
 
-export const version = '2.2.1';
+export const version = '2.3.0';
 export const messageOfTheDay = '⛄ Happy Winter! ⛄';
 export const loadingMessage = 'Loading . . .';
 export const isOrderableText = 'Catalog';
