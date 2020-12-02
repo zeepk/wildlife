@@ -109,6 +109,34 @@ export const misspelled = [
 		incorrect: 'Pachysaurus tail',
 		correct: 'Pachy tail',
 	},
+	{
+		incorrect: 'To the Edge',
+		correct: 'To The Edge',
+	},
+	{
+		incorrect: 'Honey Bee',
+		correct: 'Honeybee',
+	},
+	{
+		incorrect: 'Saddled Birchir',
+		correct: 'Saddled Bichir',
+	},
+	{
+		incorrect: 'Seahorse',
+		correct: 'Sea Horse',
+	},
+	{
+		incorrect: 'Sea bass',
+		correct: 'Sea Bass',
+	},
+	{
+		incorrect: 'Clownfish',
+		correct: 'Clown Fish',
+	},
+	{
+		incorrect: 'Great White SHark',
+		correct: 'Great White Shark',
+	},
 ];
 
 export const specialRequestIds = [3, 8, 9];

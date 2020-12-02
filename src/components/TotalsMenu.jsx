@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FossilIcon from '../images/fossilIcon.png';
 import FishIcon from '../images/fishIcon.png';
 import BugIcon from '../images/bugIcon.png';
@@ -9,18 +9,94 @@ import '../styles/TotalsMenu.css';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles } from '@material-ui/core/styles';
+import { apiUrl } from '../../src/utils/constants';
+
 const DarkTooltip = withStyles((theme) => ({
 	tooltip: {
 		fontSize: 20,
 	},
 }))(Tooltip);
 
-const TotalsMenu = (props) => {
-	const bugTotal = props.totals.bugsTotal;
-	const fishTotal = props.totals.fishTotal;
-	const fossilTotal = props.totals.fossilsTotal;
-	const songTotal = props.totals.songsTotal;
-	const seaTotal = props.totals.seaTotal;
+const countTotal = (nameArray) => {
+	let count = 0;
+	nameArray.forEach((critterName) => {
+		window.localStorage.getItem(critterName) === 'true' && (count += 1);
+	});
+	return count;
+};
+
+const TotalsMenu = () => {
+	const [bugTotal, setBugTotal] = useState(0);
+	const [fishTotal, setFishTotal] = useState(0);
+	const [seaTotal, setSeaTotal] = useState(0);
+	const [fossilTotal, setFossilTotal] = useState(0);
+	const [songTotal, setSongTotal] = useState(0);
+
+	useEffect(() => {
+		Promise.all([
+			fetch(`${apiUrl}/fish`),
+			fetch(`${apiUrl}/bugs`),
+			fetch(`${apiUrl}/sea`),
+			fetch(`${apiUrl}/fossils`),
+			fetch(`${apiUrl}/songs`),
+		])
+			.then((responses) =>
+				Promise.all(responses.map((response) => response.json()))
+			)
+			.then((data) => {
+				const numFish = countTotal(
+					Object.keys(data[0]).map((critter) => {
+						return data[0][critter]['name']['name-USen']
+							.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
+							.replace(/(^|[\s-])\S/g, function (match) {
+								return match.toUpperCase();
+							});
+					})
+				);
+				setFishTotal(numFish);
+				const numBugs = countTotal(
+					Object.keys(data[1]).map((critter) => {
+						return data[1][critter]['name']['name-USen']
+							.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
+							.replace(/(^|[\s-])\S/g, function (match) {
+								return match.toUpperCase();
+							});
+					})
+				);
+				setBugTotal(numBugs);
+				const numSea = countTotal(Object.keys(data[2]));
+				setSeaTotal(numSea);
+				const numFossils = countTotal(
+					Object.keys(data[3]).map((fish) => {
+						return data[3][fish]['name']['name-USen']
+							.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
+							.replace(/(^|[\s-])\S/g, function (match) {
+								return match.toUpperCase();
+							})
+							.toLowerCase()
+							.replace(
+								/^./,
+								data[3][fish]['name']['name-USen'][0].toUpperCase()
+							);
+					})
+				);
+				setFossilTotal(numFossils);
+				const numSongs = countTotal(
+					Object.keys(data[4]).map((fish) => {
+						return data[4][fish]['name']['name-USen']
+							.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
+							.replace(/(^|[\s-])\S/g, function (match) {
+								return match.toUpperCase();
+							});
+					})
+				);
+				setSongTotal(numSongs);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
+
 	return (
 		<Card className="totals-container">
 			<DarkTooltip placement="top" arrow title={`${fishTotal}/80`}>

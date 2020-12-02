@@ -71,11 +71,38 @@ const Sea = (props) => {
 		setVisible(true);
 	};
 
+	const monthSort = (monthSortProps) => {
+		setData(
+			data.sort((a, b) => {
+				if (
+					a.monthArrayNorth.includes(monthSortProps.field) &&
+					b.monthArrayNorth.includes(monthSortProps.field)
+				) {
+					return 0;
+				} else if (a.monthArrayNorth.includes(monthSortProps.field)) {
+					return 0 - monthSortProps.order;
+				} else {
+					return monthSortProps.order;
+				}
+			})
+		);
+		return props.hideCaught
+			? data.filter(
+					(critter) =>
+						window.localStorage.getItem(
+							critter.name.toLowerCase().replace("'", '').split(' ').join('_')
+						) === 'false'
+			  )
+			: data;
+	};
+
 	const monthColumns = months.map((month) => {
 		return (
 			<Column
 				className="month-column"
 				sortable={true}
+				sortFunction={monthSort}
+				field={month.order}
 				style={
 					new Date().getMonth() === month.id
 						? { backgroundColor: 'var(--monthHighlight)' }
@@ -119,7 +146,10 @@ const Sea = (props) => {
 	};
 	const filteredData = props.hideCaught
 		? data.filter(
-				(critter) => window.localStorage.getItem(critter.name) === 'false'
+				(critter) =>
+					window.localStorage.getItem(
+						critter.name.toLowerCase().replace("'", '').split(' ').join('_')
+					) === 'false'
 		  )
 		: data;
 	if (loading) {

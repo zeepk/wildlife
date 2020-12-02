@@ -46,7 +46,6 @@ const Bugs = (props) => {
 						location: jsonData[critter]['availability']['location'],
 					});
 				}
-				console.log(formattedData);
 				setData(formattedData);
 			})
 			.then(() => setLoading(false));
@@ -72,11 +71,31 @@ const Bugs = (props) => {
 		setVisible(true);
 	};
 
+	const monthSort = (props) => {
+		setData(
+			data.sort((a, b) => {
+				if (
+					a.monthArrayNorth.includes(props.field) &&
+					b.monthArrayNorth.includes(props.field)
+				) {
+					return 0;
+				} else if (a.monthArrayNorth.includes(props.field)) {
+					return 0 - props.order;
+				} else {
+					return props.order;
+				}
+			})
+		);
+		return data;
+	};
+
 	const monthColumns = months.map((month) => {
 		return (
 			<Column
 				className="month-column"
 				sortable={true}
+				sortFunction={monthSort}
+				field={month.order}
 				style={
 					new Date().getMonth() === month.id
 						? { backgroundColor: 'var(--monthHighlight)' }
