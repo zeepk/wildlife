@@ -31,6 +31,7 @@
 	transition: all 0.2s ease-in-out !important;
 	transform: scale(1.3);
 	font-family: 'Baloo 2', cursive !important;
+	font-size: 0.7rem !important;
 }
 .button-container:hover {
 	transform: scale(1.6);

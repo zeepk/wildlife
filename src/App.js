@@ -6,7 +6,7 @@ import Footer from './components/Footer.js';
 import Routing from './components/Routing.js';
 import { BrowserRouter } from 'react-router-dom';
 
-import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/themes/nova/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import ReactGA from 'react-ga';

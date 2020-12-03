@@ -39,6 +39,7 @@
 }
 .motd {
 	font-size: 0.8em;
+	margin: 0;
 }
 .navbar-collapse.collapse.in {
 	display: block !important;
@@ -48,4 +49,5 @@
 }
 .navbar {
 	font-family: 'Baloo 2', cursive !important;
+	padding: 0;
 }

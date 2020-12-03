@@ -84,7 +84,7 @@ class Header extends Component {
 					<div className="mr-5">
 						<TotalsMenu />
 					</div>
-					<div className="nav-item mr-0">
+					<div className="mr-5">
 						<Card className="hide-caught">
 							<div className="hide-text">Hide Caught</div>
 							<InputSwitch
@@ -98,7 +98,7 @@ class Header extends Component {
 							/>
 						</Card>
 					</div>
-					<div className="nav-item mr-0">
+					<div className="mr-5">
 						<NewThisMonth />
 					</div>
 				</div>

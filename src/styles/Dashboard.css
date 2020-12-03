@@ -97,9 +97,12 @@ tr.p-datatable-row > td:nth-child(7) {
 .fish-datatable-container tr.p-datatable-row > td:nth-child(8) {
 	padding: 0 !important;
 }
-/* .p-filter-column {
-	width: 20vw !important;
-} */
+.p-filter-column {
+	padding: 10px !important;
+}
+.p-sortable-column-icon {
+	display: none !important;
+}
 thead {
 	top: 0;
 	position: sticky;

@@ -71,29 +71,22 @@ const Sea = (props) => {
 		setVisible(true);
 	};
 
-	const monthSort = (monthSortProps) => {
+	const monthSort = (props) => {
 		setData(
 			data.sort((a, b) => {
 				if (
-					a.monthArrayNorth.includes(monthSortProps.field) &&
-					b.monthArrayNorth.includes(monthSortProps.field)
+					a.monthArrayNorth.includes(props.field) &&
+					b.monthArrayNorth.includes(props.field)
 				) {
 					return 0;
-				} else if (a.monthArrayNorth.includes(monthSortProps.field)) {
-					return 0 - monthSortProps.order;
+				} else if (a.monthArrayNorth.includes(props.field)) {
+					return 0 - props.order;
 				} else {
-					return monthSortProps.order;
+					return props.order;
 				}
 			})
 		);
-		return props.hideCaught
-			? data.filter(
-					(critter) =>
-						window.localStorage.getItem(
-							critter.name.toLowerCase().replace("'", '').split(' ').join('_')
-						) === 'false'
-			  )
-			: data;
+		return data;
 	};
 
 	const monthColumns = months.map((month) => {
