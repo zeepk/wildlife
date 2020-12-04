@@ -8,6 +8,7 @@ export const version = '2.3.0';
 export const messageOfTheDay = '⛄ Happy Winter! ⛄';
 export const loadingMessage = 'Loading . . .';
 export const isOrderableText = 'Catalog';
+export const noCrittersMessage = "Congrats! You've got em all!";
 
 // functions
 

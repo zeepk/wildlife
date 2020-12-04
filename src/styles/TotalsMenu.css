@@ -4,7 +4,7 @@
 .totals-container {
 	padding-left: 10px;
 	margin: 0 auto !important;
-	width: 200px;
+	width: 275px;
 	position: relative;
 	background-color: transparent !important;
 	box-shadow: none !important;
@@ -14,19 +14,19 @@
 	position: absolute;
 }
 .fish-spinner {
-	left: 17px;
+	left: 18.5px;
 }
 .bug-spinner {
-	left: 67px;
+	left: 68.5px;
 }
 .sea-spinner {
-	left: 117px;
+	left: 118px;
 }
 .fossil-spinner {
-	left: 166px;
+	left: 167px;
 }
 .song-spinner {
-	left: 216px;
+	left: 217px;
 }
 .icon {
 	max-height: 25px;

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { apiUrl } from '../../src/utils/constants';
+import { apiUrl } from '../../utils/constants';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import Checkbox from '@material-ui/core/Checkbox';
-import bellsImage from '../images/bells.png';
-import IconDisplay from './IconDisplay';
-import LoadingScreen from './LoadingScreen';
-import CellNameDisplay from './CellNameDisplay';
+import bellsImage from '../../images/bells.png';
+import IconDisplay from '../displays/IconDisplay';
+import LoadingScreen from '../common/LoadingScreen';
+import CellNameDisplay from '../displays/CellNameDisplay';
 const Fossils = (props) => {
 	const [ren, setRen] = useState(false);
 	const [loading, setLoading] = useState(true);

@@ -11,6 +11,8 @@
 		right: 5vw !important;
 		text-align: center !important;
 		max-width: 60vw;
+		font-size: 1.2rem !important;
+		margin-bottom: 10px !important;
 	}
 	.location-column {
 		display: none;
@@ -31,7 +33,7 @@
 	transition: all 0.2s ease-in-out !important;
 	transform: scale(1.3);
 	font-family: 'Baloo 2', cursive !important;
-	font-size: 0.7rem !important;
+	font-size: 0.7rem;
 }
 .button-container:hover {
 	transform: scale(1.6);

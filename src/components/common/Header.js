@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { messageOfTheDay } from '../utils/constants';
-import '../styles/Header.css';
-import NewThisMonth from './NewThisMonth';
-import { InputSwitch } from 'primereact/inputswitch';
-import { Card } from 'primereact/card';
-import '../styles/TotalsMenu.css';
-import TotalsMenu from './TotalsMenu';
 import { Link } from 'react-router-dom';
-import FossilIcon from '../images/fossilIcon.png';
-import FishIcon from '../images/fishIcon.png';
-import BugIcon from '../images/bugIcon.png';
-import SongIcon from '../images/kkslider.png';
-import SeaIcon from '../images/sea.png';
+import { Card } from 'primereact/card';
+import { InputSwitch } from 'primereact/inputswitch';
+import { messageOfTheDay } from '../../utils/constants';
+import BugIcon from '../../images/bugIcon.png';
+import SeaIcon from '../../images/sea.png';
+import FishIcon from '../../images/fishIcon.png';
+import SongIcon from '../../images/kkslider.png';
+import FossilIcon from '../../images/fossilIcon.png';
+import TotalsMenu from '../common/TotalsMenu';
+import NewThisMonth from '../common/NewThisMonth';
+import '../../styles/Header.css';
+import '../../styles/TotalsMenu.css';
 
 class Header extends Component {
 	state = {
@@ -81,10 +81,10 @@ class Header extends Component {
 						</li>
 					</ul>
 
-					<div className="mr-5">
+					<div className="header--totals-container">
 						<TotalsMenu />
 					</div>
-					<div className="mr-5">
+					<div className="header--hide-caught-container">
 						<Card className="hide-caught">
 							<div className="hide-text">Hide Caught</div>
 							<InputSwitch
@@ -98,7 +98,7 @@ class Header extends Component {
 							/>
 						</Card>
 					</div>
-					<div className="mr-5">
+					<div className="header--new-container">
 						<NewThisMonth />
 					</div>
 				</div>

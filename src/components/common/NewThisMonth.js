@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Button } from 'primereact/button';
-import { bugs } from '../data_files/bugs.json';
-import { fish } from '../data_files/fish.json';
-import { sea } from '../data_files/sea.json';
-import '../styles/NewThisMonth.css';
+import { bugs } from '../../data_files/bugs.json';
+import { fish } from '../../data_files/fish.json';
+import { sea } from '../../data_files/sea.json';
+import '../../styles/NewThisMonth.css';
 import { Dialog } from 'primereact/dialog';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';

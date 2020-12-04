@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
 .p-column-title,
-.p-datatable-row {
+.p-datatable {
 	font-family: 'Baloo 2', cursive !important;
 	font-size: larger;
 }
@@ -111,8 +111,23 @@ thead {
 	border-spacing: 0 !important;
 	/* box-shadow: 0px 10px 10px -10px black; */
 }
-th {
+.p-datatable .p-datatable-thead > tr > th {
 	background-color: var(--green) !important;
+	padding: 0 !important;
+}
+th,
+td {
+	text-align: center !important;
+}
+.p-inputtext {
+	margin: 5px !important;
+	max-width: 90%;
+}
+.caught-column {
+	width: 100px;
+}
+.caught-checkbox {
+	width: 100%;
 }
 .name-column {
 	width: 200px;
@@ -147,9 +162,6 @@ th {
 .size-image {
 	max-width: 90%;
 	border-radius: 5px;
-}
-.caught-column {
-	width: 100px;
 }
 .p-tabmenu-nav {
 	border-bottom: none !important;
@@ -206,4 +218,11 @@ th {
 }
 .fossils-datatable-container {
 	width: 50vw;
+}
+.mobile-dialog-container {
+	width: 90vw;
+	max-width: 500px;
+}
+.modal--title-col {
+	text-align: left !important;
 }

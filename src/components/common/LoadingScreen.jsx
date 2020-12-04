@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { loadingMessage } from '../utils/constants';
-import IsabelleClapping from '../animations/isabelleClapping.webp';
+import { loadingMessage } from '../../utils/constants';
+import IsabelleClapping from '../../animations/isabelleClapping.webp';
 
 const LoadingScreen = () => {
 	return (

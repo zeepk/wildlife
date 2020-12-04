@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { months, apiUrl } from '../../src/utils/constants';
+import { months, apiUrl } from '../../utils/constants';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Dialog } from 'primereact/dialog';
 import Checkbox from '@material-ui/core/Checkbox';
-import bellsImage from '../images/bells.png';
-import IconDisplay from './IconDisplay';
-import LoadingScreen from './LoadingScreen';
-import CellNameDisplay from './CellNameDisplay';
-import CellMonthDisplay from './CellMonthDisplay';
-import TimeStringDisplay from './TimeStringDisplay';
-const Fish = (props) => {
+import NoCritters from '../common/NoCritters';
+import bellsImage from '../../images/bells.png';
+import IconDisplay from '../displays/IconDisplay';
+import LoadingScreen from '../common/LoadingScreen';
+import CellNameDisplay from '../displays/CellNameDisplay';
+import CellMonthDisplay from '../displays/CellMonthDisplay';
+import TimeStringDisplay from '../displays/TimeStringDisplay';
+const Bugs = (props) => {
 	const [ren, setRen] = useState(false);
 	const [loading, setLoading] = useState(true);
 	const [data, setData] = useState([]);
@@ -19,12 +20,12 @@ const Fish = (props) => {
 	const [mobileIconUri, setMobileIconUri] = useState('');
 
 	useEffect(() => {
-		fetch(`${apiUrl}/fish`)
+		fetch(`${apiUrl}/bugs`)
 			.then((response) => response.json())
 			.then((jsonData) => {
 				const formattedData = [];
 				for (const critter in jsonData) {
-					formattedData.push({
+					const critterObject = {
 						id: jsonData[critter]['id'],
 						name: jsonData[critter]['name']['name-USen']
 							.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
@@ -44,8 +45,13 @@ const Fish = (props) => {
 						iconUri: jsonData[critter]['icon_uri'],
 						rarity: jsonData[critter]['availability']['rarity'],
 						location: jsonData[critter]['availability']['location'],
-						size: jsonData[critter]['shadow'],
+					};
+					months.forEach((month) => {
+						critterObject[month.name] = jsonData[critter]['availability'][
+							'month-array-northern'
+						].includes(month.order);
 					});
+					formattedData.push(critterObject);
 				}
 				setData(formattedData);
 			})
@@ -57,7 +63,6 @@ const Fish = (props) => {
 			{ title: 'Name', data: critterData.name },
 			{ title: 'Rarity', data: critterData.rarity },
 			{ title: 'Location', data: critterData.location },
-			{ title: 'Size', data: critterData.size },
 			{ title: 'Time', data: critterData.timeString || 'All Day' },
 			{
 				title: 'Months',
@@ -68,8 +73,8 @@ const Fish = (props) => {
 							.join(', '),
 			},
 		];
-		setMobileData(modalData);
 		setMobileIconUri(critterData.iconUri);
+		setMobileData(modalData);
 		setVisible(true);
 	};
 
@@ -139,6 +144,9 @@ const Fish = (props) => {
 	if (loading) {
 		return <LoadingScreen />;
 	}
+	if (filteredData.length <= 0) {
+		return <NoCritters />;
+	}
 	return (
 		<div>
 			<Dialog
@@ -150,13 +158,13 @@ const Fish = (props) => {
 			>
 				{
 					<DataTable value={mobileData}>
-						<Column field="title" />
+						<Column className="modal--title-col" field="title" />
 						<Column field="data" />
 					</DataTable>
 				}
 			</Dialog>
 			<DataTable
-				className="fish-datatable-container"
+				className="bugs-datatable-container"
 				value={filteredData}
 				// responsive={true}
 			>
@@ -198,11 +206,6 @@ const Fish = (props) => {
 					sortable={true}
 				/>
 				<Column
-					className="size-column"
-					header="Size"
-					body={(rowData) => <div>{rowData.size.split(' ')[0]}</div>}
-				/>
-				<Column
 					className="time-column"
 					body={TimeStringDisplay}
 					header="Time"
@@ -213,4 +216,4 @@ const Fish = (props) => {
 		</div>
 	);
 };
-export default Fish;
+export default Bugs;

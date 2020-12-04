@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { months, apiUrl } from '../../src/utils/constants';
+import { months, apiUrl } from '../../utils/constants';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Dialog } from 'primereact/dialog';
 import Checkbox from '@material-ui/core/Checkbox';
-import bellsImage from '../images/bells.png';
-import IconDisplay from './IconDisplay';
-import LoadingScreen from './LoadingScreen';
-import CellNameDisplay from './CellNameDisplay';
-import CellMonthDisplay from './CellMonthDisplay';
-import TimeStringDisplay from './TimeStringDisplay';
+import NoCritters from '../common/NoCritters';
+import bellsImage from '../../images/bells.png';
+import IconDisplay from '../displays/IconDisplay';
+import LoadingScreen from '../common/LoadingScreen';
+import CellNameDisplay from '../displays/CellNameDisplay';
+import CellMonthDisplay from '../displays/CellMonthDisplay';
+import TimeStringDisplay from '../displays/TimeStringDisplay';
 const Sea = (props) => {
 	const [ren, setRen] = useState(false);
 	const [loading, setLoading] = useState(true);
@@ -24,7 +25,7 @@ const Sea = (props) => {
 			.then((jsonData) => {
 				const formattedData = [];
 				for (const critter in jsonData) {
-					formattedData.push({
+					const critterObject = {
 						id: jsonData[critter]['id'],
 						name: jsonData[critter]['name']['name-USen']
 							.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
@@ -44,7 +45,16 @@ const Sea = (props) => {
 						iconUri: jsonData[critter]['icon_uri'],
 						speed: jsonData[critter]['speed'],
 						size: jsonData[critter]['shadow'],
+						january: jsonData[critter]['availability'][
+							'month-array-northern'
+						].includes(1),
+					};
+					months.forEach((month) => {
+						critterObject[month.name] = jsonData[critter]['availability'][
+							'month-array-northern'
+						].includes(month.order);
 					});
+					formattedData.push(critterObject);
 				}
 				setData(formattedData);
 			})
@@ -71,31 +81,12 @@ const Sea = (props) => {
 		setVisible(true);
 	};
 
-	const monthSort = (props) => {
-		setData(
-			data.sort((a, b) => {
-				if (
-					a.monthArrayNorth.includes(props.field) &&
-					b.monthArrayNorth.includes(props.field)
-				) {
-					return 0;
-				} else if (a.monthArrayNorth.includes(props.field)) {
-					return 0 - props.order;
-				} else {
-					return props.order;
-				}
-			})
-		);
-		return data;
-	};
-
 	const monthColumns = months.map((month) => {
 		return (
 			<Column
 				className="month-column"
 				sortable={true}
-				sortFunction={monthSort}
-				field={month.order}
+				field={month.name}
 				style={
 					new Date().getMonth() === month.id
 						? { backgroundColor: 'var(--monthHighlight)' }
@@ -148,6 +139,9 @@ const Sea = (props) => {
 	if (loading) {
 		return <LoadingScreen />;
 	}
+	if (filteredData.length <= 0) {
+		return <NoCritters />;
+	}
 	return (
 		<div>
 			<Dialog
@@ -159,7 +153,7 @@ const Sea = (props) => {
 			>
 				{
 					<DataTable value={mobileData}>
-						<Column field="title" />
+						<Column className="modal--title-col" field="title" />
 						<Column field="data" />
 					</DataTable>
 				}
@@ -211,7 +205,6 @@ const Sea = (props) => {
 					body={TimeStringDisplay}
 					header="Time"
 				/>
-
 				{monthColumns}
 			</DataTable>
 		</div>

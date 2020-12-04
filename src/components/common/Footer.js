@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import '../styles/Footer.css';
+import '../../styles/Footer.css';
 import { TwitterFollowButton } from 'react-twitter-embed';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
-import ImportExport from './ImportExport';
-import { version } from '../../src/utils/constants';
+import ImportExport from '../functions/ImportExport';
+import { version } from '../../utils/constants';
 
 class Footer extends Component {
 	state = {};

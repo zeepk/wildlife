@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Fish from './Fish';
-import Bugs from './Bugs';
-import Sea from './Sea';
-import Fossils from './Fossils';
-import Songs from './Songs';
-import '../styles/Dashboard.css';
+import Fish from '../pages/Fish';
+import Bugs from '../pages/Bugs';
+import Sea from '../pages/Sea';
+import Fossils from '../pages/Fossils';
+import Songs from '../pages/Songs';
+import '../../styles/Dashboard.css';
 
 export default function Routing(props) {
 	return (

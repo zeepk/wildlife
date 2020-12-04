@@ -1,9 +1,9 @@
-import { bugs } from '../data_files/bugs.json';
-import { fish } from '../data_files/fish.json';
-import { sea } from '../data_files/sea.json';
-import { fossils } from '../data_files/fossils.json';
-import { songs } from '../data_files/songs.json';
-import { misspelled } from '../utils/constants';
+import { bugs } from '../../data_files/bugs.json';
+import { fish } from '../../data_files/fish.json';
+import { sea } from '../../data_files/sea.json';
+import { fossils } from '../../data_files/fossils.json';
+import { songs } from '../../data_files/songs.json';
+import { misspelled } from '../../utils/constants';
 
 export default function LocalStorage() {
 	if (

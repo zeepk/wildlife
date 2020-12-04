@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { apiUrl, isOrderableText } from '../../src/utils/constants';
+import { apiUrl, isOrderableText } from '../../utils/constants';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import Checkbox from '@material-ui/core/Checkbox';
-import IconDisplay from './IconDisplay';
-import LoadingScreen from './LoadingScreen';
-import CellNameDisplay from './CellNameDisplay';
+import IconDisplay from '../displays/IconDisplay';
+import LoadingScreen from '../common/LoadingScreen';
+import CellNameDisplay from '../displays/CellNameDisplay';
 import ReactAudioPlayer from 'react-audio-player';
 const Songs = (props) => {
 	const [ren, setRen] = useState(false);

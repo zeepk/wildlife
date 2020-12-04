@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import FossilIcon from '../images/fossilIcon.png';
-import FishIcon from '../images/fishIcon.png';
-import BugIcon from '../images/bugIcon.png';
-import SongIcon from '../images/kkslider.png';
-import SeaIcon from '../images/sea.png';
+import FossilIcon from '../../images/fossilIcon.png';
+import FishIcon from '../../images/fishIcon.png';
+import BugIcon from '../../images/bugIcon.png';
+import SongIcon from '../../images/kkslider.png';
+import SeaIcon from '../../images/sea.png';
 import { Card } from 'primereact/card';
-import '../styles/TotalsMenu.css';
+import '../../styles/TotalsMenu.css';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles } from '@material-ui/core/styles';
-import { apiUrl } from '../../src/utils/constants';
+import { apiUrl } from '../../../src/utils/constants';
 
 const DarkTooltip = withStyles((theme) => ({
 	tooltip: {

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
-import Header from './components/Header.js';
-import LocalStorage from './components/LocalStorage.js';
-import Footer from './components/Footer.js';
-import Routing from './components/Routing.js';
+import Header from './components/common/Header.js';
+import LocalStorage from './components/functions/LocalStorage.js';
+import Footer from './components/common/Footer.js';
+import Routing from './components/functions/Routing.js';
 import { BrowserRouter } from 'react-router-dom';
-
 import 'primereact/resources/themes/nova/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';

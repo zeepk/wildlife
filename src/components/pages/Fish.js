@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { months, apiUrl } from '../../src/utils/constants';
+import { months, apiUrl } from '../../utils/constants';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Dialog } from 'primereact/dialog';
 import Checkbox from '@material-ui/core/Checkbox';
-import bellsImage from '../images/bells.png';
-import IconDisplay from './IconDisplay';
-import LoadingScreen from './LoadingScreen';
-import CellNameDisplay from './CellNameDisplay';
-import CellMonthDisplay from './CellMonthDisplay';
-import TimeStringDisplay from './TimeStringDisplay';
-const Bugs = (props) => {
+import NoCritters from '../common/NoCritters';
+import bellsImage from '../../images/bells.png';
+import IconDisplay from '../displays/IconDisplay';
+import LoadingScreen from '../common/LoadingScreen';
+import CellNameDisplay from '../displays/CellNameDisplay';
+import CellMonthDisplay from '../displays/CellMonthDisplay';
+import TimeStringDisplay from '../displays/TimeStringDisplay';
+const Fish = (props) => {
 	const [ren, setRen] = useState(false);
 	const [loading, setLoading] = useState(true);
 	const [data, setData] = useState([]);
@@ -19,12 +20,12 @@ const Bugs = (props) => {
 	const [mobileIconUri, setMobileIconUri] = useState('');
 
 	useEffect(() => {
-		fetch(`${apiUrl}/bugs`)
+		fetch(`${apiUrl}/fish`)
 			.then((response) => response.json())
 			.then((jsonData) => {
 				const formattedData = [];
 				for (const critter in jsonData) {
-					formattedData.push({
+					const critterObject = {
 						id: jsonData[critter]['id'],
 						name: jsonData[critter]['name']['name-USen']
 							.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
@@ -44,7 +45,14 @@ const Bugs = (props) => {
 						iconUri: jsonData[critter]['icon_uri'],
 						rarity: jsonData[critter]['availability']['rarity'],
 						location: jsonData[critter]['availability']['location'],
+						size: jsonData[critter]['shadow'],
+					};
+					months.forEach((month) => {
+						critterObject[month.name] = jsonData[critter]['availability'][
+							'month-array-northern'
+						].includes(month.order);
 					});
+					formattedData.push(critterObject);
 				}
 				setData(formattedData);
 			})
@@ -56,6 +64,7 @@ const Bugs = (props) => {
 			{ title: 'Name', data: critterData.name },
 			{ title: 'Rarity', data: critterData.rarity },
 			{ title: 'Location', data: critterData.location },
+			{ title: 'Size', data: critterData.size },
 			{ title: 'Time', data: critterData.timeString || 'All Day' },
 			{
 				title: 'Months',
@@ -66,8 +75,8 @@ const Bugs = (props) => {
 							.join(', '),
 			},
 		];
-		setMobileIconUri(critterData.iconUri);
 		setMobileData(modalData);
+		setMobileIconUri(critterData.iconUri);
 		setVisible(true);
 	};
 
@@ -124,6 +133,7 @@ const Bugs = (props) => {
 		return (
 			<Checkbox
 				color="primary"
+				className="caught-checkbox"
 				checked={window.localStorage.getItem(rowData.name) === 'true'}
 				onChange={() => checkboxChange(rowData.name)}
 			/>
@@ -137,6 +147,9 @@ const Bugs = (props) => {
 	if (loading) {
 		return <LoadingScreen />;
 	}
+	if (filteredData.length <= 0) {
+		return <NoCritters />;
+	}
 	return (
 		<div>
 			<Dialog
@@ -148,13 +161,13 @@ const Bugs = (props) => {
 			>
 				{
 					<DataTable value={mobileData}>
-						<Column field="title" />
+						<Column className="modal--title-col" field="title" />
 						<Column field="data" />
 					</DataTable>
 				}
 			</Dialog>
 			<DataTable
-				className="bugs-datatable-container"
+				className="fish-datatable-container"
 				value={filteredData}
 				// responsive={true}
 			>
@@ -196,6 +209,11 @@ const Bugs = (props) => {
 					sortable={true}
 				/>
 				<Column
+					className="size-column"
+					header="Size"
+					body={(rowData) => <div>{rowData.size.split(' ')[0]}</div>}
+				/>
+				<Column
 					className="time-column"
 					body={TimeStringDisplay}
 					header="Time"
@@ -206,4 +224,4 @@ const Bugs = (props) => {
 		</div>
 	);
 };
-export default Bugs;
+export default Fish;
