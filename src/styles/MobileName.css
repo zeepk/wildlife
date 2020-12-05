@@ -1,10 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
-
 .mobile-dialog-container {
 	width: 90vw !important;
 	text-align: left;
-
-	font-family: 'Baloo 2', cursive !important;
 	max-height: 90vh;
 	overflow: auto !important;
 }
@@ -45,7 +41,4 @@ td {
 }
 .displayed-name {
 	text-decoration: underline;
-}
-.mobile-dialog-table {
-	font-family: 'Baloo 2', cursive !important;
 }

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
-
 @media screen and (max-width: 480px) {
 	.button-container {
 		/* left: 30% !important; */
@@ -32,7 +30,6 @@
 	border: 1px solid white !important;
 	transition: all 0.2s ease-in-out !important;
 	transform: scale(1.3);
-	font-family: 'Baloo 2', cursive !important;
 	font-size: 0.7rem;
 }
 .button-container:hover {
@@ -40,12 +37,10 @@
 }
 .new-container {
 	padding: 20px;
-	/* font-size: 20px !important; */
 	background: linear-gradient(#e7d1b070, #e7d1b060),
 		url('../images/pattern.jpg');
 	background-attachment: fixed;
 	background-position: center;
-	font-family: 'Baloo 2', cursive !important;
 }
 .new-critter-image {
 	width: 4vw;

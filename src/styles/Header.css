@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
 @media screen and (max-width: 480px) {
 	.header-container {
 		height: 15vh !important	;
-		font-size: 5vh !important;
 	}
 	.logo-image {
 		width: 17vw;
@@ -20,11 +17,15 @@
 	position: relative;
 	height: 14vh;
 	background-color: var(--blue);
-	font-family: 'Baloo 2', cursive !important;
 	/* z-index: -; */
 }
 .nav-text {
-	font-size: 1.5em;
+	font-size: 1.2rem;
+}
+.hide-text {
+	font-size: 1.2rem;
+	display: inline;
+	padding-right: 5px;
 }
 .title {
 	font-size: 3vh;
@@ -45,7 +46,6 @@
 	background-color: #649f8f !important;
 }
 .navbar {
-	font-family: 'Baloo 2', cursive !important;
 	padding: 0;
 }
 .header--new-container,
