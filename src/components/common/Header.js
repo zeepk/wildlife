@@ -7,6 +7,7 @@ import BugIcon from '../../images/bugIcon.png';
 import SeaIcon from '../../images/sea.png';
 import FishIcon from '../../images/fishIcon.png';
 import SongIcon from '../../images/kkslider.png';
+import ReddIcon from '../../images/reddIcon.png';
 import FossilIcon from '../../images/fossilIcon.png';
 import TotalsMenu from '../common/TotalsMenu';
 import NewThisMonth from '../common/NewThisMonth';
@@ -77,6 +78,14 @@ class Header extends Component {
 									<img src={SongIcon} alt="Songs" className="icon" />
 								</span>
 								{' Songs'}
+							</Link>
+						</li>
+						<li className=" pr-0 nav-item">
+							<Link to="/art">
+								<span role="img">
+									<img src={ReddIcon} alt="Art" className="icon" />
+								</span>
+								{' Art'}
 							</Link>
 						</li>
 					</ul>

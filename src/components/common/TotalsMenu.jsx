@@ -4,6 +4,7 @@ import FishIcon from '../../images/fishIcon.png';
 import BugIcon from '../../images/bugIcon.png';
 import SongIcon from '../../images/kkslider.png';
 import SeaIcon from '../../images/sea.png';
+import ArtIcon from '../../images/reddIcon.png';
 import { Card } from 'primereact/card';
 import '../../styles/TotalsMenu.css';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -31,6 +32,7 @@ const TotalsMenu = () => {
 	const [seaTotal, setSeaTotal] = useState(0);
 	const [fossilTotal, setFossilTotal] = useState(0);
 	const [songTotal, setSongTotal] = useState(0);
+	const [artTotal, setArtTotal] = useState(0);
 
 	useEffect(() => {
 		Promise.all([
@@ -39,6 +41,7 @@ const TotalsMenu = () => {
 			fetch(`${apiUrl}/sea`),
 			fetch(`${apiUrl}/fossils`),
 			fetch(`${apiUrl}/songs`),
+			fetch(`${apiUrl}/art`),
 		])
 			.then((responses) =>
 				Promise.all(responses.map((response) => response.json()))
@@ -91,6 +94,16 @@ const TotalsMenu = () => {
 					})
 				);
 				setSongTotal(numSongs);
+				const numArt = countTotal(
+					Object.keys(data[5]).map((fish) => {
+						return data[5][fish]['name']['name-USen']
+							.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
+							.replace(/(^|[\s-])\S/g, function (match) {
+								return match.toUpperCase();
+							});
+					})
+				);
+				setArtTotal(numArt);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -115,6 +128,7 @@ const TotalsMenu = () => {
 					<img src={FishIcon} alt="Fish" className="icon" />
 				</span>
 			</div>
+
 			<DarkTooltip placement="top" arrow title={`${bugTotal}/80`}>
 				<CircularProgress
 					variant="static"
@@ -131,6 +145,7 @@ const TotalsMenu = () => {
 					<img src={BugIcon} alt="Bugs" className="icon" />
 				</span>
 			</div>
+
 			<DarkTooltip placement="top" arrow title={`${seaTotal}/40`}>
 				<CircularProgress
 					variant="static"
@@ -147,6 +162,7 @@ const TotalsMenu = () => {
 					<img src={SeaIcon} alt="Sea" className="icon" />
 				</span>
 			</div>
+
 			<DarkTooltip placement="top" arrow title={`${fossilTotal}/73`}>
 				<CircularProgress
 					variant="static"
@@ -163,6 +179,7 @@ const TotalsMenu = () => {
 					<img src={FossilIcon} alt="Fossils" className="icon" />
 				</span>
 			</div>
+
 			<DarkTooltip placement="top" arrow title={`${songTotal}/95`}>
 				<CircularProgress
 					variant="static"
@@ -177,6 +194,23 @@ const TotalsMenu = () => {
 			<div className="total">
 				<span role="img">
 					<img src={SongIcon} alt="Song" className="icon" />
+				</span>
+			</div>
+
+			<DarkTooltip placement="top" arrow title={`${artTotal}/43`}>
+				<CircularProgress
+					variant="static"
+					value={(artTotal / 43) * 100}
+					// value={100}
+					className="art-spinner spinner"
+					style={{
+						color: `${(artTotal / 43) * 100 >= 100 ? 'gold' : 'green'}`,
+					}}
+				/>
+			</DarkTooltip>
+			<div className="total">
+				<span role="img">
+					<img src={ArtIcon} alt="Art" className="icon" />
 				</span>
 			</div>
 		</Card>

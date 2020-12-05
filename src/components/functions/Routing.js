@@ -1,10 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Sea from '../pages/Sea';
+import Art from '../pages/Art';
 import Fish from '../pages/Fish';
 import Bugs from '../pages/Bugs';
-import Sea from '../pages/Sea';
-import Fossils from '../pages/Fossils';
 import Songs from '../pages/Songs';
+import Fossils from '../pages/Fossils';
 import '../../styles/Dashboard.css';
 
 export default function Routing(props) {
@@ -24,6 +25,9 @@ export default function Routing(props) {
 			</Route>
 			<Route exact path="/songs">
 				<Songs hideCaught={props.hideCaught} />
+			</Route>
+			<Route exact path="/art">
+				<Art hideCaught={props.hideCaught} />
 			</Route>
 		</Switch>
 	);

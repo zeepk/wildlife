@@ -3,7 +3,7 @@ import { fish } from '../../data_files/fish.json';
 import { sea } from '../../data_files/sea.json';
 import { fossils } from '../../data_files/fossils.json';
 import { songs } from '../../data_files/songs.json';
-import { misspelled } from '../../utils/constants';
+import { misspelled, apiUrl } from '../../utils/constants';
 
 export default function LocalStorage() {
 	if (
@@ -60,6 +60,28 @@ export default function LocalStorage() {
 			window.localStorage.setItem(sea.name, false);
 			return sea;
 		});
+	}
+	if (
+		typeof Storage !== 'undefined' &&
+		localStorage.getItem('Academic Painting') === null
+	) {
+		console.log('Could not find local storage for Art. Creating...');
+		sea.map((sea) => {
+			window.localStorage.setItem(sea.name, false);
+			return sea;
+		});
+		fetch(`${apiUrl}/art`)
+			.then((response) => response.json())
+			.then((jsonData) => {
+				for (const critter in jsonData) {
+					const name = jsonData[critter]['name']['name-USen']
+						.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
+						.replace(/(^|[\s-])\S/g, function (match) {
+							return match.toUpperCase();
+						});
+					window.localStorage.setItem(name, false);
+				}
+			});
 	}
 
 	for (const critter in misspelled) {
