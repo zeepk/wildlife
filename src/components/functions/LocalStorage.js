@@ -66,10 +66,6 @@ export default function LocalStorage() {
 		localStorage.getItem('Academic Painting') === null
 	) {
 		console.log('Could not find local storage for Art. Creating...');
-		sea.map((sea) => {
-			window.localStorage.setItem(sea.name, false);
-			return sea;
-		});
 		fetch(`${apiUrl}/art`)
 			.then((response) => response.json())
 			.then((jsonData) => {
