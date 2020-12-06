@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { apiUrl, isOrderableText } from '../../utils/constants';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import NoCritters from '../common/NoCritters';
 import Checkbox from '@material-ui/core/Checkbox';
 import IconDisplay from '../displays/IconDisplay';
 import LoadingScreen from '../common/LoadingScreen';
@@ -86,6 +87,9 @@ const Songs = (props) => {
 		: data;
 	if (loading) {
 		return <LoadingScreen />;
+	}
+	if (filteredData.length <= 0) {
+		return <NoCritters />;
 	}
 	return (
 		<DataTable

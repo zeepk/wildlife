@@ -28,7 +28,9 @@ function App() {
 						toggleCaught(!hideCaught);
 					}}
 				/>
-				<Routing hideCaught={hideCaught} />
+				<div style={{ minHeight: '90vh' }}>
+					<Routing hideCaught={hideCaught} />
+				</div>
 				<Footer />
 			</BrowserRouter>
 		</div>

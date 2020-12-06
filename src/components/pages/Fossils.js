@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { apiUrl } from '../../utils/constants';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import NoCritters from '../common/NoCritters';
 import Checkbox from '@material-ui/core/Checkbox';
 import bellsImage from '../../images/bells.png';
 import IconDisplay from '../displays/IconDisplay';
@@ -67,6 +68,9 @@ const Fossils = (props) => {
 		: data;
 	if (loading) {
 		return <LoadingScreen />;
+	}
+	if (filteredData.length <= 0) {
+		return <NoCritters />;
 	}
 	return (
 		<DataTable

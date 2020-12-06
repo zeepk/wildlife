@@ -4,13 +4,12 @@
 .totals-container {
 	padding-left: 10px;
 	margin: 0 auto !important;
-	width: 275px;
+	width: 320px;
 	position: relative;
 	background-color: transparent !important;
 	box-shadow: none !important;
 }
 .spinner {
-	/* right: 0px; */
 	position: absolute;
 }
 .fish-spinner {
@@ -27,6 +26,9 @@
 }
 .song-spinner {
 	left: 217px;
+}
+.art-spinner {
+	left: 267px;
 }
 .icon {
 	max-height: 25px;
