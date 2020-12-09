@@ -13,12 +13,13 @@
 	.time-column,
 	.audio-column,
 	.p-filter-column:nth-child(n + 4),
+	.fake-art-column,
 	.size-column {
 		display: none !important;
 	}
 	.name-column {
 		width: 150px !important;
-		text-decoration: underline;
+		text-decoration: underline !important;
 	}
 	.icon-column {
 		width: 100px;
@@ -214,4 +215,11 @@ td {
 }
 .modal--title-col {
 	text-align: left !important;
+}
+.fake-art-image {
+	max-height: 100px;
+}
+.modal-image {
+	max-height: 100%;
+	max-width: 100%;
 }
