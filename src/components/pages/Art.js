@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { apiUrl } from '../../utils/constants';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import NoCritters from '../common/NoCritters';
+import { Dialog } from 'primereact/dialog';
 import Checkbox from '@material-ui/core/Checkbox';
+import FakeArt from '../displays/FakeArt';
+import NoCritters from '../common/NoCritters';
 import bellsImage from '../../images/bells.png';
 import IconDisplay from '../displays/IconDisplay';
 import LoadingScreen from '../common/LoadingScreen';
@@ -11,6 +13,8 @@ import CellNameDisplay from '../displays/CellNameDisplay';
 const Art = (props) => {
 	const [ren, setRen] = useState(false);
 	const [loading, setLoading] = useState(true);
+	const [lightboxVisible, setLightboxVisible] = useState(false);
+	const [lightboxData, setLightboxData] = useState({});
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
@@ -69,31 +73,68 @@ const Art = (props) => {
 		return <NoCritters />;
 	}
 	return (
-		<DataTable
-			className="fossils-datatable-container"
-			value={filteredData}
-			// responsive={true}
-		>
-			<Column
-				className="name-column"
-				field="name"
-				header="Name"
-				sortable={true}
-				filter={true}
-				filterPlaceholder="Search"
-				body={CellNameDisplay}
-				filterMatchMode="contains"
-				style={{ textDecoration: 'none' }}
-			/>
-			<Column className="icon-column" header="Icon" body={IconDisplay} />
-			<Column className="caught-column" header="Caught" body={caughtDisplay} />
-			<Column
-				className="price-column"
-				field="price"
-				header={<img className="bells-image" src={bellsImage} alt="Price" />}
-				sortable={true}
-			/>
-		</DataTable>
+		<div>
+			<Dialog
+				header={lightboxData.name}
+				visible={lightboxVisible}
+				modal={true}
+				onHide={() => setLightboxVisible(false)}
+			>
+				<FakeArt
+					name={lightboxData.name}
+					hasFake={lightboxData.hasFake}
+					modal={true}
+				/>
+			</Dialog>
+			<DataTable className="fossils-datatable-container" value={filteredData}>
+				<Column
+					className="name-column"
+					field="name"
+					header="Name"
+					sortable={true}
+					filter={true}
+					filterPlaceholder="Search"
+					body={(rowData) => (
+						<div
+							onClick={() => {
+								setLightboxData(rowData);
+								setLightboxVisible(true);
+							}}
+						>
+							<CellNameDisplay name={rowData.name} />
+						</div>
+					)}
+					filterMatchMode="contains"
+					style={{ textDecoration: 'none' }}
+				/>
+				<Column className="icon-column" header="Icon" body={IconDisplay} />
+				<Column
+					className="caught-column"
+					header="Caught"
+					body={caughtDisplay}
+				/>
+				<Column
+					className="price-column"
+					field="price"
+					header={<img className="bells-image" src={bellsImage} alt="Price" />}
+					sortable={true}
+				/>
+				<Column
+					className="fake-art-column"
+					header="Fake"
+					body={(rowData) => (
+						<div
+							onClick={() => {
+								setLightboxData(rowData);
+								setLightboxVisible(true);
+							}}
+						>
+							<FakeArt name={rowData.name} hasFake={rowData.hasFake} />
+						</div>
+					)}
+				/>
+			</DataTable>
+		</div>
 	);
 };
 export default Art;
