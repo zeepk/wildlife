@@ -40,7 +40,11 @@ class Header extends Component {
 
 				<div className="nav-text collapse navbar-collapse" id="navbarColor01">
 					<ul className="navbar-nav ml-3">
-						<li className=" pr-0 nav-item active">
+						<li
+							className="pr-0 nav-item"
+							data-toggle="collapse"
+							data-target=".navbar-collapse"
+						>
 							<Link to="/">
 								<span role="img">
 									<img src={FishIcon} alt="Fish" className="icon" />
@@ -48,7 +52,11 @@ class Header extends Component {
 								{' Fish'}
 							</Link>
 						</li>
-						<li className=" pr-0 nav-item">
+						<li
+							className="pr-0 nav-item"
+							data-toggle="collapse"
+							data-target=".navbar-collapse"
+						>
 							<Link to="/bugs">
 								<span role="img">
 									<img src={BugIcon} alt="Bugs" className="icon" />
@@ -56,7 +64,11 @@ class Header extends Component {
 								{' Bugs'}
 							</Link>
 						</li>
-						<li className=" pr-0 nav-item">
+						<li
+							className="pr-0 nav-item"
+							data-toggle="collapse"
+							data-target=".navbar-collapse"
+						>
 							<Link to="/sea">
 								<span role="img">
 									<img src={SeaIcon} alt="Sea" className="icon" />
@@ -64,7 +76,11 @@ class Header extends Component {
 								{' Sea'}
 							</Link>
 						</li>
-						<li className=" pr-0 nav-item">
+						<li
+							className="pr-0 nav-item"
+							data-toggle="collapse"
+							data-target=".navbar-collapse"
+						>
 							<Link to="/fossils">
 								<span role="img">
 									<img src={FossilIcon} alt="Fossils" className="icon" />
@@ -72,7 +88,11 @@ class Header extends Component {
 								{' Fossils'}
 							</Link>
 						</li>
-						<li className=" pr-0 nav-item">
+						<li
+							className="pr-0 nav-item"
+							data-toggle="collapse"
+							data-target=".navbar-collapse"
+						>
 							<Link to="/songs">
 								<span role="img">
 									<img src={SongIcon} alt="Songs" className="icon" />
@@ -80,7 +100,11 @@ class Header extends Component {
 								{' Songs'}
 							</Link>
 						</li>
-						<li className=" pr-0 nav-item">
+						<li
+							className="pr-0 nav-item"
+							data-toggle="collapse"
+							data-target=".navbar-collapse"
+						>
 							<Link to="/art">
 								<span role="img">
 									<img src={ReddIcon} alt="Art" className="icon" />

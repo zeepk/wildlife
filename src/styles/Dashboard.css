@@ -58,6 +58,12 @@
 	visibility: hidden;
 }
 
+.p-datatable {
+	margin: 20px auto !important;
+	box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.226) !important;
+	max-width: 95vw;
+}
+
 .table-container {
 	/* position: relative; */
 	width: 95vw;
@@ -68,12 +74,14 @@
 }
 .critter-image {
 	max-width: 4vw;
+	max-width: 100%;
 }
 .mobile-critter-image {
 	max-width: 95vw;
 }
 .critter-image-container {
 	height: 100%;
+	max-width: 100%;
 }
 .MuiTableCell-head {
 	font-size: 15px !important;
@@ -105,7 +113,7 @@ thead {
 	border-collapse: collapse !important;
 	border-spacing: 0 !important;
 	font-size: 1rem;
-	/* box-shadow: 0px 10px 10px -10px black; */
+	box-shadow: 0px 10px 10px -10px black;
 }
 .p-datatable .p-datatable-thead > tr > th {
 	background-color: var(--green) !important;
@@ -167,11 +175,6 @@ td {
 .p-tabmenuitem {
 	float: none !important;
 	display: inline-block !important;
-}
-.p-datatable {
-	margin: 0 auto !important;
-	box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.226) !important;
-	max-width: 95vw;
 }
 /* table {
 	border-collapse: separate !important;
