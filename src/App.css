@@ -8,6 +8,7 @@
 	--green: hsl(125, 85%, 87%);
 	--tan: #e7d1b0;
 	--monthHighlight: #a1d6a1;
+	--dark-font: #333333;
 }
 .App {
 	text-align: center;

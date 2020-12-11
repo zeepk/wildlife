@@ -20,6 +20,6 @@ const CritterCard = styled.div`
 	border-radius: 10px;
 	max-width: 90%;
 	margin: 0 auto;
-	color: #333333;
+	color: var(--dark-font);
 	text-transform: capitalize;
 `;

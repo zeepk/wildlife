@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Totals from '../common/Totals.jsx';
-import Available from '../common/Available.jsx';
 import styled from 'styled-components';
 import { apiUrl, messageOfTheDay } from '../../../src/utils/constants';
+import Totals from '../common/Totals.jsx';
+import Available from '../common/Available.jsx';
+import LandingPageImportExport from '../common/LandingPageImportExport.jsx';
 
 const isAvailableNow = (name, data) => {
 	const month = new Date().getMonth() + 1;
@@ -122,6 +123,9 @@ const LandingPage = () => {
 			<TotalsContainer>
 				<Totals totals={totals} />
 			</TotalsContainer>
+			<ImportExportContainer>
+				<LandingPageImportExport />
+			</ImportExportContainer>
 			<AvailableContainer>
 				<Available available={available} />
 			</AvailableContainer>
@@ -134,11 +138,18 @@ export default LandingPage;
 const Title = styled.p`
 	font-size: clamp(2rem, 3vw, 5rem);
 	margin: 10px 0 0 0;
-	color: #333333;
+	color: var(--dark-font);
 `;
 
 const TotalsContainer = styled.div`
 	width: 90vw;
+	margin: 0 auto 5vh auto;
+`;
+
+const ImportExportContainer = styled.div`
+	width: 90vw;
+	max-width: 400px;
+	height: auto;
 	margin: 0 auto 5vh auto;
 `;
 

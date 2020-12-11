@@ -31,7 +31,6 @@ const Fossils = (props) => {
 						iconUri: jsonData[critter]['image_uri'],
 					});
 				}
-				console.log(formattedData);
 				setData(formattedData);
 			})
 			.then(() => setLoading(false));
@@ -52,7 +51,6 @@ const Fossils = (props) => {
 		const legacyName = rowData.name
 			.toLowerCase()
 			.replace(/^./, rowData.name[0].toUpperCase());
-		console.log(legacyName);
 		return (
 			<Checkbox
 				color="primary"

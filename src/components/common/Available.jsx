@@ -61,5 +61,5 @@ const AvailableCard = styled.div`
 const Title = styled.p`
 	font-size: clamp(1.5rem, 3vw, 2rem);
 	margin: 10px 0;
-	color: #333333;
+	color: var(--dark-font);
 `;
