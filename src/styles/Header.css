@@ -8,6 +8,9 @@
 	.MuiGrid-item {
 		padding: none !important;
 	}
+	.navbar-collapse.collapse.in {
+		display: block !important;
+	}
 }
 
 .MuiGrid-item {
@@ -39,9 +42,6 @@
 	font-size: 0.8em;
 	margin: 0;
 }
-.navbar-collapse.collapse.in {
-	display: block !important;
-}
 .bg-primary {
 	background-color: #649f8f !important;
 }
@@ -51,38 +51,6 @@
 .header--new-container,
 .header--hide-caught-container {
 	margin-right: 2vw;
-}
-.total {
-	padding-right: 25px;
-}
-.totals-container {
-	padding-left: 10px;
-	margin: 0 auto !important;
-	width: 320px;
-	position: relative;
-	background-color: transparent !important;
-	box-shadow: none !important;
-}
-.spinner {
-	position: absolute;
-}
-.fish-spinner {
-	left: 18.5px;
-}
-.bug-spinner {
-	left: 68.5px;
-}
-.sea-spinner {
-	left: 118px;
-}
-.fossil-spinner {
-	left: 167px;
-}
-.song-spinner {
-	left: 217px;
-}
-.art-spinner {
-	left: 267px;
 }
 .icon {
 	max-height: 25px;

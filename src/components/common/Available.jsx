@@ -5,6 +5,8 @@ import AvailableCarouselDisplay from '../displays/AvailableCarouselDisplay.jsx';
 import {
 	availableNowText,
 	carouselAutoplayInterval,
+	carouselNumScroll,
+	carouselNumShow,
 } from '../../../src/utils/constants';
 const Available = (props) => {
 	const available = props.available.sort(() => Math.random() - 0.5);
@@ -34,8 +36,8 @@ const Available = (props) => {
 				itemTemplate={AvailableCarouselDisplay}
 				responsiveOptions={responsiveOptions}
 				circular
-				numVisible={5}
-				numScroll={3}
+				numVisible={carouselNumShow}
+				numScroll={carouselNumScroll}
 				autoplayInterval={carouselAutoplayInterval}
 			></Carousel>
 		</AvailableCard>

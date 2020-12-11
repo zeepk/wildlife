@@ -19,9 +19,9 @@ class Header extends Component {
 	render() {
 		return (
 			<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-				<a className="navbar-brand" href="/">
+				<Link className="navbar-brand" to="/">
 					<p className="title">WildLife Tracker</p>
-				</a>
+				</Link>
 				<button
 					className="navbar-toggler"
 					type="button"
