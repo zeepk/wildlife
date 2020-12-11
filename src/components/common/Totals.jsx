@@ -169,6 +169,10 @@ const TotalContainer = styled.a`
 `;
 
 const Icon = styled.img`
+	display: block;
 	max-width: 50%;
+	max-height: 100%;
+	width: auto;
+	height: auto;
 	margin: 0 auto 10px auto;
 `;
