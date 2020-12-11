@@ -2,17 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from 'primereact/card';
 import { InputSwitch } from 'primereact/inputswitch';
-import { messageOfTheDay } from '../../utils/constants';
 import BugIcon from '../../images/bugIcon.png';
 import SeaIcon from '../../images/sea.png';
 import FishIcon from '../../images/fishIcon.png';
 import SongIcon from '../../images/kkslider.png';
 import ReddIcon from '../../images/reddIcon.png';
 import FossilIcon from '../../images/fossilIcon.png';
-import TotalsMenu from '../common/TotalsMenu';
 import NewThisMonth from '../common/NewThisMonth';
 import '../../styles/Header.css';
-import '../../styles/TotalsMenu.css';
 
 class Header extends Component {
 	state = {
@@ -24,7 +21,6 @@ class Header extends Component {
 			<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 				<a className="navbar-brand" href="/">
 					<p className="title">WildLife Tracker</p>
-					<p className="motd">{messageOfTheDay}</p>
 				</a>
 				<button
 					className="navbar-toggler"
@@ -45,7 +41,7 @@ class Header extends Component {
 							data-toggle="collapse"
 							data-target=".navbar-collapse"
 						>
-							<Link to="/">
+							<Link to="/fish">
 								<span role="img">
 									<img src={FishIcon} alt="Fish" className="icon" />
 								</span>
@@ -114,9 +110,6 @@ class Header extends Component {
 						</li>
 					</ul>
 
-					<div className="header--totals-container">
-						<TotalsMenu />
-					</div>
 					<div className="header--hide-caught-container">
 						<Card className="hide-caught">
 							<div className="hide-text">Hide Caught</div>

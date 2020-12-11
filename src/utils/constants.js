@@ -1,3 +1,6 @@
+const { DateTime } = require('luxon');
+var now = DateTime.local();
+
 // urls
 
 export const apiUrl = 'https://acnhapi.com/v1';
@@ -5,6 +8,10 @@ export const apiUrl = 'https://acnhapi.com/v1';
 // verbiage
 
 export const version = '2.5.1';
+export const totalsTitleText = 'Your Progress';
+export const availableNowText = `Available Now as of  ${now.toLocaleString(
+	DateTime.TIME_SIMPLE
+)}`;
 export const messageOfTheDay = '⛄ Happy Winter! ⛄';
 export const loadingMessage = 'Loading . . .';
 export const isOrderableText = 'Catalog';
@@ -14,6 +21,18 @@ export const alwaysRealArtText = 'Always Real';
 // functions
 
 // data
+
+export const totalFish = 80;
+export const totalBugs = 80;
+export const totalSeaCreatures = 40;
+export const totalFossils = 73;
+export const totalSongs = 95;
+export const totalArt = 43;
+
+export const carouselAutoplayInterval = 4000;
+
+export const progressBarColor = 'rgba(255, 164, 180, 0.733)';
+export const progressBarFullColor = 'rgb(254, 227, 124, 0.75)';
 
 export const months = [
 	{

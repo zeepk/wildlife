@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import 'primereact/resources/themes/nova/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
 import ReactGA from 'react-ga';
 
 function initializeReactGA() {

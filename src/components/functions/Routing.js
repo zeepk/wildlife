@@ -6,12 +6,16 @@ import Fish from '../pages/Fish';
 import Bugs from '../pages/Bugs';
 import Songs from '../pages/Songs';
 import Fossils from '../pages/Fossils';
+import LandingPage from '../pages/LandingPage';
 import '../../styles/Dashboard.css';
 
 export default function Routing(props) {
 	return (
 		<Switch>
 			<Route exact path="/">
+				<LandingPage />
+			</Route>
+			<Route exact path="/fish">
 				<Fish hideCaught={props.hideCaught} />
 			</Route>
 			<Route exact path="/bugs">
