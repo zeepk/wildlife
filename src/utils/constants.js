@@ -7,7 +7,7 @@ export const apiUrl = 'https://acnhapi.com/v1';
 
 // verbiage
 
-export const version = '2.6.3';
+export const version = '2.6.4';
 export const totalsTitleText = 'Your Progress';
 export const availableNowText = `Available Now as of  ${now.toLocaleString(
 	DateTime.TIME_SIMPLE
@@ -19,6 +19,7 @@ export const noCrittersMessage = "Congrats! You've got em all!";
 export const alwaysRealArtText = 'Always Real';
 export const landingPageImportExportLabelText =
 	'Transfer your data between devices:';
+export const noNewDataThisMonthText = 'Nothing new!';
 
 // functions
 

@@ -7,6 +7,7 @@ import '../../styles/NewThisMonth.css';
 import { Dialog } from 'primereact/dialog';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { noNewDataThisMonthText } from '../../utils/constants';
 
 function NewThisMonth(props) {
 	const name_display = (rowData, column) => {
@@ -50,23 +51,30 @@ function NewThisMonth(props) {
 	];
 	const date = new Date();
 	const is_end_of_month = date.getDate() > 20;
-	const current_monthId = is_end_of_month ? date.getMonth() : date.getMonth();
-	const current_month = monthNames[current_monthId];
+	const current_monthId = is_end_of_month
+		? date.getMonth() + 1
+		: date.getMonth();
+	const current_month =
+		current_monthId > 11 ? monthNames[0] : monthNames[current_monthId];
 	console.log(current_month);
 	const message = is_end_of_month
 		? `Coming soon in ${current_month}!`
 		: `New for ${current_month}!`;
-	const last_month = monthNames[current_monthId - 1].toLocaleLowerCase();
+	const last_month =
+		current_month === 'January'
+			? 'december'
+			: monthNames[current_monthId - 1].toLocaleLowerCase();
+	console.log(last_month);
 	const current_month_lower = current_month.toLocaleLowerCase();
 	const new_fish = fish.filter((f) => {
 		return f[current_month_lower] === '1' && f[last_month] === '';
 	});
+	const lastMonthId = current_monthId > 11 ? 12 : current_monthId - 1;
+	console.log(lastMonthId);
 	const new_sea = sea.filter((creature) => {
 		return (
 			creature.availability['month-array-northern'].includes(current_monthId) &&
-			!creature.availability['month-array-northern'].includes(
-				current_monthId - 1
-			)
+			!creature.availability['month-array-northern'].includes(lastMonthId)
 		);
 	});
 	const new_bugs = bugs.filter((f) => {
@@ -85,21 +93,27 @@ function NewThisMonth(props) {
 				modal={true}
 				onHide={() => setVisible(false)}
 			>
-				<DataTable className="new-container" value={new_data}>
-					<Column
-						className="name-column"
-						field="name"
-						header="Name"
-						body={name_display}
-					/>
-					<Column className="name-column" header="Icon" body={icon_display} />
-					<Column
-						className="location-column"
-						field="location"
-						header="Location"
-					/>
-					<Column className="time-column" field="timeString" header="Time" />
-				</DataTable>
+				{new_data.length === 0 ? (
+					<div style={{ margin: '20px' }}>
+						<h2>{noNewDataThisMonthText}</h2>
+					</div>
+				) : (
+					<DataTable className="new-container" value={new_data}>
+						<Column
+							className="name-column"
+							field="name"
+							header="Name"
+							body={name_display}
+						/>
+						<Column className="name-column" header="Icon" body={icon_display} />
+						<Column
+							className="location-column"
+							field="location"
+							header="Location"
+						/>
+						<Column className="time-column" field="timeString" header="Time" />
+					</DataTable>
+				)}
 			</Dialog>
 
 			<Button
