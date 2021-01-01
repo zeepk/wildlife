@@ -12,7 +12,7 @@ export const totalsTitleText = 'Your Progress';
 export const availableNowText = `Available Now as of  ${now.toLocaleString(
 	DateTime.TIME_SIMPLE
 )}`;
-export const messageOfTheDay = '⛄ Happy Winter! ⛄';
+export const messageOfTheDay = '🎇 Happy New Year! 🎇';
 export const loadingMessage = 'Loading . . .';
 export const isOrderableText = 'Catalog';
 export const noCrittersMessage = "Congrats! You've got em all!";
