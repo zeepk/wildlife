@@ -7,7 +7,7 @@ export const apiUrl = 'https://acnhapi.com/v1';
 
 // verbiage
 
-export const version = '2.6.2';
+export const version = '2.6.3';
 export const totalsTitleText = 'Your Progress';
 export const availableNowText = `Available Now as of  ${now.toLocaleString(
 	DateTime.TIME_SIMPLE

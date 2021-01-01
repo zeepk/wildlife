@@ -50,10 +50,9 @@ function NewThisMonth(props) {
 	];
 	const date = new Date();
 	const is_end_of_month = date.getDate() > 20;
-	const current_monthId = is_end_of_month
-		? date.getMonth() + 1
-		: date.getMonth();
+	const current_monthId = is_end_of_month ? date.getMonth() : date.getMonth();
 	const current_month = monthNames[current_monthId];
+	console.log(current_month);
 	const message = is_end_of_month
 		? `Coming soon in ${current_month}!`
 		: `New for ${current_month}!`;
